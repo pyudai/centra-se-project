@@ -5,6 +5,7 @@ module.exports = {
       fontFamily: {
         display: ['Gilroy', 'sans-serif'],
         body: ['Graphik', 'sans-serif'],
+        'prompt': ['Prompt', 'sans-serif'],
       },
       extend: {
         colors: {

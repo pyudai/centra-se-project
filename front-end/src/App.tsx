@@ -4,7 +4,7 @@ import Navbar from './navbar';
 
 function App() {
   return (
-    <div className="App bg-blue-200">
+    <div className="App font-prompt bg-blue-200">
       <Navbar />
       เปรมยุดาแบก SE นะจ๊ะ
     </div>
