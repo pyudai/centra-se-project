@@ -7,6 +7,7 @@ function App() {
     <div className="App font-prompt bg-blue-200">
       <Navbar />
       เปรมยุดาแบก SE นะจ๊ะ
+      ทุกคนไปกินข้าวเย็นที่สวนหมากกัน
     </div>
   );
 }
