@@ -1,5 +1,5 @@
 {
-  "name": "project",
+  "name": "centra-project",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,6 +13,7 @@
     "antd": "^4.8.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "tailwindcss": "^1.9.6",
     "typescript": "^4.0.5",
@@ -24,7 +25,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "twbuild": "tailwindcss build ./src/style/tailwind-im.css -o ./src/style/output.css"
-
   },
   "eslintConfig": {
     "extends": [
