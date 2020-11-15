@@ -1,10 +1,11 @@
 import React from 'react';
 
-function Navbar() {
+function Check() {
   return (
     <div>
+      check in out
     </div>
   );
 }
 
-export default Navbar;
+export default Check;

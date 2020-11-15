@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Navbar() {
+function Promotion() {
   return (
     <div>
     </div>
   );
 }
 
-export default Navbar;
+export default Promotion;
