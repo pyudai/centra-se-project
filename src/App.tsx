@@ -4,6 +4,8 @@ import './style/theme.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import ChooseLogin from "./pages/ChooseLogin";
+import LoginAdmin from "./pages/Login-Admin";
+import LoginStaff from "./pages/Login-Staff";
 import Check from "./pages/Checkin-out";
 import Employee from "./pages/Employee";
 import Reserve from "./pages/Reserve";
@@ -19,6 +21,8 @@ function App() {
           <Route exact path="/Employee" component={Employee} />
           <Route exact path="/Promotion" component={Promotion} />
           <Route exact path="/Reserve" component={Reserve} />
+          <Route exact path="/LoginAdmin" component={LoginAdmin} />
+          <Route exact path="/LoginStaff" component={LoginStaff} />
           <Route exact path="/" component={ChooseLogin} />
         </Switch>
       </Router>
