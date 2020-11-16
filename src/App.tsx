@@ -13,7 +13,7 @@ import Promotion from './pages/Promotion';
 
 function App() {
   return (
-    <div className="App font-prompt">
+    <div className="font-prompt">
       <Router>
         <Switch>
           <Route exact path="/Checkin-out" component={Check} />
