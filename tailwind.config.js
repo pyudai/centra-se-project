@@ -10,6 +10,7 @@ module.exports = {
       extend: {
         colors: {
           nav: '#17325A',
+          admin: '#F5F5F5'
         },
         margin: {
           '96': '24rem',
