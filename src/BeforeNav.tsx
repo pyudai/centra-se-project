@@ -4,6 +4,7 @@ function BeforeNav() {
   return (
     <div className="bg-blue flex justify-between items-center p-6 shadow">
       <div className="item-center flex ml-10 text-lg items-baseline space-x-16">
+        <img src="beforeNav/logo.png"/>
         <div className="px-2 self-stretch"><div className="h-full border-l-2 border-white"/></div>
       </div>
       <div className="item-center flex ml-10 text-lg items-baseline space-x-16">

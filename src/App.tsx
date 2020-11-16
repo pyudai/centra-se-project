@@ -3,7 +3,7 @@ import './App.css';
 import './style/theme.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Login from "./pages/Login";
+import ChooseLogin from "./pages/ChooseLogin";
 import Check from "./pages/Checkin-out";
 import Employee from "./pages/Employee";
 import Reserve from "./pages/Reserve";
@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/Employee" component={Employee} />
           <Route exact path="/Promotion" component={Promotion} />
           <Route exact path="/Reserve" component={Reserve} />
-          <Route exact path="/" component={Login} />
+          <Route exact path="/" component={ChooseLogin} />
         </Switch>
       </Router>
 
