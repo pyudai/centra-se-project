@@ -14,7 +14,6 @@ import Promotion from './pages/Promotion';
 function App() {
   return (
     <div className="App font-prompt">
-
       <Router>
         <Switch>
           <Route exact path="/Checkin-out" component={Check} />
@@ -23,7 +22,7 @@ function App() {
           <Route exact path="/Reserve" component={Reserve} />
           <Route exact path="/LoginAdmin" component={LoginAdmin} />
           <Route exact path="/LoginStaff" component={LoginStaff} />
-          <Route exact path="/" component={ChooseLogin} />
+          <Route path="/" component={ChooseLogin} />
         </Switch>
       </Router>
 
