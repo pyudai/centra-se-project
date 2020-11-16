@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './style/theme.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Login from "./pages/Login";
@@ -10,7 +11,7 @@ import Promotion from './pages/Promotion';
 
 function App() {
   return (
-    <div className="App font-prompt bg-blue-200">
+    <div className="App font-prompt">
 
       <Router>
         <Switch>
