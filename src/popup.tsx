@@ -22,8 +22,8 @@ export default function Modal() {
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*body*/}
-                <div className="p-12 items-baseline justify-center">
-                  <a><img src="nav/check.svg" alt="check" className="h-20 w-20 m-12 "/></a>
+                <div className="p-12 flex flex-col w-full items-center justify-center">
+                  <img src="nav/check.svg" alt="check" className="h-20 w-20 m-12 "/>
                   <h3 className="text-3xl font-semibold flex-auto">
                     เพิ่มพนักงานสำเร็จ
                   </h3>

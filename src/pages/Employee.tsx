@@ -5,7 +5,10 @@ function Employee() {
   return (
     <div className="bg-admin">
       /*bar */
-      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+      <div className="bg-inside shadow-md rounded px-8 pt-6 pb-8 mb-2 flex flex-col my-2">
+        <h3 className="text-3xl font-semibold flex-auto">
+          เพิ่มข้อมูลพนักงาน
+        </h3>
         <div className="-mx-3 md:flex mb-6">
           <div className="md:w-1/2 px-3 mb-6 md:mb-0">
             <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Firstname"/>  
@@ -16,7 +19,7 @@ function Employee() {
         </div>
         <div className="-mx-3 md:flex mb-6">
           <div className="md:w-full px-3">
-            <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="username" type="num" placeholder="Username"/ > 
+            <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="username" type="text" placeholder="Username"/ > 
           </div>
         </div>
         <div className="-mx-3 md:flex mb-6">
@@ -26,15 +29,15 @@ function Employee() {
         </div>
         <div className="-mx-3 md:flex mb-6">
           <div className="md:w-full px-3">
-            <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="citizen" type="num" placeholder="xxxxx-xxxxx-xx-x"/ > 
+            <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="citizen" type="text" placeholder="xxxxx-xxxxx-xx-x"/ > 
           </div>
         </div>
         <div className="-mx-3 md:flex mb-6">
           <div className="md:w-1/2 px-3 mb-6 md:mb-0">
-            <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="DOB" type="text" placeholder="dd/mm/yyyy"/>  
+            <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="DOB" type="date" placeholder="dd/mm/yyyy"/>  
           </div>
           <div className="md:w-1/2 px-3">
-            <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="tel" type="text" placeholder="xxx-xxx-xxxx"/>
+            <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="tel" type="tel" placeholder="xxx-xxx-xxxx"/>
           </div>
         </div>
         <div className="-mx-3 md:flex mb-6">
