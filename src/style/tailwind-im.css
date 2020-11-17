@@ -3,10 +3,3 @@
 @tailwind components;
 
 @tailwind utilities;
-
-.bg-login-admin{
-    background-image: url("./bg-img/background-sky-admin.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}

@@ -1,1 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
+.bg-login-admin{
+    background-image: url("./bg-img/background-sky-admin.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
