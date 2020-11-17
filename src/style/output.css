@@ -23264,13 +23264,6 @@ video {
   animation: bounce 1s infinite !important;
 }
 
-.bg-login-admin{
-  background-image: url("./bg-img/background-sky-admin.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
