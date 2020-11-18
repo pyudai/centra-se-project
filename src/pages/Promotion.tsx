@@ -43,7 +43,6 @@ function Promotion() {
         </div>
       </div>
     </div>
-    </div>
   );
 }
 
