@@ -2,12 +2,14 @@ import React from 'react';
 import BeforeNav from '../BeforeNav';
 import Navbar from '../navbar';
 import Modal from '../popup';
+import Phone from '../phone'
+import Citizen from '../citizen';
 
 function Employee() {
   return (
     <div className="bg-admin">
       <BeforeNav/>
-      <Navbar/>
+      <Navbar/> 
       <div className="flex flex-col items-center justify-center">
         <div className="bg-inside shadow-2xl rounded px-8 pt-6 flex flex-col my-10 ">
           <div className="flex flex-row  justify-center pt-4">
@@ -45,7 +47,7 @@ function Employee() {
           <div className="md:flex mb-4 m-6">
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-2 px-1 shadow-lg">
               <img src="emp-icon/citizen.svg" alt="pass" className="h-8 pl-2 pr-2"/>
-              <input className="text-grey-darker focus:outline-none" type="text" placeholder="13 digit"/ > 
+              <Citizen/> 
             </div>
           </div>
           
@@ -56,8 +58,7 @@ function Employee() {
             
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-3 px-1 shadow-lg">
               <img src="emp-icon/tel.svg" alt="name" className="h-6 pl-2 pr-2"/>
-              <input className="text-grey-darker focus:outline-none" type="text" placeholder="xxx-xxx-xxxx"/>
-           
+              <Phone/>
             </div>
           </div>
           
