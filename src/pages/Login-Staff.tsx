@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Login() {
+function LoginStaff() {
   return (
     <div>
       <img src="./img-login/Centra Resort-Logo-White.png"/>
@@ -12,4 +12,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginStaff;

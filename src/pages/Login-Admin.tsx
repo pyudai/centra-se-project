@@ -19,7 +19,7 @@ function LoginAdmin() {
         </div>
         <div className="mt-1 mb-1">
           <p className="m-0 text-white text-xl">Username :</p>
-          <input type="text" name="input_username"  placeholder=" Enter username"  className="text-base p-2 rounded" required/>
+          <input type="text" name="input_username" placeholder=" Enter username"  className="text-base p-2 rounded username" required/>
         </div>
         <div className="mt-1 mb-1">
           <p className="m-0 text-white text-xl">Password :</p>
