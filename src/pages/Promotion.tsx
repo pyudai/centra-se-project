@@ -7,6 +7,7 @@ import BeforeNav from './BeforeNav';
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Form,Upload } from "antd";
 
+
 function Promotion() {
   return (
     <div>
