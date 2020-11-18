@@ -1,180 +1,24 @@
 import React from 'react';
-import BeforeNav from '../BeforeNav';
-import Navbar from '../navbar';
+import BNav from '../BNav-staff';
+import NavS from '../navbar-staff';
 
 function Check() {
   return (
     <div>
-      <BeforeNav/>
-      <div className="sticky top-0"><Navbar/></div>
-      check in out
-      <p className="p-128">
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      Lorem ipsum dolor sit amet consectetur, 
-      adipisicing elit. Atque voluptas possimus 
-      quasi provident, odit pariatur sit, quas id eius 
-      incidunt fuga tenetur aliquam similique amet, modi 
-      libero consequatur ipsam minus.
-      </p>
+      <title>สถานะห้องพัก</title> 
+      <BNav/>
+      <div className="sticky top-0"><NavS/></div>
+      <div className="p-10 shadow flex items-center justify-center bg-blue-900 text-white text-3xl font-extrabold"><img src="cil_room.svg"/>ห้องพัก</div>
+      <input type="text" className="shadow border border-gray-300 rounded-lg w-64 h-10"/>
+      พบทั้งหมด x รายการ
+
+      tb 
+      ลำดับ รหัสห้องพัก(link) ชื่อห้องพัก  ชื่อผู้จอง  สถานะ  ปุ่ม checkin-out 
+      <table>
+        <tr><td>1</td>
+        <td>2</td></tr>
+      </table>
+
     </div>
   );
 }
