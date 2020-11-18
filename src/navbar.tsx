@@ -8,6 +8,7 @@ function Navbar() {
         <a className="text-white menu">โปรโมชั่น</a>
         <a className="text-white menu">ลูกค้า</a>
         <a className="text-white menu">พนักงาน</a>
+        <a className="text-white menu">ห้องพัก</a>
         <a className="text-white menu">อาหาร</a>
       </div>
     </div>

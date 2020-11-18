@@ -1,9 +1,8 @@
 import React from 'react';
-import './App.css';
-import './style/output.css'
-import Modal from './popup';
-import Navbar from './Navbar';
-import BeforeNav from './BeforeNav';
+import '../style/output.css'
+import Modal from '../popup';
+import Navbar from '../navbar';
+import BeforeNav from '../BeforeNav';
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Form,Upload } from "antd";
 

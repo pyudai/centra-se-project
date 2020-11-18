@@ -5,12 +5,12 @@ export default function Modal() {
   return (
     <>
       <button
-        className="bg-green-600 text-white active:bg-green-600 font-bold text-sm px-12 py-3 rounded shadow hover:bg-green-400 outline-none focus:outline-none mr-1 mb-1"
+        className="bg-green-600 text-white active:bg-green-600 font-bold text-sm px-12 py-3 rounded shadow hover:bg-green-400 outline-none focus:outline-none"
         type="button"
         style={{ transition: "all .15s ease" }}
         onClick={() => setShowModal(true)}
       >
-        OK
+        Save
       </button>
       {showModal ? (
         <>
