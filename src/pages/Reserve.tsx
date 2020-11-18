@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../navbar";
 import BeforeNav from "../BeforeNav";
+import "../style/output.css";
 
 function Reserve() {
   return (
@@ -8,9 +9,17 @@ function Reserve() {
       <BeforeNav />
       <Navbar />
       <div className="flex flex-col items-center ">
-        <div className="bg-inside shadow-md rounded px-8 pt-6 pb-8 mb-2 flex flex-col my-2">
-          <h2 className="text-2xl font-semibold flex-auto">รายละเอียดลูกค้า</h2>
-          <div className="-mx-3 md:flex mb-6">
+        <div className="bg-inside shadow-md rounded px-8 pt-6 pb-8 mb-2 flex flex-col my-2 w-4/5">
+          
+          <div className="ml-24 inline-flex">
+            <img src="./img-reserve/customer-info.svg" alt="" />
+            <div className="text-2xl font-semibold ml-4 mt-6">
+              <p> รายละเอียดลูกค้า</p>
+            </div>
+          </div>
+
+          <div className="ml-20 md:flex mb-6 w-1/2">
+            
             <div className="md:w-1/2 px-3 mb-6 md:mb-0">
               <label className="font-semibold">หมายเลขการจอง</label>
               <input
@@ -21,6 +30,7 @@ function Reserve() {
                 placeholder="1000000002"
               />
             </div>
+            
             <div className="md:w-1/2 px-3">
               <label className="font-semibold">ชื่อจริง</label>
               <input
@@ -40,7 +50,8 @@ function Reserve() {
               />
             </div>
           </div>
-          <div className="-mx-3 md:flex mb-6">
+          
+          <div className="-mx-3 md:flex mb-6 w-1/2">
             <div className="md:w-1/2 px-3 mb-6 md:mb-0">
               <label className="font-semibold">โทรศัพท์</label>
               <input
@@ -51,7 +62,7 @@ function Reserve() {
                 placeholder="0951218585"
               />
             </div>
-            <div className="md:w-1/2 px-3">
+            <div className="md:w-4/5 px-3">
               <label className="font-semibold">อีเมล</label>
               <input
                 className="appearance-none block w-full shadow-md bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"
@@ -71,6 +82,7 @@ function Reserve() {
               />
             </div>
           </div>
+          
           <h2 className="text-2xl font-semibold flex-auto">ห้องพัก</h2>
           <div className="-mx-3 md:flex mb-6">
             <div className="md:w-1/2 px-3 mb-6 md:mb-0">
@@ -92,6 +104,7 @@ function Reserve() {
               />
             </div>
           </div>
+          
           <div>
             <table className="table-auto">
               <thead>
@@ -114,6 +127,17 @@ function Reserve() {
                 </tr>
               </tbody>
             </table>
+          </div>
+          
+          <div className="md:w-1/2 px-3 mb-6 md:mb-0">
+            <label className="font-semibold">Check In Date</label>
+            <input
+              className="appearance-none block w-full shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
+              id="checkin_date"
+              type="text"
+              value="23/9/2563"
+              readOnly
+            />
           </div>
         </div>
       </div>
