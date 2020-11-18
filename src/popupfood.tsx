@@ -10,7 +10,7 @@ export default function Modal() {
         style={{ transition: "all .15s ease" }}
         onClick={() => setShowModal(true)}
       >
-        Save
+        Confirm
       </button>
       {showModal ? (
         <>
@@ -23,9 +23,9 @@ export default function Modal() {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*body*/}
                 <div className="p-12 flex flex-col w-full items-center justify-center">
-                  <img src="nav/check.svg" alt="check" className="h-20 w-20 m-10 "/>
-                  <h3 className="text-3xl font-semibold flex-auto">
-                    เพิ่มพนักงานสำเร็จ
+                  <img src="pic/image 23.png" alt="check" className="h-20 w-20 m-10 "/>
+                  <h3 className="text-3xl font-semibold font-prompt flex-auto">
+                    เพิ่มอาหารสำเร็จ
                   </h3>
                 </div>
                 {/*footer*/}
