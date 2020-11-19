@@ -16,7 +16,7 @@ module.exports = {
         margin: {
           '96': '24rem',
           '128': '32rem',
-          '80': '20rem'
+          '80': '20rem',
         },
         /*fontSize: {
           'title': '.75rem',
