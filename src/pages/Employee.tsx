@@ -8,6 +8,7 @@ import Citizen from '../citizen';
 function Employee() {
   return (
     <div className="bg-admin">
+      <title>Add Employee | Centra Resort</title>
       <BeforeNav/>
       <Navbar/> 
       <div className="flex flex-col items-center justify-center">
