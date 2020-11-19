@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Modal() {
+export default function PopUp() {
   const [showModal, setShowModal] = React.useState(false);
   return (
     <>

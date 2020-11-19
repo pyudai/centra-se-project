@@ -2,8 +2,7 @@ import React from "react";
 import Navbar from "../navbar";
 import BeforeNav from "../BeforeNav";
 import "../style/output.css";
-import Modal from "../popupReservefood";
-import { Button } from "antd";
+import PopUp from "../popupReserveFood";
 
 function Reserve() {
   return (
@@ -112,12 +111,12 @@ function Reserve() {
           </div>
 
           <div className="ml-20 md:flex mb-6 w-1/2">
-            <table className="table-auto">
+            <table className="table-auto ">
               <thead>
                 <tr>
-                  <th className="px-4 py-2">รหัสห้องพัก</th>
-                  <th className="px-4 py-2">ชื่อห้องพัก</th>
-                  <th className="px-4 py-2">ราคารวม (บาท)</th>
+                  <th className="text-center px-4 py-2">รหัสห้องพัก</th>
+                  <th className="text-center px-4 py-2">ชื่อห้องพัก</th>
+                  <th className="text-center px-4 py-2">ราคารวม (บาท)</th>
                 </tr>
               </thead>
               <tbody>
@@ -126,7 +125,7 @@ function Reserve() {
                   <td className="text-center px-4 py-2">Sea Villa</td>
                   <td className="text-center px-4 py-2">2000</td>
                 </tr>
-                <tr className="bg-gray-100">
+                <tr>
                   <td className="text-center px-4 py-2">B01</td>
                   <td className="text-center px-4 py-2">Pool View</td>
                   <td className="text-center px-4 py-2">1500</td>
@@ -159,8 +158,48 @@ function Reserve() {
             <img src="./img-reserve/food.svg" alt="" />
             <div className="text-2xl font-semibold ml-4 mt-6">
               <p> อาหาร </p> 
-              <button className="bg-nav text-white active:bg-nav  text-sm px-16 py-3 rounded shadow outline-none">Back</button>
-             <Modal />
+              <PopUp />
+            </div>
+          </div>
+
+          <div className="ml-20 md:flex mb-6 w-full">
+            <table className="table-auto text-center">
+              <thead>
+                <tr>
+                  <th className=" px-20 py-2">วัน/เดือน/ปี</th>
+                  <th className=" px-20 py-2">ชื่ออาหาร</th>
+                  <th className=" px-20 py-2">จำนวน (จาน)</th>
+                  <th className=" px-20 py-2">ราคารวม (บาท)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className=" px-20 py-2">24/9/2563</td>
+                  <td className=" px-20 py-2">Mushroom Omelette</td>
+                  <td className=" px-20 py-2">1</td>
+                  <td className=" px-20 py-2">100</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="flex justify-end">
+            <div className="mr-3 my-4">
+             
+            <p>ราคาอาหารทั้งหมด</p>
+              
+            </div>
+            <div className="mr-3">
+              <input
+                className=" w-24 text-center shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
+                id="reserve_total"
+                type="text"
+                value="100"
+                readOnly
+              />
+            </div>
+            <div className="mr-10 my-4">
+              <p>บาท</p>
             </div>
           </div>
 
