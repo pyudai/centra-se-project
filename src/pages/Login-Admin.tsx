@@ -1,5 +1,5 @@
-import { Checkbox, Modal } from 'antd';
-import React, { useState } from 'react';
+import { Checkbox, Input, Modal } from 'antd';
+import React from 'react';
 import "../style/theme.css";
 
 function LoginAdmin() {
@@ -15,7 +15,7 @@ function LoginAdmin() {
             <p className="m-0 text-xl text-white p-1">For Administrator</p>
         </div>
         <div className="flex flex-col">
-          <p className="m-0 text-2xl text-white">Login</p>
+          <p className="text-2xl text-white">Login</p>
           <input type="text" name="input_username" title="Enter username" placeholder="Enter username" className="p-3 pl-12 m-2 text-base rounded max-w-full logo-login-admin-username" required/>
           <input type="password" name="input_password" title="Enter password" placeholder="Enter password" className="p-3 pl-12 m-2 text-base rounded max-w-full logo-login-admin-password" required/>
           <div className="flex m-2">
@@ -27,10 +27,9 @@ function LoginAdmin() {
         </div>
         <a className="hover:underline text-base text-white">Forgot Username/ Password?</a>
       </div>
+
     </div>
   );
 }
-
-
 
 export default LoginAdmin;
