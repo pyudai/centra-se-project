@@ -1,7 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import '../style/output.css'
-import Modal from './popupfood';
+import Modal from '../popupfood';
 import Navbar from '../navbar';
 import BeforeNav from '../BeforeNav';
 import { PlusCircleOutlined } from "@ant-design/icons";
