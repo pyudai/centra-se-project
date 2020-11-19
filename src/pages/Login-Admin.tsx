@@ -25,9 +25,12 @@ function LoginAdmin() {
         <div className="m-2">
           <button className="bg-blue-600 hover:bg-blue-700 text-white p-3 text-base rounded w-full">Sign in</button>
         </div>
-        <a className="hover:underline text-base text-white">Forgot Username/ Password?</a>
+        <a className="hover:text-blue-700 hover:underline text-base text-white">Forgot Username/ Password?</a>
       </div>
-
+      <div className="m-2 text-m flex justify-center items-center" >
+          <p className="text-white m-1">สลับไปหน้าโปรแกรม</p>
+          <a className="hover:text-blue-700 hover:underline text-white m-1 flex items-center"><img src="./img-login/logo-4.svg" className="w-10 m-1"/>Administrator</a>
+        </div>
     </div>
   );
 }
