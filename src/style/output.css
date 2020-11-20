@@ -10925,6 +10925,10 @@ video {
   margin: 4rem !important;
 }
 
+.m-18 {
+  margin: 4.5rem !important;
+}
+
 .m-20 {
   margin: 5rem !important;
 }
@@ -11153,6 +11157,16 @@ video {
 .mx-16 {
   margin-left: 4rem !important;
   margin-right: 4rem !important;
+}
+
+.my-18 {
+  margin-top: 4.5rem !important;
+  margin-bottom: 4.5rem !important;
+}
+
+.mx-18 {
+  margin-left: 4.5rem !important;
+  margin-right: 4.5rem !important;
 }
 
 .my-20 {
@@ -11629,6 +11643,22 @@ video {
 
 .ml-16 {
   margin-left: 4rem !important;
+}
+
+.mt-18 {
+  margin-top: 4.5rem !important;
+}
+
+.mr-18 {
+  margin-right: 4.5rem !important;
+}
+
+.mb-18 {
+  margin-bottom: 4.5rem !important;
+}
+
+.ml-18 {
+  margin-left: 4.5rem !important;
 }
 
 .mt-20 {
@@ -33600,6 +33630,10 @@ video {
     margin: 4rem !important;
   }
 
+  .sm\:m-18 {
+    margin: 4.5rem !important;
+  }
+
   .sm\:m-20 {
     margin: 5rem !important;
   }
@@ -33828,6 +33862,16 @@ video {
   .sm\:mx-16 {
     margin-left: 4rem !important;
     margin-right: 4rem !important;
+  }
+
+  .sm\:my-18 {
+    margin-top: 4.5rem !important;
+    margin-bottom: 4.5rem !important;
+  }
+
+  .sm\:mx-18 {
+    margin-left: 4.5rem !important;
+    margin-right: 4.5rem !important;
   }
 
   .sm\:my-20 {
@@ -34304,6 +34348,22 @@ video {
 
   .sm\:ml-16 {
     margin-left: 4rem !important;
+  }
+
+  .sm\:mt-18 {
+    margin-top: 4.5rem !important;
+  }
+
+  .sm\:mr-18 {
+    margin-right: 4.5rem !important;
+  }
+
+  .sm\:mb-18 {
+    margin-bottom: 4.5rem !important;
+  }
+
+  .sm\:ml-18 {
+    margin-left: 4.5rem !important;
   }
 
   .sm\:mt-20 {
@@ -56245,6 +56305,10 @@ video {
     margin: 4rem !important;
   }
 
+  .md\:m-18 {
+    margin: 4.5rem !important;
+  }
+
   .md\:m-20 {
     margin: 5rem !important;
   }
@@ -56473,6 +56537,16 @@ video {
   .md\:mx-16 {
     margin-left: 4rem !important;
     margin-right: 4rem !important;
+  }
+
+  .md\:my-18 {
+    margin-top: 4.5rem !important;
+    margin-bottom: 4.5rem !important;
+  }
+
+  .md\:mx-18 {
+    margin-left: 4.5rem !important;
+    margin-right: 4.5rem !important;
   }
 
   .md\:my-20 {
@@ -56949,6 +57023,22 @@ video {
 
   .md\:ml-16 {
     margin-left: 4rem !important;
+  }
+
+  .md\:mt-18 {
+    margin-top: 4.5rem !important;
+  }
+
+  .md\:mr-18 {
+    margin-right: 4.5rem !important;
+  }
+
+  .md\:mb-18 {
+    margin-bottom: 4.5rem !important;
+  }
+
+  .md\:ml-18 {
+    margin-left: 4.5rem !important;
   }
 
   .md\:mt-20 {
@@ -78890,6 +78980,10 @@ video {
     margin: 4rem !important;
   }
 
+  .lg\:m-18 {
+    margin: 4.5rem !important;
+  }
+
   .lg\:m-20 {
     margin: 5rem !important;
   }
@@ -79118,6 +79212,16 @@ video {
   .lg\:mx-16 {
     margin-left: 4rem !important;
     margin-right: 4rem !important;
+  }
+
+  .lg\:my-18 {
+    margin-top: 4.5rem !important;
+    margin-bottom: 4.5rem !important;
+  }
+
+  .lg\:mx-18 {
+    margin-left: 4.5rem !important;
+    margin-right: 4.5rem !important;
   }
 
   .lg\:my-20 {
@@ -79594,6 +79698,22 @@ video {
 
   .lg\:ml-16 {
     margin-left: 4rem !important;
+  }
+
+  .lg\:mt-18 {
+    margin-top: 4.5rem !important;
+  }
+
+  .lg\:mr-18 {
+    margin-right: 4.5rem !important;
+  }
+
+  .lg\:mb-18 {
+    margin-bottom: 4.5rem !important;
+  }
+
+  .lg\:ml-18 {
+    margin-left: 4.5rem !important;
   }
 
   .lg\:mt-20 {
@@ -101535,6 +101655,10 @@ video {
     margin: 4rem !important;
   }
 
+  .xl\:m-18 {
+    margin: 4.5rem !important;
+  }
+
   .xl\:m-20 {
     margin: 5rem !important;
   }
@@ -101763,6 +101887,16 @@ video {
   .xl\:mx-16 {
     margin-left: 4rem !important;
     margin-right: 4rem !important;
+  }
+
+  .xl\:my-18 {
+    margin-top: 4.5rem !important;
+    margin-bottom: 4.5rem !important;
+  }
+
+  .xl\:mx-18 {
+    margin-left: 4.5rem !important;
+    margin-right: 4.5rem !important;
   }
 
   .xl\:my-20 {
@@ -102239,6 +102373,22 @@ video {
 
   .xl\:ml-16 {
     margin-left: 4rem !important;
+  }
+
+  .xl\:mt-18 {
+    margin-top: 4.5rem !important;
+  }
+
+  .xl\:mr-18 {
+    margin-right: 4.5rem !important;
+  }
+
+  .xl\:mb-18 {
+    margin-bottom: 4.5rem !important;
+  }
+
+  .xl\:ml-18 {
+    margin-left: 4.5rem !important;
   }
 
   .xl\:mt-20 {
