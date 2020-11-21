@@ -21,9 +21,9 @@ function BeforeNav() {
           <img src="/beforeNav/avatar.svg" alt="avatar" className="h-10"/>
         </div>
         <div className="items-center flex">
-          <a className="text-gray-800 font-semibold underline">แก้ไขข้อมูล</a>
+          <p className="text-gray-800 font-semibold underline">แก้ไขข้อมูล</p>
           <div className="px-3 self-stretch"><div className="h-full border-l-2 border-black"/></div>
-          <a className="text-red-600 font-semibold underline">Logout</a>
+          <p className="text-red-600 font-semibold underline">Logout</p>
         </div>
       </div>
     </div>
