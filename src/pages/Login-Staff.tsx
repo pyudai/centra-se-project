@@ -1,6 +1,7 @@
 import { Checkbox } from 'antd';
 import React, { useState } from 'react';
 import "../style/theme.css";
+import {Link} from 'react-router-dom';
 
 function LoginStaff() {
   const [type, ShowPassword] = useState("password");
@@ -35,7 +36,7 @@ function LoginStaff() {
         </div>
         <div className="m-2 text-m flex justify-center items-center" >
           <p className="text-white m-1">สลับไปหน้าโปรแกรม</p>
-          <a className="hover:text-blue-700 hover:underline text-white m-1 flex items-center"><img src="./img-login/logo-1.svg" className="w-4 m-1" />Administrator</a>
+          <Link className="hover:text-blue-700 hover:underline text-white m-1 flex items-center" to="/LoginAdmin"><img src="./img-login/logo-1.svg" className="w-4 m-1" />Administrator</Link>
         </div>
       </div>
     </div>
