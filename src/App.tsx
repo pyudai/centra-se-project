@@ -9,6 +9,7 @@ import Room from "./pages/Room";
 import Employee from "./pages/Employee";
 import Reserve from "./pages/Reserve";
 import Promotion from './pages/Promotion';
+import Checkin from "./pages/Checkin";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/Reserve" component={Reserve} />
           <Route exact path="/LoginAdmin" component={LoginAdmin} />
           <Route exact path="/LoginStaff" component={LoginStaff} />
+          <Route exact path="/checkin" component={Checkin} />
           <Route path="/" component={ChooseLogin} />
         </Switch>
       </Router>
