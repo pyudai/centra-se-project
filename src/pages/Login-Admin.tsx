@@ -1,8 +1,9 @@
 import { Checkbox, Input, Modal } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 import "../style/theme.css";
 
 function LoginAdmin() {
+  const [type, ShowPassword] = useState("password");
   return (
     <div className="h-screen bg-login-admin object-cover flex flex-col items-center justify-center">
       <title>Login | Centra Resort</title>
@@ -17,9 +18,16 @@ function LoginAdmin() {
         <div className="flex flex-col">
           <p className="text-2xl text-white">Login</p>
           <input type="text" name="input_username" title="Enter username" placeholder="Enter username" className="p-3 pl-12 m-2 text-base rounded max-w-full logo-login-admin-username shadow-lg" required/>
-          <input type="password" name="input_password" title="Enter password" placeholder="Enter password" className="p-3 pl-12 m-2 text-base rounded max-w-full logo-login-admin-password shadow-lg" required/>
+          <input type={type} name="input_password" title="Enter password" placeholder="Enter password" className="p-3 pl-12 m-2 text-base rounded max-w-full logo-login-admin-password shadow-lg" required/>
           <div className="flex m-2">
-            <Checkbox className="text-base text-white">Show password</Checkbox>
+            <Checkbox className="text-base text-white"
+            onChange={
+              (e)=>{
+                if(e.target.checked) ShowPassword("text");
+                else ShowPassword("password");
+              }
+            }
+            >Show password</Checkbox>
           </div>
         </div>
         <div className="m-2">
