@@ -4,14 +4,14 @@ import NavS from '../navbar-staff';
 import Checkout from '../popup-checkout';
 import {Link} from 'react-router-dom';
 
-function Check() {
+function Room() {
   return (
     <div className="">
       <title>สถานะห้องพัก</title> 
       <BNav/>
       <div className="sticky top-0"><NavS/></div>
 
-      <div className="pt-8 pb-12 relative shadow flex items-center justify-center bg-blue-900">
+      <div className="pt-8 pb-12 relative shadow flex items-center justify-center bg-blue-900"> {/*อย่าลืมใส่พื้นหลัง*/}
         <div className="flex absolute bottom-0 items-center shadow border border-gray-300 rounded-lg w-1/3 h-12 pl-5 pr-4 py-3 bg-white text-lg"
         style={{marginBottom:"-20px"}}>
           <img src="/room/search.svg" alt="" className="pr-6 h-7"/>
@@ -38,18 +38,18 @@ function Check() {
             </thead>
             <tbody>
               {
-                Room.map((r,index)=>{
+                Info.map((r,index)=>{
                   return(
                     <tr>
                       <td className="px-4 py-2">{index+1}</td>
                       <td className="px-4 py-2">{r.No}</td>
                       <td className="px-4 py-2">{r.name}</td>
-                      <td className="px-4 py-2">{r.Reserver}</td>
+                      <td className="px-4 py-2">{r.Reserver==="" ? "-": r.Reserver}</td>
                       <td className="px-4 py-2">{status[r.Status]}</td>
                       <td className="px-4 py-2">
                         {
                               r.Status===0 ? "":
-                              r.Status===1 ? (<Link className="text-green-600 underline" to="/check">Check in</Link>) :
+                              r.Status===1 ? (<Link className="text-green-600 underline" to="/Checkin">Check in</Link>) :
                               r.Status===2 ? <Checkout/> :
                               "error"
                         }
@@ -67,9 +67,9 @@ function Check() {
   );
 }
 
-export default Check;
+export default Room;
 
-const Room =[
+const Info =[
   {No:"B01", name:"Garden View", Reserver:"", Status:0 },
   {No:"B02", name:"Beach Villa", Reserver:"", Status:0 },
   {No:"B03", name:"Pool View", Reserver:"การะเกด ศิรินทร์", Status:1 },
