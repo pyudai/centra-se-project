@@ -25,6 +25,10 @@
   max-width: 400px;
 }
 
+.max-width-popup-login{
+  max-width: 450px;
+}
+
 .logo-login-admin-username{
   background-image: url("./bg-img/logo-2.svg");
   background-size: 26px;
@@ -39,6 +43,12 @@
   background-position: 8pt;
 }
 
+.logo-forgot-admin-email{
+  background-image: url("./bg-img/logo-5.svg");
+  background-size: 26px;
+  background-repeat: no-repeat;
+  background-position: 8pt;
+}
 
 .menu{
   color: #fff;
