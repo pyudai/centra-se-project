@@ -1,13 +1,14 @@
 import React from "react";
 import Navbar from "../navbar";
-import BeforeNav from "../BeforeNav";
+import BNav from "../BNav-staff";
 import "../style/output.css";
 import PopUp from "../popupReserveFood";
+import PopUpRoom from "../popupReserveroom";
 
 function Reserve() {
   return (
     <div className="bg-white">
-      <BeforeNav />
+      <BNav />
       <Navbar />
       <div className="flex flex-col items-center ">
         <div className="bg-inside shadow-md rounded px-8 pt-6 pb-8 mb-2 flex flex-col my-2 w-4/5">
@@ -23,9 +24,10 @@ function Reserve() {
               <label className="font-semibold">หมายเลขการจอง</label>
               <input
                 className=" w-full shadow-md bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"
-                id="reserve_number"
-                type="text"
-                maxLength={10}
+                type="number"
+                onChange={(e) => {
+                  e.target.value = e.target.value.slice(0, 10);
+                }}
                 placeholder="1000000002"
               />
             </div>
@@ -34,7 +36,6 @@ function Reserve() {
               <label className="font-semibold">ชื่อจริง</label>
               <input
                 className=" w-full shadow-md bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"
-                id="first_name"
                 type="text"
                 placeholder="การะเกด"
               />
@@ -43,7 +44,6 @@ function Reserve() {
               <label className="font-semibold">นามสกุล</label>
               <input
                 className=" w-full shadow-md bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"
-                id="last_name"
                 type="text"
                 placeholder="ศิรินทร์"
               />
@@ -54,10 +54,11 @@ function Reserve() {
             <div className="md:w-1/2 px-3 mb-6 md:mb-0">
               <label className="font-semibold">โทรศัพท์</label>
               <input
-                className=" w-full shadow-md bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"
-                id="phone"
-                type="tel"
-                maxLength={10}
+                className=" w-full shadow-md bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"  
+                type="number"
+                onChange={(e) => {
+                  e.target.value = e.target.value.slice(0, 10);
+                }}
                 placeholder="0951218585"
               />
             </div>
@@ -65,7 +66,6 @@ function Reserve() {
               <label className="font-semibold">อีเมล</label>
               <input
                 className=" w-full shadow-md bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"
-                id="email"
                 type="text"
                 placeholder="karakatesirin@mail.com"
               />
@@ -74,7 +74,6 @@ function Reserve() {
               <label className="font-semibold">วันที่ทำการจอง</label>
               <input
                 className=" w-full shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
-                id="first_name"
                 type="text"
                 value="17/9/2563"
                 readOnly
@@ -84,9 +83,9 @@ function Reserve() {
 
           <div className="ml-24 inline-flex">
             <img src="./img-reserve/room.svg" alt="" />
-            <div className="text-2xl font-semibold ml-4 mt-6">
+            <div className=" flex text-2xl font-semibold ml-4 mt-6">
               <p> ห้องพัก</p>
-              <PopUp />
+              <div className="ml-3 mt-2"><PopUp /></div>
             </div>
           </div>
 
@@ -95,7 +94,6 @@ function Reserve() {
               <label className="font-semibold">Check In Date</label>
               <input
                 className="block w-full shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
-                id="checkin_date"
                 type="text"
                 value="23/9/2563"
                 readOnly
@@ -105,7 +103,6 @@ function Reserve() {
               <label className="font-semibold">Check Out Date</label>
               <input
                 className="block w-full shadow-md bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"
-                id="checkout_date"
                 type="date"
               />
             </div>
@@ -140,15 +137,13 @@ function Reserve() {
               <div className="my-1">
                 <p>
                   ราคาห้องพักทั้งหมด
-                  <br />
-                  <div className="ml-20">(ทุกคืน)</div>
                 </p>
               </div>
+              <div className="ml-20"><p>(ทุกคืน)</p></div>
             </div>
             <div className="mr-3">
               <input
                 className=" w-24 text-center shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
-                id="reserve_total"
                 type="text"
                 value="3500"
                 readOnly
@@ -161,9 +156,9 @@ function Reserve() {
 
           <div className="ml-24 inline-flex">
             <img src="./img-reserve/food.svg" alt="" />
-            <div className="text-2xl font-semibold ml-4 mt-6">
+            <div className="flex text-2xl font-semibold ml-4 mt-6">
               <p> อาหาร </p>
-              <PopUp />
+              <div className="ml-3 mt-2 "><PopUpRoom /></div>
             </div>
           </div>
 
@@ -217,14 +212,14 @@ function Reserve() {
             <p> - ไม่มี -</p>
           </div>
 
-          <div className="flex text-black  mb-3 text-2xl font-semibold ">
-            <div className=" bg-gray-500 w-3/4 text-right pr-4 py-2">
+          <div className="flex text-black mb-3 text-2xl font-semibold">
+            <div className=" bg-gray-500 w-3/4 text-right pr-4">
               <p>ยอดรวมทั้งหมด</p>
             </div>
-            <div className="mx-16 text-center py-2">
+            <div className="mx-16 text-center">
               <p>3600</p>
             </div>
-            <div className=" w-24 bg-gray-500 text-left pl-4 py-2">
+            <div className=" w-24 bg-gray-500 text-left pl-4">
               <p>บาท</p>
             </div>
           </div>
