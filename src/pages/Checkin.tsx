@@ -1,9 +1,11 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import BNav from '../BNav-staff';
 import NavS from '../navbar-staff';
-import {Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import { CheckinContext } from '../data/CheckinContext';
 
 function Checkin() {
+  const {info, setInfo} = useContext(CheckinContext);
   return (
     <div className="">
       <title>Check in</title> 
@@ -23,7 +25,6 @@ function Checkin() {
               <label className="font-semibold">หมายเลขการจอง</label>
               <input
                 className=" w-full shadow-md bg-gray-500 text-black border rounded-lg py-3 px-4 mb-3"
-                id="reserve_number"
                 type="text"
                 maxLength={10}
                 value="1000000002"
@@ -35,7 +36,6 @@ function Checkin() {
               <label className="font-semibold">ชื่อจริง</label>
               <input
                 className=" w-full shadow-md bg-gray-500 text-black border rounded-lg py-3 px-4 mb-3"
-                id="first_name"
                 type="text"
                 value="การะเกด"
                 readOnly
@@ -45,7 +45,6 @@ function Checkin() {
               <label className="font-semibold">นามสกุล</label>
               <input
                 className=" w-full shadow-md bg-gray-500 text-black border rounded-lg py-3 px-4 mb-3"
-                id="last_name"
                 type="text"
                 value="ศิรินทร์"
                 readOnly
@@ -58,7 +57,6 @@ function Checkin() {
               <label className="font-semibold">โทรศัพท์</label>
               <input
                 className=" w-full shadow-md bg-gray-500 text-black border rounded-lg py-3 px-4 mb-3"
-                id="phone"
                 type="tel"
                 maxLength={10}
                 value="0951218585"
@@ -69,7 +67,6 @@ function Checkin() {
               <label className="font-semibold">อีเมล</label>
               <input
                 className=" w-full shadow-md bg-gray-500 text-black border rounded-lg py-3 px-4 mb-3"
-                id="email"
                 type="text"
                 value="karakatesirin@mail.com"
                 readOnly
@@ -79,7 +76,6 @@ function Checkin() {
               <label className="font-semibold">วันที่ทำการจอง</label>
               <input
                 className=" w-full shadow-md bg-gray-500 text-black border rounded-lg py-3 px-4 mb-3"
-                id="first_name"
                 type="text"
                 value="17/9/2563"
                 readOnly
@@ -99,7 +95,6 @@ function Checkin() {
               <label className="font-semibold">Check In Date</label>
               <input
                 className="block w-full shadow-md bg-gray-500 text-black border rounded-lg py-3 px-4 mb-3"
-                id="checkin_date"
                 type="text"
                 value="23/9/2563"
                 readOnly
@@ -109,7 +104,6 @@ function Checkin() {
               <label className="font-semibold">Check Out Date</label>
               <input
                 className="block w-full shadow-md bg-gray-500 text-black border rounded-lg py-3 px-4 mb-3"
-                id="checkin_date"
                 type="text"
                 value="25/9/2563"
                 readOnly
@@ -139,17 +133,16 @@ function Checkin() {
           <div className="flex justify-end font-semibold mt-10">
             <div className="mr-3">
               <div className="my-1">
-                <p>
+                <div>
                   ราคาห้องพักทั้งหมด
                   <br />
-                  <div className="ml-20">(ทุกคืน)</div>
-                </p>
+                  <div className="ml-20">(ทุกคืน)</div>{/*แก้ format ด้วย*/}
+                </div>
               </div>
             </div>
             <div className="mr-3">
               <input
                 className=" w-24 text-center shadow-md bg-gray-500 text-black border rounded-lg py-3 px-4 mb-3"
-                id="reserve_total"
                 type="text"
                 value="2000"
                 readOnly
@@ -196,7 +189,6 @@ function Checkin() {
             <div className="mr-3">
               <input
                 className=" w-24 text-center shadow-md bg-gray-500 text-black border rounded-lg py-3 px-4 mb-3"
-                id="reserve_total"
                 type="text"
                 value="100"
                 readOnly
@@ -268,18 +260,21 @@ function Checkin() {
 
           <div className="flex justify-end mt-16">
             <div className="mr-8">
-            <Route render={({ history }) => (
-              <button className="bg-nav text-white active:bg-nav  text-sm px-16 py-3 rounded-lg shadow hover:bg-blue-500 outline-none focus:outline-none mb-1"
-              onClick={ () => {history.push('/Room')}}>
+            <Link to='/Room'>
+              <button className="bg-nav text-white active:bg-nav  text-sm px-16 py-3 rounded-lg shadow hover:bg-blue-500 outline-none focus:outline-none mb-1">
                 Back
               </button>
-              )} />
+              </Link>
             </div>
             <div className="mr-4">
-            <Route render={({ history }) => (
-              <button type="button" className="bg-green-600 text-white active:bg-green-600 text-sm px-12 py-3 rounded-lg shadow hover:bg-green-400 outline-none focus:outline-none"
-              onClick={ () => {history.push('/Room');}}>Check In</button>
-              )} />
+              <Link to='/Room'><button type="button" className="bg-green-600 text-white active:bg-green-600 text-sm px-12 py-3 rounded-lg shadow hover:bg-green-400 outline-none focus:outline-none"
+              onClick={()=>{
+                let Ninfo=info;
+                Ninfo[2].Status=2;
+                setInfo([...Ninfo]);
+              }}
+              >Check In</button></Link>
+
             </div>
           </div>
 
