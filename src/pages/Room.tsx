@@ -1,10 +1,13 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import BNav from '../BNav-staff';
 import NavS from '../navbar-staff';
 import Checkout from '../popup-checkout';
 import {Link} from 'react-router-dom';
+import { CheckinContext } from '../data/CheckinContext';
+
 
 function Room() {
+  const {info, setInfo} = useContext(CheckinContext);
   return (
     <div className="">
       <title>สถานะห้องพัก</title> 
@@ -38,9 +41,9 @@ function Room() {
             </thead>
             <tbody>
               {
-                Info.map((r,index)=>{
+                info.map((r,index)=>{
                   return(
-                    <tr>
+                    <tr key={index}>
                       <td className="px-4 py-2">{index+1}</td>
                       <td className="px-4 py-2">{r.No}</td>
                       <td className="px-4 py-2">{r.name}</td>
@@ -50,7 +53,12 @@ function Room() {
                         {
                               r.Status===0 ? "":
                               r.Status===1 ? (<Link className="text-green-600 underline" to="/Checkin">Check in</Link>) :
-                              r.Status===2 ? <Checkout/> :
+                              r.Status===2 ? <Checkout No={r.No} clicker={()=>{
+                                let Ninfo=info;
+                                Ninfo[index].Status=0;
+                                Ninfo[index].Reserver="";
+                                setInfo([...Ninfo]);
+                              }}/> :
                               "error"
                         }
                           
@@ -69,12 +77,6 @@ function Room() {
 
 export default Room;
 
-const Info =[
-  {No:"B01", name:"Garden View", Reserver:"", Status:0 },
-  {No:"B02", name:"Beach Villa", Reserver:"", Status:0 },
-  {No:"B03", name:"Pool View", Reserver:"การะเกด ศิรินทร์", Status:1 },
-  {No:"B04", name:"Sea Villa", Reserver:"น้ำปูน จิจิด้า", Status:2 }
-];
  const status={
   0:"ว่าง",
   1:"ยังไม่เข้าพัก",

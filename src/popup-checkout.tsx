@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
-function Checkout() {
-  const [checkout, setCheckout] = useState(false);
+function Checkout({No,clicker}) {
+  const [click, setClick] = useState(false);
   return (
     <>
       <div
         className="text-red-600 underline cursor-pointer"
-        onClick={() => setCheckout(true)}
+        onClick={() => setClick(true)}
       >
         Check out
       </div>
-      {checkout ? (
+      {click ? (
         <>
           <div
             className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
@@ -21,7 +21,7 @@ function Checkout() {
                 {/*body*/}
                 <div className="py-20 px-12 flex flex-col w-full items-center justify-center">
                   <div className="text-3xl font-semibold font-prompt flex-auto">
-                    ต้องการ check out ห้อง B04 ? 
+                    ต้องการ check out ห้อง {No} ? 
                   </div>
                 </div>
                 {/*footer*/}
@@ -29,15 +29,19 @@ function Checkout() {
                   <button
                     className=" text-white font-bold uppercase text-sm px-16 py-3 rounded shadow bg-green-500 mb-1"
                     type="button"
-                    onClick={() => setCheckout(false)}
+                    onClick={() => {
+                      clicker();
+                      setClick(false);
+                    }}
                   >
                     Yes
                   </button>
                   <button
                     className=" text-white font-bold uppercase text-sm px-16 py-3 rounded shadow bg-red-600 mb-1"
                     type="button"
-                    style={{ transition: "all .15s ease" }}
-                    onClick={() => setCheckout(false)}
+                    onClick={() => {
+                      setClick(false);/* change status room ด้วย */
+                    }}
                   >
                     No
                   </button>
