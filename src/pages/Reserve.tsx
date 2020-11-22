@@ -132,20 +132,21 @@ function Reserve() {
             </table>
           </div>
 
-          <div className="flex justify-end font-semibold">
+          <div className="flex justify-end font-semibold mt-10">
             <div className="mr-3">
               <div className="my-1">
-                <p>
+                <div>
                   ราคาห้องพักทั้งหมด
-                </p>
+                  <br />
+                  <div className="ml-20">(ทุกคืน)</div>{/*แก้ format ด้วย*/}
+                </div>
               </div>
-              <div className="ml-20"><p>(ทุกคืน)</p></div>
             </div>
             <div className="mr-3">
               <input
-                className=" w-24 text-center shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
+                className=" w-24 text-center shadow-md bg-gray-500 text-black border rounded-lg py-3 px-4 mb-3"
                 type="text"
-                value="3500"
+                value="2000"
                 readOnly
               />
             </div>
