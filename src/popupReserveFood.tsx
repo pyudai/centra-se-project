@@ -1,6 +1,7 @@
 import React,{useContext} from "react";
 import {Link} from 'react-router-dom';
-import { ReserveRoomContext } from '../data/ReserveRoomContext';
+import { ReserveRoomContext } from "../data/ReserveRoomContext";
+import Checkout from "../popup-checkout";
 
 export default function PopUp() {
   const [showModal, setShowModal] = React.useState(false);
