@@ -14,8 +14,19 @@
   background-size: cover;
 }
 
+.bg-room{
+  background-image: url("./bg-img/roomBG.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .max-width-login{
   max-width: 400px;
+}
+
+.max-width-popup-login{
+  max-width: 450px;
 }
 
 .logo-login-admin-username{
@@ -32,6 +43,12 @@
   background-position: 8pt;
 }
 
+.logo-forgot-admin-email{
+  background-image: url("./bg-img/logo-5.svg");
+  background-size: 26px;
+  background-repeat: no-repeat;
+  background-position: 8pt;
+}
 
 .menu{
   color: #fff;
