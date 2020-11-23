@@ -17,7 +17,7 @@ function LoginAdmin() {
   const [pass,password] = useState("");
   // Event login
   const [error_login,errorLogin] = useState(false);
-  // Clear document.getElementById GeData
+  // Clear document.getElementById Data
   const usernameRef = useRef<any>(null);
   const passwordRef = useRef<any>(null);
   const emailRef = useRef<any>(null);
