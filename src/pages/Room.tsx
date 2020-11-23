@@ -4,11 +4,32 @@ import NavS from '../navbar-staff';
 import Checkout from '../popup-checkout';
 import {Link} from 'react-router-dom';
 import { CheckinContext } from '../data/CheckinContext';
+import { Checkbox, Popover } from 'antd';
 
 
 function Room() {
   const {info, setInfo} = useContext(CheckinContext);
   const [search,setSearch]=useState("");
+  
+  const [type,setType]=useState([true,true,true]);
+
+  function onChange(e) {
+    let Ntype=type;
+    Ntype[e.target.value]=e.target.checked;
+    setType([...Ntype]);
+  }
+  
+   const fil=(
+     <div className="font-prompt">
+       <div className="font-bold text-lg pb-2">สถานะ</div>
+       <Checkbox onChange={onChange} value='0' defaultChecked>ว่าง</Checkbox><br/>
+       <Checkbox onChange={onChange} value='1' defaultChecked>ยังไม่เข้าพัก</Checkbox><br/>
+       <Checkbox onChange={onChange} value='2' defaultChecked>กำลังเข้าพัก</Checkbox>
+     </div>
+   );
+
+   const cond=(item=>item.No.toLowerCase().match(search.toLowerCase())||item.name.toLowerCase().match(search.toLowerCase())||item.Reserver.toLowerCase().match(search.toLowerCase()));
+
   return (
     <div className="">
       <title>สถานะห้องพัก</title> 
@@ -23,8 +44,9 @@ function Room() {
           onChange={e=>{ 
             setSearch(e.target.value);
           }}/>
-          <img src="/room/filter.svg" alt="" className="pl-2 h-5"/>
-          {/* ขาด filter */}
+          <Popover content={fil} trigger="hover">
+            <img src="/room/filter.svg" alt="" className="pl-2 h-5"/>
+          </Popover>
         </div>
         <div className="flex text-white text-4xl font-extrabold">
           <img src="/cil_room.svg" alt="room" className="pr-3"/>ห้องพัก
@@ -33,8 +55,7 @@ function Room() {
 
       <div className="px-24 justify-center font-bold">
         <div className="m-5">พบทั้งหมด {
-          search === "" ? info.length : 
-          info.filter(item=>item.No.match(search)||item.name.match(search)||item.Reserver.match(search)).length
+          info.filter(it=>type[it.Status]).filter(cond).length
         } รายการ </div>
         <div className="text-center">
           <table className="table-auto shadow-lg rounded-lg w-full">
@@ -49,8 +70,8 @@ function Room() {
               </tr>
             </thead>
             <tbody>
-              {search === "" ? ( 
-                info.map((r,index)=>{
+              {
+               info.filter(it=>type[it.Status]).filter(cond).map((r,index)=>{
                   return(
                     <tr key={index}>
                       <td className="px-4 py-2">{index+1}</td>
@@ -74,33 +95,7 @@ function Room() {
                       </td>
                     </tr>
                   );
-                })):
-
-               (info.filter(item=>item.No.match(search)||item.name.match(search)||item.Reserver.match(search)).map((r,index)=>{
-                  return(
-                    <tr key={index}>
-                      <td className="px-4 py-2">{index+1}</td>
-                      <td className="px-4 py-2">{r.No}</td>
-                      <td className="px-4 py-2">{r.name}</td>
-                      <td className="px-4 py-2">{r.Reserver==="" ? "-": r.Reserver}</td>
-                      <td className="px-4 py-2">{status[r.Status]}</td>
-                      <td className="px-4 py-2">
-                        {
-                              r.Status===0 ? "":
-                              r.Status===1 ? (<Link className="text-green-600 underline" to="/Checkin">Check in</Link>) :
-                              r.Status===2 ? <Checkout No={r.No} clicker={()=>{
-                                let Ninfo=info;
-                                Ninfo[index].Status=0;
-                                Ninfo[index].Reserver="";
-                                setInfo([...Ninfo]);
-                              }}/> :
-                              "error"
-                        }
-                          
-                      </td>
-                    </tr>
-                  );
-                }))
+                })
               }
             </tbody>
           </table>
