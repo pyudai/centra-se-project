@@ -6,7 +6,11 @@ const PopUp = () => {
   const { setReserveList, ROOMLIST } = useContext(CheckinContext);
   const [tmpReserve, setTmpReserve] = useState<any[]>([]);
   
-
+  function total(){
+    const list=[1, 2, 3, 4]
+    for()
+    return 
+  }
 
   return (
     <>
@@ -115,7 +119,7 @@ const PopUp = () => {
                     <p>ยอดรวมทั้งหมด</p>
                   </div>
                   <div className="mx-16 text-center">
-                   
+                    {total()}
                   </div>
                   <div className=" w-24 bg-gray-500 text-left pl-4">
                     <p>บาท</p>
