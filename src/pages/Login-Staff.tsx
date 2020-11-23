@@ -1,4 +1,4 @@
-import { Checkbox, Modal } from 'antd';
+import { Checkbox, message, Modal } from 'antd';
 import React, { useRef, useState } from 'react';
 import "../style/theme.css";
 import {Link} from 'react-router-dom';
@@ -17,7 +17,7 @@ function LoginStaff() {
 
     let dataSet = {
       username : "staff",
-      password : "staffstaff",
+      password : "staffstaff"
     }
 
   return (
@@ -62,7 +62,10 @@ function LoginStaff() {
           <button className="bg-blue-600 hover:bg-blue-700 text-white p-3 text-base rounded w-full shadow-lg"
             onClick={
               ()=>{
-                if(user===dataSet.username && pass===dataSet.password) console.log("Login complete");
+                if(user===dataSet.username && pass===dataSet.password){
+                  message.success('Login complete');
+                  window.location.replace("/HomeAdmin");
+                }
                 else {
                   errorLogin(true);               
                 }
@@ -79,7 +82,6 @@ function LoginStaff() {
         <p>บัญชีที่สามารถทดสอบการ Login เข้าสู่ระบบของ Staff คือ</p>
         <p>username : staff</p>
         <p>password : staffstaff</p>
-        <p>email : staff@mail.com</p>
       </div>
       {/* Popup Login ไม่สำเร็จ */}
       <Modal

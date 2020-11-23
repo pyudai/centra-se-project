@@ -1,4 +1,4 @@
-import { Checkbox, Modal} from 'antd';
+import { Checkbox, message, Modal} from 'antd';
 import React, { useRef, useState } from 'react';
 import "../style/theme.css";
 import { Link } from 'react-router-dom';
@@ -70,7 +70,10 @@ function LoginAdmin() {
           <button className="bg-blue-600 hover:bg-blue-700 text-white p-3 text-base rounded w-full shadow-lg"
           onClick={
             ()=>{
-              if(user===dataSet.username && pass===dataSet.password) console.log("Login complete");
+              if(user===dataSet.username && pass===dataSet.password){
+                message.success('Login complete');
+                window.location.replace("/HomeAdmin");
+              } 
               else {
                 errorLogin(true);               
               }

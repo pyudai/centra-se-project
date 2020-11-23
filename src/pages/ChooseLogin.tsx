@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 function ChooseLogin() {
   return (
     <div className="h-screen bg-login-staff object-cover flex flex-col items-center justify-center">
+      <title>Choose login | Centra Resort</title>
       <div className="text-white items-center text-center max-width-login">
         <div className="border-b-2 max-width-login">
           <img src="./img-login/Centra Resort-Logo-White.png" style={{width:400}}/>
