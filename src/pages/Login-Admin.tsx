@@ -7,6 +7,8 @@ function LoginAdmin() {
   const [show, showPassword] = useState("password");
   const [state, stateModalForgot ] = useState(false);
   const [send, sendEmailComplete ] = useState(false);
+  const [email, emailForgot] = useState("");
+
   return (
     <div className="h-screen bg-login-admin object-cover flex flex-col items-center justify-center">
       <title>Login | Centra Resort</title>
@@ -53,13 +55,25 @@ function LoginAdmin() {
         footer={
             <div className="font-prompt flex">
               <button className="font-prompt bg-red-600 hover:bg-red-700 w-1/2 text-white py-2 text-base rounded shadow-lg" onClick={()=>stateModalForgot(false)}>Cancel</button>
-              <button className="font-prompt bg-blue-600 hover:bg-blue-700 w-1/2 text-white py-2 text-base rounded shadow-lg" onClick={()=>{sendEmailComplete(true)}}>Send</button>
+              <button className="font-prompt bg-blue-600 hover:bg-blue-700 w-1/2 text-white py-2 text-base rounded shadow-lg"
+              onClick={
+                ()=>{
+                  stateModalForgot(false);
+                  sendEmailComplete(true);
+                }
+              }>Send</button>
             </div>
         }
       >
         <div className="font-prompt text-base max-width-popup-login">
           <p className="font-prompt">* กรอกอีเมลที่คุณใช้สมัครบัญชีผู้ดูแลระบบของคุณ ระบบจะส่งรหัสผ่านไปยังอีเมลของคุณ</p>
-          <input type="text" name="input_email" title="Email" placeholder="Enter email" className="p-3 pl-12 w-full text-base rounded logo-forgot-admin-email lg:shadow-lg" required />
+          <input type="email" title="Email" placeholder="Enter email" className="p-3 pl-12 w-full text-base rounded logo-forgot-admin-email lg:shadow-lg" 
+            onChange={
+              (e)=>{
+                emailForgot(e.target.value);
+              }
+            }
+          required />
         </div>
       </Modal>
       <Modal
@@ -78,7 +92,7 @@ function LoginAdmin() {
       >
         <div className="font-prompt text-base items-center flex">
           <img src="./img-login/logo-6.svg"className="p-1"/>
-          <p className="p-1">ระบบได้ส่ง username และ password ไปยังอีเมล Jitladathip***n@mail.com เป็นที่เรียบร้อยแล้ว</p>
+          <p className="p-1">ระบบได้ส่ง username และ password ไปยังอีเมล {email} เป็นที่เรียบร้อยแล้ว</p>
         </div>
       </Modal>
     </div>
