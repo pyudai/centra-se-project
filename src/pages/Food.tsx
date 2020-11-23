@@ -8,7 +8,7 @@ import { PlusCircleOutlined } from "@ant-design/icons";
 import { Form,Upload } from "antd";
 
 
-function Promotion() {
+function Food() {
   return (
     <div>
       <BeforeNav />
@@ -68,4 +68,4 @@ function Promotion() {
 
 }
 
-export default Promotion;
+export default Food;

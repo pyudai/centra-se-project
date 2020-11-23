@@ -1,11 +1,12 @@
 import React from 'react';
+import "../style/theme.css";
 
-function chooseLogin() {
+function ChooseLogin() {
   return (
     <div>
-
+      Hello
     </div>
   );
 }
 
-export default chooseLogin;
+export default ChooseLogin; 
