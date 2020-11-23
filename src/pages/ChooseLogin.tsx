@@ -1,11 +1,11 @@
 import React from 'react';
 
-function chooseLogin() {
+function ChooseLogin() {
   return (
     <div>
-
+      pls choose
     </div>
   );
 }
 
-export default chooseLogin;
+export default ChooseLogin;
