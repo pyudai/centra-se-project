@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function BNav() {
   return (
@@ -20,7 +21,7 @@ function BNav() {
           <img src="/beforeNav/avatar.svg" alt="avatar" className="h-10"/>
         </div>
         <div className="items-center flex">
-          <a className="text-red-600 font-semibold underline">Logout</a>
+          <Link className="text-red-600 font-semibold underline" to="/LoginStaff">Logout</Link>
         </div>
       </div>
     </div>
