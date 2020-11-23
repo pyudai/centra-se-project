@@ -64,7 +64,7 @@ function LoginStaff() {
               ()=>{
                 if(user===dataSet.username && pass===dataSet.password){
                   message.success('Login complete');
-                  window.location.replace("/HomeAdmin");
+                  window.location.replace("/HomeStaff");
                 }
                 else {
                   errorLogin(true);               

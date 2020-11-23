@@ -1,4 +1,6 @@
+import { message } from 'antd';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function BeforeNav() {
   return (
