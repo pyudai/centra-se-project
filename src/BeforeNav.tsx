@@ -22,7 +22,7 @@ function BeforeNav() {
         </div>
         <div className="items-center flex">
           <p className="text-gray-800 font-semibold underline">แก้ไขข้อมูล</p>
-          <div className="px-3 self-stretch"><div className="h-full border-l-2 border-black"/></div>
+          <div className="px-3 self-stretch"><div className="h-8 border-l-2 border-gray-900"/></div>
           <p className="text-red-600 font-semibold underline">Logout</p>
         </div>
       </div>
