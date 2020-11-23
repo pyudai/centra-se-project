@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function BeforeNav() {
   return (
-    <div className="bg-blue flex justify-between items-center p-6 px-16 shadow">
+    <div className="bg-blue flex justify-between items-center p-2 px-16 shadow">
       <div className="flex items-center">
         <div className="flex items-center">
           <img src="/beforeNav/logo.png" alt="logo" className="h-20"/>
@@ -25,7 +25,13 @@ function BeforeNav() {
         <div className="items-center flex h-8">
           <div className="text-gray-800 font-semibold underline">แก้ไขข้อมูล</div>
           <div className="px-3 self-stretch"><div className="h-full border-l-2 border-gray-900"/></div>
-          <Link className="text-red-600 font-semibold underline" to="/LoginAdmin">Logout</Link>
+          <Link className="text-red-600 font-semibold underline" to="/LoginAdmin"
+            onClick={
+              ()=>{
+                message.info('ออกจากระบบสำเร็จ');
+              }
+            }
+          >Logout</Link>
         </div>
       </div>
     </div>
