@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext }  from "react";
 import Navbar from "../navbar";
 import BNav from "../BNav-staff";
 import "../style/output.css";
 import PopUp from "../popupReserveFood";
 import PopUpRoom from "../popupReserveroom";
+import { CheckinContext } from "../data/CheckinContext";
 
 function Reserve() {
+
+  const { reserveList  } = useContext(CheckinContext);
+  console.log(reserveList)
   return (
     <div className="bg-white">
       <BNav />
@@ -118,17 +122,17 @@ function Reserve() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td className="text-center px-4 py-2">B04</td>
-                  <td className="text-center px-4 py-2">Sea Villa</td>
-                  <td className="text-center px-4 py-2">2000</td>
-                </tr>
-                <tr>
-                  <td className="text-center px-4 py-2">B01</td>
-                  <td className="text-center px-4 py-2">Pool View</td>
-                  <td className="text-center px-4 py-2">1500</td>
-                </tr>
-              </tbody>
+              {reserveList.map((r, index) => {
+                        return (
+                          <tr key={index}>
+                            <td className="pl-8">{r.No}</td>
+                            <td className="text-center">{r.name}</td>
+                            <td className="text-center">{r.price}</td>
+                          
+                          </tr>
+                        );
+                      })}
+                    </tbody>
             </table>
           </div>
 
