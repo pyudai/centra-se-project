@@ -4,11 +4,15 @@ import "../style/theme.css";
 import { Link } from 'react-router-dom';
 
 function LoginAdmin() {
+  // แสดงรหัสผ่าน
   const [show, showPassword] = useState("password");
+  // ลืมรหัสผ่าน
   const [state, stateModalForgot ] = useState(false);
   const [send, sendEmailComplete ] = useState(false);
+  const [send_error_blank_data, sendErrorBlankData ] = useState(false);
+  const [send_error_null_database, sendErrorNullDatabase ] = useState(false);
   const [email, emailForgot] = useState("");
-
+  // บัญชี login
   const [user,username] = useState("");
   const [pass,password] = useState("");
 
@@ -57,7 +61,8 @@ function LoginAdmin() {
           </div>
         </div>
         <div className="m-2">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white p-3 text-base rounded w-full shadow-lg">Sign in</button>
+          <button className="bg-blue-600 hover:bg-blue-700 text-white p-3 text-base rounded w-full shadow-lg"
+          >Sign in</button>
         </div>
         <div className="hover:text-blue-700 hover:underline text-base text-white" onClick={()=>stateModalForgot(true)}>Forgot Username/ Password?</div>
       </div>
@@ -71,6 +76,7 @@ function LoginAdmin() {
         <p>password : adminadmin</p>
         <p>email : admin@mail.com</p>
       </div>
+      {/* Popup ลืมรหัสผ่าน */}
       <Modal
         title={
         <div className="font-prompt font-semibold tracking-wider w-full text-center text-2xl">
@@ -85,12 +91,16 @@ function LoginAdmin() {
               <button className="font-prompt bg-blue-600 hover:bg-blue-700 w-1/2 text-white py-2 text-base rounded shadow-lg"
               onClick={
                 ()=>{
-                  if(email===dataSet.email){
-                    stateModalForgot(false);
-                    sendEmailComplete(true);
+                  if(email==="") sendErrorBlankData(true);
+                  else{
+                    if(email===dataSet.email){
+                      stateModalForgot(false);
+                      sendEmailComplete(true);
+                    }
+                    else{
+                      sendErrorNullDatabase(true);
+                    }
                   }
-                  else console.log("ไม่พบบัญชีนี้ในฐานข้อมูล");
-
                 }
               }>Send</button>
             </div>
@@ -107,6 +117,61 @@ function LoginAdmin() {
           required />
         </div>
       </Modal>
+      {/* Popup ไม่มีข้อมูลอีเมลในหน้าลืมรหัสผ่าน */}
+      <Modal
+        title={
+        <div className="font-prompt font-semibold w-full text-center text-2xl">
+          เกิดปัญหา
+        </div>      
+        }
+        visible={send_error_blank_data}
+        onCancel={()=>sendErrorBlankData(false)}
+        footer={
+            <div className="font-prompt flex justify-center items-center">
+              <button className="font-prompt bg-red-600 hover:bg-red-700 w-1/3 text-white py-2 text-base rounded shadow-lg"
+              onClick={
+                ()=>{
+                  emailForgot("");
+                  sendErrorBlankData(false)
+                }
+              }
+              >Ok</button>
+            </div>
+        }
+      >
+      <div className="font-prompt text-base max-width-popup-login text-center flex">
+        <img src="./img-login/logo-7.svg" style={{width:100}}/>
+        <p>ส่งอีเมลไม่สำเร็จ เนื่องจากคุณยังไม่ได้กรอก email ของบัญชีที่คุณลืมรหัสผ่าน</p>
+      </div>
+      </Modal>
+      {/* Popup ไม่พบอีเมลข้อมูลผู้ใช้ในฐานข้อมูลในหน้าลืมรหัสผ่าน */}
+      <Modal
+        title={
+        <div className="font-prompt font-semibold w-full text-center text-2xl">
+          เกิดปัญหา
+        </div>      
+        }
+        visible={send_error_null_database}
+        onCancel={()=>sendErrorNullDatabase(false)}
+        footer={
+            <div className="font-prompt flex justify-center items-center">
+              <button className="font-prompt bg-red-600 hover:bg-red-700 w-1/3 text-white py-2 text-base rounded shadow-lg"
+              onClick={
+                ()=>{
+                  emailForgot("");
+                  sendErrorNullDatabase(false)
+                }
+              }
+              >Ok</button>
+            </div>
+        }
+      >
+      <div className="font-prompt text-base max-width-popup-login text-center flex">
+        <img src="./img-login/logo-7.svg" style={{width:100}}/>
+        <p>ส่งอีเมลไม่สำเร็จ เนื่องจากไม่พบ email ข้อมูลผู้ใช้ในฐานข้อมูล</p>
+      </div>
+      </Modal>
+      {/* Popup ส่งอีเมลสำเร็จ */}
       <Modal
         title={
         <div className="font-prompt font-semibold tracking-wider w-full text-center text-2xl">
@@ -132,6 +197,10 @@ function LoginAdmin() {
           <img src="./img-login/logo-6.svg"className="p-1"/>
           <p className="p-1">ระบบได้ส่ง username และ password ไปยังอีเมล {email} เป็นที่เรียบร้อยแล้ว</p>
         </div>
+      </Modal>
+      {/* Popup Login ไม่สำเร็จ */}
+      <Modal
+      >
       </Modal>
     </div>
   );
