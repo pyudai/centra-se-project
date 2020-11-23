@@ -1,9 +1,6 @@
 import React from 'react';
 import BeforeNav from '../BeforeNav';
 import Navbar from '../navbar';
-import Modal from '../popup';
-import Phone from '../phone'
-import Citizen from '../citizen';
 
 function HomeA() {
   return (
