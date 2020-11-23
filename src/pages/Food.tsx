@@ -18,7 +18,7 @@ function Food() {
           style={{ width: "1000px" }}>
 
           <div className="flex text-lg ">
-            <img src="pic/cutlery 2.png" alt="fork" className="w-12 h-12" />
+            <img src="pic/cutlery_2.png" alt="fork" className="w-12 h-12 mx-3" />
             <p className="font-prompt text-4xl font-bold">เพิ่มเมนู</p>
 
             <div className="h-full border-2 border-gray-200 rounded-lg -mx-40 flex flex-row my-24 flex flex-col p-32 shadow-lg "
