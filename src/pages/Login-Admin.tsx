@@ -9,6 +9,15 @@ function LoginAdmin() {
   const [send, sendEmailComplete ] = useState(false);
   const [email, emailForgot] = useState("");
 
+  const [user,username] = useState("");
+  const [pass,password] = useState("");
+
+  let dataSet = {
+    username : "admin",
+    password : "adminadmin",
+    email : "admin@mail.com"
+  }
+
   return (
     <div className="h-screen bg-login-admin object-cover flex flex-col items-center justify-center">
       <title>Login | Centra Resort</title>
@@ -22,8 +31,20 @@ function LoginAdmin() {
         </div>
         <div className="flex flex-col">
           <p className="text-2xl text-white">Login</p>
-          <input type="text" name="input_username" title="Enter username" placeholder="Enter username" className="p-3 pl-12 m-2 text-base rounded max-w-full logo-login-admin-username shadow-lg" required />
-          <input type={show} name="input_password" title="Enter password" placeholder="Enter password" className="p-3 pl-12 m-2 text-base rounded max-w-full logo-login-admin-password shadow-lg" required />
+          <input type="text" name="input_username" title="Enter username" placeholder="Enter username" className="p-3 pl-12 m-2 text-base rounded max-w-full logo-login-admin-username shadow-lg" 
+            onChange={
+              (e)=>{
+                username(e.target.value);
+              }
+            }
+          required />
+          <input type={show} name="input_password" title="Enter password" placeholder="Enter password" className="p-3 pl-12 m-2 text-base rounded max-w-full logo-login-admin-password shadow-lg"
+            onChange={
+              (e)=>{
+                password(e.target.value);
+              }
+            }
+          required />
           <div className="flex m-2">
             <Checkbox className="text-base text-white"
               onChange={
@@ -44,6 +65,12 @@ function LoginAdmin() {
         <p className="text-white m-1">สลับไปหน้าโปรแกรม</p>
         <Link className="hover:text-blue-700 hover:underline text-white m-1 flex items-center" to="/LoginStaff"><img src="./img-login/logo-4.svg" className="w-6 m-1" />Staff</Link>
       </div>
+      <div className="max-width-login text-center bg-white p-1">
+        <p>บัญชีที่สามารถทดสอบการ Login เข้าสู่ระบบของ Administrator คือ</p>
+        <p>username : admin</p>
+        <p>password : adminadmin</p>
+        <p>email : admin@mail.com</p>
+      </div>
       <Modal
         title={
         <div className="font-prompt font-semibold tracking-wider w-full text-center text-2xl">
@@ -58,8 +85,12 @@ function LoginAdmin() {
               <button className="font-prompt bg-blue-600 hover:bg-blue-700 w-1/2 text-white py-2 text-base rounded shadow-lg"
               onClick={
                 ()=>{
-                  stateModalForgot(false);
-                  sendEmailComplete(true);
+                  if(email===dataSet.email){
+                    stateModalForgot(false);
+                    sendEmailComplete(true);
+                  }
+                  else console.log("ไม่พบบัญชีนี้ในฐานข้อมูล");
+
                 }
               }>Send</button>
             </div>
@@ -86,11 +117,18 @@ function LoginAdmin() {
         onCancel={()=>sendEmailComplete(false)}
         footer={
             <div className="font-prompt flex justify-center items-center">
-              <button className="font-prompt bg-blue-600 hover:bg-blue-700 w-1/3 text-white py-2 text-base rounded shadow-lg" onClick={()=>{sendEmailComplete(false)}}>Send</button>
+              <button className="font-prompt bg-blue-600 hover:bg-blue-700 w-1/3 text-white py-2 text-base rounded shadow-lg"
+              onClick={
+                ()=>{
+                  emailForgot("");
+                  sendEmailComplete(false)
+                }
+              }
+              >Ok</button>
             </div>
         }
       >
-        <div className="font-prompt text-base items-center flex">
+        <div className="font-prompt text-base items-center flex text-center">
           <img src="./img-login/logo-6.svg"className="p-1"/>
           <p className="p-1">ระบบได้ส่ง username และ password ไปยังอีเมล {email} เป็นที่เรียบร้อยแล้ว</p>
         </div>
