@@ -14,6 +14,13 @@
   background-size: cover;
 }
 
+.bg-room{
+  background-image: url("./bg-img/roomBG.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .max-width-login{
   max-width: 400px;
 }
