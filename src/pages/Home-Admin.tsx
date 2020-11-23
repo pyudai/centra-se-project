@@ -8,7 +8,7 @@ function HomeA() {
       <title>Home | Centra Resort</title>
       <BeforeNav/>
       <div className="sticky top-0 z-50"><Navbar/></div> 
-      <div className="flex h-148">
+      <div className="flex h-152">
         <div className="justify-center align-middle text-center items-center h-full bg-gray-600 w-1/3 mx-16 space-y-1 py-16">
           <div className="text-3xl">Welcome</div>
           <div><img src="/pic/HomeAdmin.svg" alt=""/></div>
