@@ -17,7 +17,7 @@ function BeforeNav() {
         </div>
       </div>
 
-      <div className="text-lg flex flex-col items-end">
+      <div className="text-base flex flex-col items-end">
         <div className="items-center flex">
           <div className="mx-3 text-gray-800">Jitlada Thiptinnakorn</div>
           <img src="/beforeNav/avatar.svg" alt="avatar" className="h-10"/>

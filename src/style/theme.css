@@ -14,6 +14,14 @@
   background-size: cover;
 }
 
+.bg-home{
+  background-image: url("./bg-img/bg-home.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 .bg-room{
   background-image: url("./bg-img/roomBG.png");
   background-position: center;
