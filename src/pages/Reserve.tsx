@@ -1,5 +1,5 @@
 import React, { useContext }  from "react";
-import Navbar from "../navbar";
+import Navs from "../navbar-staff";
 import BNav from "../BNav-staff";
 import "../style/output.css";
 import PopUp from "../popupReserveFood";
@@ -9,11 +9,11 @@ import { CheckinContext } from "../data/CheckinContext";
 function Reserve() {
 
   const { reserveList  } = useContext(CheckinContext);
-  console.log(reserveList)
+  //console.log(reserveList)
   return (
     <div className="bg-white">
       <BNav />
-      <Navbar />
+      <Navs />
       <div className="flex flex-col items-center ">
         <div className="bg-inside shadow-md rounded px-8 pt-6 pb-8 mb-2 flex flex-col my-2 w-4/5">
           <div className="ml-24 inline-flex mb-4">
@@ -150,7 +150,7 @@ function Reserve() {
               <input
                 className=" w-24 text-center shadow-md bg-gray-500 text-black border rounded-lg py-3 px-4 mb-3"
                 type="text"
-                value="2000"
+                value= ""
                 readOnly
               />
             </div>
