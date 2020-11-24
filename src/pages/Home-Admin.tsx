@@ -21,7 +21,7 @@ function HomeA() {
           <div className="shadow-lg object-cover flex flex-col items-center justify-center rounded" style={{ width: "600px", height: "350px" }}>
             <div className="flex items-center p-5">
               <img src="/pic/Vector.png" style={{ width: "35px" }} className="m-1" />
-              <p className="m-1 text-xl font-semibold">ข้อมูล Staff</p>
+              <p className="m-1 text-xl font-semibold">ข้อมูล Administrator</p>
             </div>
             <div className="flex">
               <div>

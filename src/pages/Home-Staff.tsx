@@ -22,7 +22,7 @@ function HomeS() {
           <div className="shadow-lg object-cover flex flex-col items-center justify-center rounded" style={{ width: "600px", height: "350px" }}>
             <div className="flex items-center p-5">
               <img src="/pic/Vector2.png" style={{ width: "55px" }} className="m-1" />
-              <p className="m-1 text-xl font-semibold">ข้อมูล Administrator</p>
+              <p className="m-1 text-xl font-semibold">ข้อมูล Staff</p>
             </div>
             <div className="flex">
               <div>
