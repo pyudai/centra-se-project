@@ -2,13 +2,14 @@ import React, { useContext }  from "react";
 import Navs from "../navbar-staff";
 import BNav from "../BNav-staff";
 import "../style/output.css";
-import PopUp from "../popupReserveFood";
 import PopUpRoom from "../popupReserveroom";
+import PopUpFood from "../popupReserveFood";
 import { CheckinContext } from "../data/CheckinContext";
 
 function Reserve() {
 
-  const { reserveList  } = useContext(CheckinContext);
+  const { reserveList, foodList, FOODLIST  } = useContext(CheckinContext);
+
   //console.log(reserveList)
   return (
     <div className="bg-white">
@@ -89,7 +90,7 @@ function Reserve() {
             <img src="./img-reserve/room.svg" alt="" />
             <div className=" flex text-2xl font-semibold ml-4 mt-6">
               <p> ห้องพัก</p>
-              <div className="ml-3 mt-2"><PopUp /></div>
+              <div className="ml-3 mt-2"><PopUpRoom /></div>
             </div>
           </div>
 
@@ -142,17 +143,12 @@ function Reserve() {
                 <div>
                   ราคาห้องพักทั้งหมด
                   <br />
-                  <div className="ml-20">(ทุกคืน)</div>{/*แก้ format ด้วย*/}
+                  <div className="ml-20">(ทุกคืน)</div>
                 </div>
               </div>
             </div>
             <div className="mr-3">
-              <input
-                className=" w-24 text-center shadow-md bg-gray-500 text-black border rounded-lg py-3 px-4 mb-3"
-                type="text"
-                value= ""
-                readOnly
-              />
+            {reserveList.reduce((total,item) =>  total = total + item.price , 0 )}
             </div>
             <div className="mr-10 my-4">
               <p>บาท</p>
@@ -163,7 +159,7 @@ function Reserve() {
             <img src="./img-reserve/food.svg" alt="" />
             <div className="flex text-2xl font-semibold ml-4 mt-6">
               <p> อาหาร </p>
-              <div className="ml-3 mt-2 "><PopUpRoom /></div>
+              <div className="ml-3 mt-2 "><PopUpFood /></div>
             </div>
           </div>
 
@@ -178,12 +174,18 @@ function Reserve() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td className=" px-20 py-2">24/9/2563</td>
-                  <td className=" px-20 py-2">Mushroom Omelette</td>
-                  <td className=" px-20 py-2">1</td>
-                  <td className=" px-20 py-2">100</td>
-                </tr>
+              {foodList.map((r, index) => {
+               
+                        return (
+                          <tr key={index}>
+                             <td className="pl-8">24/9/2563</td>
+                            <td className="pl-8">{FOODLIST[r.name].name}</td>
+                            <td className="text-center">{r.amount}</td>
+                            <td className="text-center">{r.price*r.amount}</td>
+                          
+                          </tr>
+                        );
+                      })}
               </tbody>
             </table>
           </div>
@@ -193,13 +195,7 @@ function Reserve() {
               <p>ราคาอาหารทั้งหมด</p>
             </div>
             <div className="mr-3">
-              <input
-                className=" w-24 text-center shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
-                id="reserve_total"
-                type="text"
-                value="100"
-                readOnly
-              />
+            {foodList.reduce((total, item) =>  total + (item.price*item.amount), 0)}
             </div>
             <div className="mr-10 my-4">
               <p>บาท</p>
@@ -222,7 +218,7 @@ function Reserve() {
               <p>ยอดรวมทั้งหมด</p>
             </div>
             <div className="mx-16 text-center">
-              <p>3600</p>
+            {reserveList.reduce((total,item) =>  total = total + item.price , 0 )+foodList.reduce((total, item) =>  total + (item.price*item.amount), 0)}
             </div>
             <div className=" w-24 bg-gray-500 text-left pl-4">
               <p>บาท</p>

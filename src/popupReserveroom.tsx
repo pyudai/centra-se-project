@@ -1,16 +1,17 @@
 import React, { useContext, useState } from "react";
 import { CheckinContext } from "./data/CheckinContext";
 
-const PopUp = () => {
+const PopUpRoom = () => {
   const [showModal, setShowModal] = React.useState(false);
-  const { setFoodList, FOODLIST } = useContext(CheckinContext);
-  const [tmpFood, setTmpFood] = useState<any[]>([]);
+  const { setReserveList, ROOMLIST } = useContext(CheckinContext);
+  const [tmpReserve, setTmpReserve] = useState<any[]>([]);
+  
+   const getTotalCosts = () => {
+      return tmpReserve.reduce((total, item) => {
+        return total + Number(item.price);
+      }, 0);
+    };
 
-  const getTotalCosts = () => {
-    return tmpFood.reduce((total, item) => {
-      return total + Number(item.price);
-    }, 0);
-  };
 
   return (
     <>
@@ -33,49 +34,37 @@ const PopUp = () => {
                   <table className="table-auto ">
                     <thead>
                       <tr>
-                        <th className="text-center px-4 py-2">วัน/เดือน/ปี</th>
-                        <th className="text-center px-4 py-2">ชื่ออาหาร</th>
-                        <th className="text-center px-4 py-2">จำนวน</th>
+                        <th className="text-center px-4 py-2">เลขห้องพัก</th>
+                        <th className="text-center px-4 py-2">ชื่อห้องพัก</th>
                         <th className="text-center px-4 py-2">ราคารวม (บาท)</th>
-                        
                         <th></th>
                       </tr>
                     </thead>
                     <tbody>
-                      {tmpFood.map((r, index) => {
+                      {tmpReserve.map((r, index) => {
                         return (
                           <tr key={index}>
                             <td>
-                              <div>
-                                <input
-                                  className=" w-3/5 shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
-                                  type="text"
-                                  value="17/9/2563"
-                                  readOnly
-                                />
-                              </div>
-                            </td>
-                            <td>
-                            <select
-                                value={tmpFood[index].name}
+                              <select
+                                value={tmpReserve[index].No}
                                 onChange={(e) => {
-                                  const newTmp = tmpFood;
+                                  const newTmp = tmpReserve;
                                   const selected = e.target.value;
                                   newTmp[index] = {
-                                    name: selected,
-                                    
-                                    price: FOODLIST[selected].price,
+                                    No: selected,
+                                    name: ROOMLIST[selected].name,
+                                    price: ROOMLIST[selected].price,
                                   };
-                                  setTmpFood([...newTmp]);
+                                  setTmpReserve([...newTmp]);
                                 }}
                               >
-                                {r.name}
-                                {Object.keys(FOODLIST)
+                                {r.No}
+                                {Object.keys(ROOMLIST)
                                   .filter(
                                     (key) =>
-                                      !tmpFood
-                                        .map((t) => t.name)
-                                        .includes(key) || key === r.name
+                                      !tmpReserve
+                                        .map((t) => t.No)
+                                        .includes(key) || key === r.No
                                   )
                                   .map((key) => (
                                     <option key={key} value={key}>
@@ -84,22 +73,13 @@ const PopUp = () => {
                                   ))}
                               </select>
                             </td>
-                            <td>
-                              <div>
-                                <input
-                                  className=" w-3/5 shadow-md text-black border rounded py-3 px-4 mb-3"
-                                  type="number"
-                                  
-                                />
-                              </div>
-                            </td>
+                            <td>{r.name}</td>
                             <td>{r.price}</td>
-                            
                             <td>
-                            <button
+                              <button
                                 onClick={() => {
-                                  setTmpFood(
-                                    [...tmpFood].filter(
+                                  setTmpReserve(
+                                    [...tmpReserve].filter(
                                       (d, i) => i !== index
                                     )
                                   );
@@ -114,18 +94,19 @@ const PopUp = () => {
                     </tbody>
                   </table>
                 </div>
-                {tmpFood.length < 3 && (
+                {tmpReserve.length < 4 && (
                   <button
                     onClick={() => {
-                      if (tmpFood.length >= 3) return;
-                      const avail = Object.keys(FOODLIST).filter(
-                        (key) => !tmpFood.map((t) => t.name).includes(key)
+                      if (tmpReserve.length >= 4) return;
+                      const avail = Object.keys(ROOMLIST).filter(
+                        (key) => !tmpReserve.map((t) => t.No).includes(key)
                       )[0];
-                      setTmpFood([
-                        ...tmpFood,
+                      setTmpReserve([
+                        ...tmpReserve,
                         {
-                          name: avail,
-                          price: FOODLIST[avail].price,
+                          No: avail,
+                          name: ROOMLIST[avail].name,
+                          price: ROOMLIST[avail].price,
                         },
                       ]);
                     }}
@@ -138,7 +119,9 @@ const PopUp = () => {
                   <div className=" bg-gray-500 w-3/4 text-right pr-4">
                     <p>ยอดรวมทั้งหมด</p>
                   </div>
-                  <div className="mx-16 text-center">{getTotalCosts()}</div>
+                  <div className="mx-16 text-center">
+                  {getTotalCosts()}                   
+                  </div>
                   <div className=" w-24 bg-gray-500 text-left pl-4">
                     <p>บาท</p>
                   </div>
@@ -158,7 +141,7 @@ const PopUp = () => {
                     type="button"
                     style={{ transition: "all .15s ease" }}
                     onClick={() => {
-                      setFoodList(tmpFood);
+                      setReserveList(tmpReserve);
                       setShowModal(false);
                       getTotalCosts();
                     }}
@@ -175,4 +158,4 @@ const PopUp = () => {
     </>
   );
 };
-export default PopUp;
+export default PopUpRoom;

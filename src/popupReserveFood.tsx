@@ -1,16 +1,14 @@
 import React, { useContext, useState } from "react";
 import { CheckinContext } from "./data/CheckinContext";
 
-const PopUp = () => {
+const PopUpFood = () => {
   const [showModal, setShowModal] = React.useState(false);
-  const { setReserveList, ROOMLIST } = useContext(CheckinContext);
-  const [tmpReserve, setTmpReserve] = useState<any[]>([]);
-  
-   const getTotalCosts = () => {
-      return tmpReserve.reduce((total, item) => {
-        return total + Number(item.price);
-      }, 0);
-    };
+  const { setFoodList, FOODLIST } = useContext(CheckinContext);
+  const [tmpFood, setTmpFood] = useState<any[]>([]);
+
+  const getTotalCosts = () => {
+    return tmpFood.reduce((total, item) =>  total + (item.price*item.amount), 0);
+  };
 
 
   return (
@@ -34,52 +32,81 @@ const PopUp = () => {
                   <table className="table-auto ">
                     <thead>
                       <tr>
-                        <th className="text-center px-4 py-2">เลขห้องพัก</th>
-                        <th className="text-center px-4 py-2">ชื่อห้องพัก</th>
+                        <th className="text-center px-4 py-2">วัน/เดือน/ปี</th>
+                        <th className="text-center px-4 py-2">ชื่ออาหาร</th>
+                        <th className="text-center px-4 py-2">จำนวน</th>
                         <th className="text-center px-4 py-2">ราคารวม (บาท)</th>
+                        
                         <th></th>
                       </tr>
                     </thead>
                     <tbody>
-                      {tmpReserve.map((r, index) => {
+                      {tmpFood.map((r, index) => {
                         return (
                           <tr key={index}>
                             <td>
-                              <select
-                                value={tmpReserve[index].No}
+                              <div>
+                                <input
+                                  className=" w-3/5 shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
+                                  type="text"
+                                  value="17/9/2563"
+                                  readOnly
+                                />
+                              </div>
+                            </td>
+                            <td>
+                            <select
+                                value={tmpFood[index].name}
                                 onChange={(e) => {
-                                  const newTmp = tmpReserve;
+                                  const newTmp = tmpFood;
                                   const selected = e.target.value;
                                   newTmp[index] = {
-                                    No: selected,
-                                    name: ROOMLIST[selected].name,
-                                    price: ROOMLIST[selected].price,
+                                    name: selected,
+                                    amount: tmpFood[index].amount,
+                                    price: FOODLIST[selected].price,
                                   };
-                                  setTmpReserve([...newTmp]);
+                                  setTmpFood([...newTmp]);
                                 }}
                               >
-                                {r.No}
-                                {Object.keys(ROOMLIST)
+                                {r.name}
+                                {Object.keys(FOODLIST)
                                   .filter(
                                     (key) =>
-                                      !tmpReserve
-                                        .map((t) => t.No)
-                                        .includes(key) || key === r.No
+                                      !tmpFood
+                                        .map((t) => t.name)
+                                        .includes(key) || key === r.name
                                   )
                                   .map((key) => (
                                     <option key={key} value={key}>
-                                      {key}
+                                      {FOODLIST[key].name}
                                     </option>
                                   ))}
                               </select>
                             </td>
-                            <td>{r.name}</td>
-                            <td>{r.price}</td>
                             <td>
-                              <button
+                              <div>
+                                <input
+                                  className=" w-3/5 shadow-md text-black border rounded py-3 px-4 mb-3"
+                                  type="number"
+                                  value={tmpFood[index].amount}
+                                  onChange={
+                                    (e) => {
+                                      const newTmp = tmpFood;
+                                      newTmp[index].amount = e.target.value
+                                      setTmpFood([...newTmp]);
+                                    }
+                                  }
+                                />
+                              </div>
+                            </td>
+                            <td>
+                              {r.price*r.amount}
+                            </td>
+                            <td>
+                            <button
                                 onClick={() => {
-                                  setTmpReserve(
-                                    [...tmpReserve].filter(
+                                  setTmpFood(
+                                    [...tmpFood].filter(
                                       (d, i) => i !== index
                                     )
                                   );
@@ -94,19 +121,19 @@ const PopUp = () => {
                     </tbody>
                   </table>
                 </div>
-                {tmpReserve.length < 4 && (
+                {tmpFood.length < 3 && (
                   <button
                     onClick={() => {
-                      if (tmpReserve.length >= 4) return;
-                      const avail = Object.keys(ROOMLIST).filter(
-                        (key) => !tmpReserve.map((t) => t.No).includes(key)
+                      if (tmpFood.length >= 3) return;
+                      const avail = Object.keys(FOODLIST).filter(
+                        (key) => !tmpFood.map((t) => t.name).includes(key)
                       )[0];
-                      setTmpReserve([
-                        ...tmpReserve,
+                      setTmpFood([
+                        ...tmpFood,
                         {
-                          No: avail,
-                          name: ROOMLIST[avail].name,
-                          price: ROOMLIST[avail].price,
+                          name: avail,
+                          amount: 1,
+                          price: FOODLIST[avail].price,
                         },
                       ]);
                     }}
@@ -119,9 +146,7 @@ const PopUp = () => {
                   <div className=" bg-gray-500 w-3/4 text-right pr-4">
                     <p>ยอดรวมทั้งหมด</p>
                   </div>
-                  <div className="mx-16 text-center">
-                  {getTotalCosts()}                   
-                  </div>
+                  <div className="mx-16 text-center">{getTotalCosts()}</div>
                   <div className=" w-24 bg-gray-500 text-left pl-4">
                     <p>บาท</p>
                   </div>
@@ -141,7 +166,7 @@ const PopUp = () => {
                     type="button"
                     style={{ transition: "all .15s ease" }}
                     onClick={() => {
-                      setReserveList(tmpReserve);
+                      setFoodList(tmpFood);
                       setShowModal(false);
                       getTotalCosts();
                     }}
@@ -158,4 +183,6 @@ const PopUp = () => {
     </>
   );
 };
-export default PopUp;
+export default PopUpFood;
+
+
