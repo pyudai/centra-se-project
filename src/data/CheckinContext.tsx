@@ -35,10 +35,32 @@ export const CheckinContext = createContext<any>({});
         },
       }
 
+      const [foodList, setFoodList] = useState([
+        { name: "Mushroom Omlette", price: "100"},
+        { name: "American Breakfast1", price: "100"},
+        { name: "American Breakfast2", price: "100"},
+      ])
+
+
+      const FOODLIST = {
+        MushroomOmlette: {
+          //name: "Mushroom Omlette",
+          price: 100
+        },
+        AmericanBreakfast1: {
+          //name: "American Breakfast 1",
+          price: 100
+        },
+        AmericanBreakfast2: {
+          //name: "American Breakfast 2",
+          price: 100
+        },
+      }
+
       
 
       return (
-        <CheckinContext.Provider value={{info, setInfo, reserveList, setReserveList, ROOMLIST}}>
+        <CheckinContext.Provider value={{info, setInfo, reserveList, setReserveList, ROOMLIST, foodList, setFoodList, FOODLIST}}>
             {children}
         </CheckinContext.Provider>
     );

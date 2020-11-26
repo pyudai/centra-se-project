@@ -11,7 +11,7 @@ const PopUp = () => {
         return total + Number(item.price);
       }, 0);
     };
-  
+
 
   return (
     <>

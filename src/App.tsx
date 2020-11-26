@@ -10,6 +10,8 @@ import Food from './pages/Food';
 import Checkin from "./pages/Checkin";
 import CheckinProvider from './data/CheckinContext';
 import ChooseLogin from './pages/ChooseLogin';
+import HomeA from './pages/Home-Admin';
+import HomeS from './pages/Home-Staff';
 
 function App() {
   return (
@@ -23,7 +25,9 @@ function App() {
           <Route exact path="/LoginAdmin" component={LoginAdmin} />
           <Route exact path="/LoginStaff" component={LoginStaff} />
           <Route exact path="/Room" component={Room} />
-          <Route exact path="/checkin" component={Checkin} />
+          <Route exact path="/Checkin" component={Checkin} />
+          <Route exact path="/HomeAdmin" component={HomeA}/>
+          <Route exact path="/HomeStaff" component={HomeS}/>
           <Route path="/" component={ChooseLogin} />
         </Switch>
           </CheckinProvider>

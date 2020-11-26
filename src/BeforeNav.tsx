@@ -1,8 +1,10 @@
+import { message } from 'antd';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function BeforeNav() {
   return (
-    <div className="bg-blue flex justify-between items-center p-6 px-16 shadow">
+    <div className="bg-blue flex justify-between items-center p-2 px-16 shadow">
       <div className="flex items-center">
         <div className="flex items-center">
           <img src="/beforeNav/logo.png" alt="logo" className="h-20"/>
@@ -20,10 +22,16 @@ function BeforeNav() {
           <div className="mx-3 text-gray-800">Jitlada Thiptinnakorn</div>
           <img src="/beforeNav/avatar.svg" alt="avatar" className="h-10"/>
         </div>
-        <div className="items-center flex">
-          <p className="text-gray-800 font-semibold underline">แก้ไขข้อมูล</p>
-          <div className="px-3 self-stretch"><div className="h-full border-l-2 border-black"/></div>
-          <p className="text-red-600 font-semibold underline">Logout</p>
+        <div className="items-center flex h-8">
+          <div className="text-gray-800 font-semibold underline">แก้ไขข้อมูล</div>
+          <div className="px-3 self-stretch"><div className="h-full border-l-2 border-gray-900"/></div>
+          <Link className="text-red-600 font-semibold underline" to="/LoginAdmin"
+            onClick={
+              ()=>{
+                message.info('ออกจากระบบสำเร็จ');
+              }
+            }
+          >Logout</Link>
         </div>
       </div>
     </div>

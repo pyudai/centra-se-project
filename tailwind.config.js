@@ -18,6 +18,12 @@ module.exports = {
           '128': '32rem',
           '80': '20rem',
         },
+        height: {
+          '96': '24rem',
+          '128': '32rem',
+          '80': '20rem',
+          '152': '38rem'
+        },
         /*fontSize: {
           'title': '.75rem',
           'sm': '.875rem',

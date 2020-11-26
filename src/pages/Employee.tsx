@@ -54,6 +54,7 @@ function Employee() {
           
           <div className="md:flex mb-4 m-6">
             <div className="w-full mr-6 mb-6 md:mb-0">
+              {/* มองไม่ออกว่าให้ใส่วันเกิดอะ */}
               <input className="block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 shadow-lg"type="date" />  
             </div>
             
