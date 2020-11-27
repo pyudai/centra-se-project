@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Modal() {
+export default function SuccessfullyAdded() {
   const [showModal, setShowModal] = React.useState(false);
   return (
     <>
@@ -23,7 +23,7 @@ export default function Modal() {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*body*/}
                 <div className="p-12 flex flex-col w-full items-center justify-center">
-                  <img src="pic/image 23.png" alt="check" className="h-20 w-20 m-10 "/>
+                  <img src="/pic/image_23.png" alt="check" className="h-20 w-20 m-10 "/>
                   <h3 className="text-3xl font-semibold font-prompt flex-auto">
                     เพิ่มอาหารสำเร็จ
                   </h3>

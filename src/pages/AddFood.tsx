@@ -1,7 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import '../style/output.css'
-import Modal from '../popupfood';
+import SuccessfullyAdded from '../popupFood';
 import Navbar from '../navbar-admin';
 import BeforeNav from '../BeforeNav-admin';
 import { PlusCircleOutlined } from "@ant-design/icons";
@@ -22,7 +22,7 @@ function AddFood() {
             <img src="pic/cutlery_2.png" alt="fork" className="w-12 h-12 mx-3" />
             <p className="font-prompt text-4xl font-bold">เพิ่มเมนู</p>
 
-            <div className="h-full border-2 border-gray-200 rounded-lg -mx-40 flex flex-row my-24 flex flex-col p-32 shadow-lg "
+            <div className="h-full border-2 border-gray-200 rounded-lg -mx-40 flex flex-col my-24 p-32 shadow-lg "
               style={{ width: "350px" }}
             >
               <div className="inline-flex">
@@ -60,7 +60,7 @@ function AddFood() {
 
             <div className="flex justify-between">
               <button className="bg-nav text-white active:bg-nav font-bold text-sm px-16 py-3 rounded shadow hover:bg-blue-500 outline-none focus:outline-none mb-1">Back</button>
-              <Modal />
+              <SuccessfullyAdded />
             </div>
           </div>
         </div >
