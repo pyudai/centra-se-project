@@ -1,8 +1,8 @@
 import React, { useContext }  from "react";
-import Navs from "../navbar-staff";
-import BNav from "../BNav-staff";
+import Navbar from "../navbar-staff";
+import BeforeNav from "../BeforeNav-staff";
 import "../style/output.css";
-import PopUpRoom from "../popupReserveroom";
+import PopUpRoom from "../popupReserveRoom";
 import PopUpFood from "../popupReserveFood";
 import { CheckinContext } from "../data/CheckinContext";
 
@@ -13,8 +13,8 @@ function Reserve() {
   //console.log(reserveList)
   return (
     <div className="bg-white">
-      <BNav />
-      <Navs />
+      <BeforeNav />
+      <div className="sticky top-0 z-50"><Navbar/></div>
       <div className="flex flex-col items-center ">
         <div className="bg-inside shadow-md rounded px-8 pt-6 pb-8 mb-2 flex flex-col my-2 w-4/5">
           <div className="ml-24 inline-flex mb-4">

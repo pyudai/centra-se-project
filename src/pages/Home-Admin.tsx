@@ -1,6 +1,6 @@
 import React from 'react';
-import BeforeNav from '../BeforeNav';
-import Navbar from '../navbar';
+import BeforeNav from '../BeforeNav-admin';
+import Navbar from '../navbar-admin';
 import "../style/theme.css";
 
 function HomeA() {

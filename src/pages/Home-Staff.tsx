@@ -1,6 +1,6 @@
 import React from 'react';
-import BNav from '../BNav-staff';
-import NavS from '../navbar-staff';
+import BeforeNav from '../BeforeNav-staff';
+import Navbar from '../navbar-staff';
 import "../style/theme.css";
 
 
@@ -8,8 +8,8 @@ function HomeS() {
   return (
     <div>
       <title>Home | Centra Resort</title>
-      <BNav/>
-      <div className="sticky top-0 z-50"><NavS/></div>
+      <BeforeNav/>
+      <div className="sticky top-0 z-50"><Navbar/></div>
       <div className="flex justify-center" style={{ height: "calc(100vh - 168px)" }}>
         <div className="mr-10 bg-home w-1/3 text-center text-white object-cover flex flex-col items-center justify-center">
           <div className="text-3xl">Welcome</div>

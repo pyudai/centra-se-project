@@ -2,7 +2,7 @@ import { message } from 'antd';
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-function BNav() {
+function BeforeNav() {
   return (
     <div className="bg-blue flex justify-between items-center p-2 px-16 shadow">
       <div className="flex items-center">
@@ -35,4 +35,4 @@ function BNav() {
   );
 }
 
-export default BNav;
+export default BeforeNav;

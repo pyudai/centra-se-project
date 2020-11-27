@@ -1,6 +1,6 @@
 import React,{useContext} from 'react';
-import BNav from '../BNav-staff';
-import NavS from '../navbar-staff';
+import BeforeNav from '../BeforeNav-staff';
+import Navbar from '../navbar-staff';
 import {Link} from 'react-router-dom';
 import { CheckinContext } from '../data/CheckinContext';
 
@@ -8,9 +8,9 @@ function Checkin() {
   const {info, setInfo} = useContext(CheckinContext);
   return (
     <div className="">
-      <title>Check in</title> 
-      <BNav/>
-      <div className="sticky top-0"><NavS/></div>
+      <title>Check In | Centra Resort</title> 
+      <BeforeNav/>
+      <div className="sticky top-0"><Navbar/></div>
       <div className="flex flex-col items-center ">
         <div className="bg-inside shadow-md rounded-lg px-8 pt-6 pb-8 mb-2 flex flex-col my-2 w-4/5">
           <div className="ml-24 inline-flex mb-4">

@@ -2,17 +2,18 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import '../style/output.css'
 import Modal from '../popupfood';
-import Navbar from '../navbar';
-import BeforeNav from '../BeforeNav';
+import Navbar from '../navbar-admin';
+import BeforeNav from '../BeforeNav-admin';
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Form,Upload } from "antd";
 
 
-function Food() {
+function AddFood() {
   return (
     <div>
+      <title>Add Food | Centra Resort</title> 
       <BeforeNav />
-      <Navbar />
+      <div className="sticky top-0 z-50"><Navbar/></div>
       <div className="flex flex-col items-center">
         <div className="h-full border-2 border-gray-200 rounded-lg p-12 my-20 shadow-lg"
           style={{ width: "1000px" }}>
@@ -68,4 +69,4 @@ function Food() {
 
 }
 
-export default Food;
+export default AddFood;

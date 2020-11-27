@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function NavS() {
+function Navbar() {
   return (
     <div className="bg-nav flex justify-between items-center p-4 shadow sticky top-0">
       <div className="item-center flex ml-10 text-lg items-baseline space-x-16">
@@ -17,4 +17,4 @@ function NavS() {
   );
 }
 
-export default NavS;
+export default Navbar;

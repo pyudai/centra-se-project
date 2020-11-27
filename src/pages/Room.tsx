@@ -1,7 +1,7 @@
 import React,{useContext, useState} from 'react';
-import BNav from '../BNav-staff';
-import NavS from '../navbar-staff';
-import Checkout from '../popup-checkout';
+import BeforeNav from '../BeforeNav-staff';
+import Navbar from '../navbar-staff';
+import Checkout from '../popupCheckout';
 import {Link} from 'react-router-dom';
 import { CheckinContext } from '../data/CheckinContext';
 import { Checkbox, Popover } from 'antd';
@@ -33,8 +33,8 @@ function Room() {
   return (
     <div className="">
       <title>สถานะห้องพัก</title> 
-      <BNav/>
-      <div className="sticky top-0 z-50"><NavS/></div>
+      <BeforeNav/>
+      <div className="sticky top-0 z-50"><Navbar/></div>
 
       <div className="pt-8 pb-12 relative shadow flex items-center justify-center bg-room">
         <div className="flex absolute bottom-0 items-center shadow border border-gray-300 rounded-lg w-1/3 h-12 pl-5 pr-4 py-3 bg-white text-lg"

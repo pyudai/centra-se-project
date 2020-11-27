@@ -1,6 +1,6 @@
 import React from 'react';
-import BeforeNav from '../BeforeNav';
-import Navbar from '../navbar';
+import BeforeNav from '../BeforeNav-admin';
+import Navbar from '../navbar-admin';
 import Modal from '../popup';
 import Phone from '../phone'
 import Citizen from '../citizen';
@@ -10,7 +10,7 @@ function Employee() {
     <div className="bg-admin">
       <title>Add Employee | Centra Resort</title>
       <BeforeNav/>
-      <Navbar/> 
+      <div className="sticky top-0 z-50"><Navbar/></div>
       <div className="flex flex-col items-center justify-center">
         <div className="bg-inside shadow-2xl rounded px-8 pt-6 flex flex-col my-10 ">
           <div className="flex flex-row  justify-center pt-4">
