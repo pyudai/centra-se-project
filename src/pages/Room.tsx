@@ -32,7 +32,7 @@ function Room() {
 
   return (
     <div className="">
-      <title>สถานะห้องพัก</title> 
+      <title>สถานะห้องพัก | Centra Resort</title> 
       <BeforeNav/>
       <div className="sticky top-0 z-50"><Navbar/></div>
 

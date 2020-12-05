@@ -2,7 +2,7 @@ import React, { useContext }  from "react";
 import Navbar from "../navbar-staff";
 import BeforeNav from "../BeforeNav-staff";
 import "../style/output.css";
-import PopUpRoom from "../popupReserveroom";
+import PopUpRoom from "../popupReserveRoom";
 import PopUpFood from "../popupReserveFood";
 import { CheckinContext } from "../data/CheckinContext";
 

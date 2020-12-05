@@ -1,7 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import '../style/output.css'
-import SuccessfullyAdded from '../popupfood';
+import SuccessfullyAdded from '../popupFood';
 import Navbar from '../navbar-admin';
 import BeforeNav from '../BeforeNav-admin';
 import { PlusCircleOutlined } from "@ant-design/icons";
