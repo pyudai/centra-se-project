@@ -1,70 +1,59 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import '../style/output.css'
-import SuccessfullyAdded from '../popupFood';
+import SuccessfullyAdded from '../popupfood';
 import Navbar from '../navbar-admin';
 import BeforeNav from '../BeforeNav-admin';
 import { PlusCircleOutlined } from "@ant-design/icons";
-import { Form,Upload } from "antd";
-
+import { Form, Upload } from "antd";
 
 function AddFood() {
+  let dataSet = {
+    idFood : "0010020031"
+  }
   return (
     <div>
-      <title>Add Food | Centra Resort</title> 
+      <title>Add Food | Centra Resort</title>
       <BeforeNav />
-      <div className="sticky top-0 z-50"><Navbar/></div>
-      <div className="flex flex-col items-center">
-        <div className="h-full border-2 border-gray-200 rounded-lg p-12 my-20 shadow-lg"
-          style={{ width: "1000px" }}>
-
-          <div className="flex text-lg ">
-            <img src="pic/cutlery_2.png" alt="fork" className="w-12 h-12 mx-3" />
-            <p className="font-prompt text-4xl font-bold">เพิ่มเมนู</p>
-
-            <div className="h-full border-2 border-gray-200 rounded-lg -mx-40 flex flex-col my-24 p-32 shadow-lg "
-              style={{ width: "350px" }}
-            >
-              <div className="inline-flex">
-                <Form>
-                  <Form.Item>
-                    <Upload showUploadList listType="picture-card">
-                      <div className="object-none object-center">
-                        <PlusCircleOutlined style={{ fontSize: '64px' }} />
-                        <div className="font-prompt " style={{ marginTop: 24 }}>เพิ่มรูปภาพ</div>
-                      </div>
-                    </Upload>
-                  </Form.Item>
-                </Form>
-              </div>
+      <div className="sticky top-0 z-50"><Navbar /></div>
+      <div className="w-full flex flex-col items-center justify-center ">
+        <div className="m-10 p-5 shadow-lg rounded-lg bg-gray-100" style={{ width: "800px" }}>
+          <div className="flex items-center p-5">
+            <img src="pic/cutlery_2.png" alt="fork" style={{ width: "30px" }} className="m-1" />
+            <p className="m-1 text-xl font-semibold">เพิ่มเมนู</p>
+          </div>
+          <div className="flex">
+            <div className="w-1/2 flex flex-col items-center justify-center">
+              <Form>
+                <Form.Item>
+                  <Upload showUploadList listType="picture-card">
+                    <div className="object-none object-center">
+                      <PlusCircleOutlined style={{ fontSize: '64px' }} />
+                      <div className="font-prompt " >เพิ่มรูปภาพ</div>
+                    </div>
+                  </Upload>
+                </Form.Item>
+              </Form>
             </div>
-            <div className="flex mx-auto my-24 flex-col">
-              <p className="font-prompt">ชื่อเมนู</p>
-              <input type="text" name="name" className="w-full bg-gray-100 my-4 flex flex-col rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out font-prompt shadow-lg" />
-              <p className="font-prompt ">รหัสอาหาร</p>
-              <input type="number"
-                onChange={(number) => {
-                  number.target.value = number.target.value.slice(0, 10);
+            <div className="w-1/2 flex flex-col">
+              <p className="m-1 text-base font-semibold">ชื่อเมนู</p>
+              <input type="text" placeholder="กรอกชื่ออาหาร" className="m-1 text-base p-3 font-prompt shadow-lg" />
+              <p className="m-1 text-base font-semibold">รหัสอาหาร</p>
+              <input type="number" value={dataSet.idFood}
+                onChange={(e) => {
+                  e.target.disabled = true;
                 }}
-                name="name" className="w-64 bg-gray-100 my-4 flex flex-col rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out font-prompt shadow-lg" />
-              <p className="font-prompt ">รายละเอียดอาหาร</p>
-              <input type="text" name="name" className="w-64 bg-gray-100 my-4 flex flex-col rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out font-prompt shadow-lg" />
-              <p className="font-prompt ">ราคา</p>
-              <input type="number"
-                onChange={(number) => {
-                  number.target.value = number.target.value.slice(0, 10);
-                }}
-                   name = "name" className = "w-64 bg-gray-100 my-4 flex flex-col rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out font-prompt shadow-lg" />
+                name="name" className="m-1 text-base p-3 font-prompt shadow-lg bg-gray-400" />
+              <p className="m-1 text-base font-semibold">รายละเอียดอาหาร</p>
+              <textarea className="m-1 text-base p-3 font-prompt shadow-lg" placeholder="กรอกรายละเอียดอาหาร">
+              </textarea>
+              <p className="m-1 text-base font-semibold">ราคา</p>
+              <input type="number" placeholder="กรอกราคา (บาท)" className="m-1 text-base p-3 font-prompt shadow-lg" />
             </div>
           </div>
-
-            <div className="flex justify-between">
-              <button className="bg-nav text-white active:bg-nav font-bold text-sm px-16 py-3 rounded shadow hover:bg-blue-500 outline-none focus:outline-none mb-1">Back</button>
-              <SuccessfullyAdded />
-            </div>
-          </div>
-        </div >
+        </div>
       </div>
+    </div>
   );
 
 }
