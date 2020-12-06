@@ -5,6 +5,7 @@ import Navbar from '../navbar-admin';
 import BeforeNav from '../BeforeNav-admin';
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Form, Upload, Modal ,message } from "antd";
+import {Link} from 'react-router-dom';
 
 function AddFood() {
 
@@ -20,7 +21,7 @@ function AddFood() {
       <BeforeNav />
       <div className="sticky top-0 z-50"><Navbar /></div>
       <div className="w-full flex flex-col items-center justify-center ">
-        <div className="m-10 p-5 shadow-lg rounded-lg bg-gray-100" style={{ width: "800px" }}>
+        <div className="m-10 p-5 shadow-lg rounded-lg bg-white-100" style={{ width: "800px" }}>
           <div className="flex items-center p-5">
             <img src="pic/cutlery_2.png" alt="fork" style={{ width: "30px" }} className="m-1" />
             <p className="m-1 text-xl font-semibold">เพิ่มเมนู</p>
@@ -55,13 +56,9 @@ function AddFood() {
             </div>
           </div>
           <div className="w-full flex items-center justify-between">
-            <button className="m-3 bg-blue-600 hover:bg-blue-700 text-white p-3 text-base rounded w-1/4 shadow-lg"
-              onClick={
-                () => {
-                  // รอมีหน้าย้อนกลับไปดู Food
-                }
-              }
-            >Back</button>
+            <Link className="w-full" to="Food">
+              <button className="m-3 bg-blue-600 hover:bg-blue-700 text-white p-3 text-base rounded w-1/4 shadow-lg">Back</button>
+            </Link>
             <button className="m-3 bg-green-600 hover:bg-green-700 text-white p-3 text-base rounded w-1/4 shadow-lg"
               onClick={
                 () => {
@@ -74,13 +71,14 @@ function AddFood() {
         </div>
       </div>
       {/* Popup สร้างอาหารสำเร็จ */}
-      {/* ต้องแก้ลิงค์ให้ไปที่หน้าหลักของดู Food */}
       <Modal
         visible={state}
-        onCancel={()=>stateComplete(false)}
+        closable={false}
         footer={
           <div className="w-full flex flex-col text-center items-center justify-center">
+            <Link className="w-full" to="Food">
             <button className="font-prompt bg-blue-600 hover:bg-blue-700 w-1/3 text-white py-2 text-base rounded shadow-lg" onClick={()=>stateComplete(false)}>Cancel</button>
+            </Link>
           </div>
         }
       >
