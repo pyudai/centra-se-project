@@ -103,7 +103,7 @@ function AddFood() {
         footer={
           <div className="w-full flex flex-col text-center items-center justify-center">
             <Link className="w-full" to="Food">
-            <button className="font-prompt bg-blue-600 hover:bg-blue-700 w-1/3 text-white py-2 text-base rounded shadow-lg" onClick={()=>stateComplete(false)}>Cancel</button>
+            <button className="font-prompt bg-blue-600 hover:bg-blue-700 w-1/3 text-white py-2 text-base rounded shadow-lg" onClick={()=>stateComplete(false)}>Ok</button>
             </Link>
           </div>
         }
