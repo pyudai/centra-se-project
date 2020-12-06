@@ -49,7 +49,7 @@ const PopUpFood = () => {
                                 <input
                                   className=" w-3/5 shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
                                   type="text"
-                                  value="17/9/2563"
+                                  value="23/9/2020"
                                   readOnly
                                 />
                               </div>

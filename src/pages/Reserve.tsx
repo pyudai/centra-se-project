@@ -28,12 +28,10 @@ function Reserve() {
             <div className="md:w-1/2 px-3 mb-6 md:mb-0">
               <label className="font-semibold">หมายเลขการจอง</label>
               <input
-                className=" w-full shadow-md bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"
+                className=" w-full shadow-md  bg-gray-500 border rounded py-3 px-4 mb-3"
                 type="number"
-                onChange={(e) => {
-                  e.target.value = e.target.value.slice(0, 10);
-                }}
-                placeholder="1000000002"
+                value="1000000002"
+                readOnly
               />
             </div>
 
@@ -80,7 +78,7 @@ function Reserve() {
               <input
                 className=" w-full shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
                 type="text"
-                value="17/9/2563"
+                value="23/9/2020"
                 readOnly
               />
             </div>
@@ -100,7 +98,7 @@ function Reserve() {
               <input
                 className="block w-full shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
                 type="text"
-                value="23/9/2563"
+                value="23/9/2020"
                 readOnly
               />
             </div>
