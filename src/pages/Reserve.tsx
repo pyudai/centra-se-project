@@ -10,7 +10,7 @@ function Reserve() {
 
   const { reserveList, foodList, FOODLIST  } = useContext(CheckinContext);
 
-  //console.log(reserveList)
+  console.log(reserveList)
   return (
     <div className="bg-white">
       <BeforeNav />

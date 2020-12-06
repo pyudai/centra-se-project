@@ -6,16 +6,16 @@ function Navbar() {
     <div className="bg-nav flex justify-between items-center p-4 shadow">
       <div className="item-center flex ml-10 text-lg items-baseline space-x-16">
         <Link to="/HomeAdmin">
-          <a className="text-white menu">หน้าแรก</a>        
+          <div className="text-white menu cursor-pointer">หน้าแรก</div>        
         </Link>
-        <a className="text-white menu">โปรโมชั่น</a>
-        <a className="text-white menu">ลูกค้า</a>
+        <div className="text-white menu cursor-pointer">โปรโมชั่น</div>
+        <div className="text-white menu cursor-pointer">ลูกค้า</div>
         <Link to="/Employee">
-          <a className="text-white menu">พนักงาน</a>
+          <div className="text-white menu cursor-pointer">พนักงาน</div>
         </Link>
-        <a className="text-white menu">ห้องพัก</a>
+        <div className="text-white menu cursor-pointer">ห้องพัก</div>
         <Link to="/Food">
-          <a className="text-white menu">อาหาร</a>
+          <div className="text-white menu cursor-pointer">อาหาร</div>
         </Link>
       </div>
     </div>
