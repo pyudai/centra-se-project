@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import '../style/output.css'
-import SuccessfullyAdded from '../popupfood';
+//import SuccessfullyAdded from '../popupfood';
 import Navbar from '../navbar-admin';
 import BeforeNav from '../BeforeNav-admin';
 import { PlusCircleOutlined } from "@ant-design/icons";
-import { Form, Upload } from "antd";
+import { Form, Upload, Modal ,message } from "antd";
+//import Modal from '../popup';
 
 function AddFood() {
+
+  // Pop-up สำเร็จ
+  const [state, stateComplete] = useState(false);
+
   let dataSet = {
-    idFood : "0010020031"
+    idFood: "0010020031"
   }
   return (
     <div>
@@ -51,8 +56,41 @@ function AddFood() {
               <input type="number" placeholder="กรอกราคา (บาท)" className="m-1 text-base p-3 font-prompt shadow-lg" />
             </div>
           </div>
+          <div className="w-full flex items-center justify-between">
+            <button className="m-3 bg-blue-600 hover:bg-blue-700 text-white p-3 text-base rounded w-1/4 shadow-lg"
+              onClick={
+                () => {
+                  // รอมีหน้าย้อนกลับไปดู Food
+                }
+              }
+            >Back</button>
+            <button className="m-3 bg-green-600 hover:bg-green-700 text-white p-3 text-base rounded w-1/4 shadow-lg"
+              onClick={
+                () => {
+                  message.success('เพิ่มอาหารสำเร็จ');
+                  stateComplete(true);
+                }
+              }
+            >Confirm</button>
+          </div>
         </div>
       </div>
+      {/* Popup สร้างอาหารสำเร็จ */}
+      {/* ต้องแก้ลิงค์ให้ไปที่หน้าหลักของดู Food */}
+      <Modal
+        visible={state}
+        onCancel={()=>stateComplete(false)}
+        footer={
+          <div className="w-full flex flex-col text-center items-center justify-center">
+            <button className="font-prompt bg-blue-600 hover:bg-blue-700 w-1/3 text-white py-2 text-base rounded shadow-lg" onClick={()=>stateComplete(false)}>Cancel</button>
+          </div>
+        }
+      >
+        <div className="w-full flex flex-col text-center items-center justify-center">
+          <img src="/pic/image_23.png" alt="check" className="h-20 w-20 m-10 "/>
+          <h3 className="text-3xl font-semibold font-prompt flex-auto">เพิ่มอาหารสำเร็จ</h3>
+        </div>
+      </Modal>
     </div>
   );
 
