@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import '../style/output.css'
 import Navbar from '../navbar-admin';
@@ -12,15 +12,13 @@ function AddFood() {
   // Pop-up สำเร็จ
   const [state, stateComplete] = useState(false);
 
-  // Pop-up ข้อมูลไม่ครบ 
-
   // Checkdata input
   const [name, nameFood]  = useState("");
   const [id, idFood]  = useState("");
   const [detail, detailFood]  = useState("");
   const [cost, costFood]  = useState("");
 
-  let dataSet = {
+  const dataSet = {
     idFood: "0010020031"
   }
   return (
@@ -57,7 +55,7 @@ function AddFood() {
               <p className="m-1 text-base font-semibold">รหัสอาหาร</p>
               <input type="number" value={dataSet.idFood}
                 onChange={(e) => {
-                  idFood(e.target.value);
+                  idFood(dataSet.idFood);
                   e.target.disabled = true;
                 }}
                 name="name" className="m-1 text-base p-3 font-prompt shadow-lg bg-gray-400" />
@@ -85,7 +83,7 @@ function AddFood() {
             <button className="m-3 bg-green-600 hover:bg-green-700 text-white p-3 text-base rounded w-1/4 shadow-lg"
               onClick={
                 () => {
-                  if(name=="" || id=="" || detail=="" || cost=="") message.warning('กรุณากรอกข้อมูลให้ครบ');
+                  if(name==="" || detail==="" || cost==="") message.warning('กรุณากรอกข้อมูลให้ครบ');
                   else {
                     message.success('เพิ่มอาหารสำเร็จ');
                     stateComplete(true);

@@ -33,6 +33,10 @@ function AddEmployee() {
     return splited.join("-");
   };
 
+  const dataSet = {
+    idEmployee: "0010020031"
+  }
+
   return (
     <div className="bg-admin">
       <title>Add Employee | Centra Resort</title>
@@ -61,11 +65,10 @@ function AddEmployee() {
             </div>
           </div>
           <div className="md:flex mb-4 m-6">
-            <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-3 px-1 shadow-lg">
+            <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-3 px-1 shadow-lg bg-gray-500">
               <img src="emp-icon/user.svg" alt="user" className="h-6 pl-3 pr-2" />
-              <input className="text-grey-darker focus:outline-none" type="text" placeholder="Username"
-                value="61070501074"
-                onChange={(e) => usernameEmp(e.target.value)}
+              <input className="text-grey-darker focus:outline-none bg-gray-500" type="text" placeholder="Username"
+                value={dataSet.idEmployee}
               readOnly/>
             </div>
           </div>
@@ -152,7 +155,7 @@ function AddEmployee() {
               <button className="bg-green-600 text-white active:bg-green-600 font-bold text-sm px-12 py-3 rounded shadow hover:bg-green-400 outline-none focus:outline-none " type="button" style={{ transition: "all .15s ease" }}
                 onClick={() => {
                   if (
-                    fname === "" || lname === "" || username === "" || password === "" ||
+                    fname === "" || lname === "" || password === "" ||
                     dob === "" || email === "" || department === ""
                   ) message.warning('กรุณากรอกข้อมูลให้ครบ');
                   else {
