@@ -13,7 +13,6 @@ function AddFood() {
   const [state, stateComplete] = useState(false);
 
   // Pop-up ข้อมูลไม่ครบ 
-  const [state_error, stateErrorInputData] = useState(false);
 
   // Checkdata input
   const [name, nameFood]  = useState("");
@@ -97,23 +96,6 @@ function AddFood() {
           </div>
         </div>
       </div>
-      {/* Popup ใส่ข้อมูลไม่ครบ */}
-      <Modal
-        visible={state_error}
-        closable={false}
-        footer={
-          <div className="w-full flex flex-col text-center items-center justify-center">
-            <Link className="w-full" to="Food">
-            <button className="font-prompt bg-blue-600 hover:bg-blue-700 w-1/3 text-white py-2 text-base rounded shadow-lg" onClick={()=>stateComplete(false)}>Cancel</button>
-            </Link>
-          </div>
-        }
-      >
-        <div className="w-full flex flex-col text-center items-center justify-center">
-          <img src="/pic/image_23.png" alt="check" className="h-20 w-20 m-10 "/>
-          <h3 className="text-3xl font-semibold font-prompt flex-auto">เพิ่มอาหารสำเร็จ</h3>
-        </div>
-      </Modal>
       {/* Popup สร้างอาหารสำเร็จ */}
       <Modal
         visible={state}

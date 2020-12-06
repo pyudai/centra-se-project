@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import BeforeNav from '../BeforeNav-admin';
 import Navbar from '../navbar-admin';
-import Phone from '../phone'
-import Citizen from '../citizen';
 import { Form, Upload, Modal, message } from "antd";
 import { Link } from 'react-router-dom';
 
@@ -12,15 +10,28 @@ function AddEmployee() {
   const [state, stateComplete] = useState(false);
 
   // Check ข้อมูล
-  const [fname,fnameEmp] = useState("");
-  const [lname,lnameEmp] = useState("");
-  const [username,usernameEmp] = useState("");
-  const [password,passwordEmp] = useState("");
-  //const [citizen,citizenEmp] = useState("");
-  const [dob,dobEmp] = useState("");
-  //const [phone,phoneEmp] = useState("");
-  const [email,emailEmp] = useState("");
-  const [department,departmentEmp] = useState("");
+  const [fname, fnameEmp] = useState("");
+  const [lname, lnameEmp] = useState("");
+  const [username, usernameEmp] = useState("");
+  const [password, passwordEmp] = useState("");
+  const [citizen, citizenEmp] = useState("");
+  const [dob, dobEmp] = useState("");
+  const [phone, phoneEmp] = useState("");
+  const [email, emailEmp] = useState("");
+  const [department, departmentEmp] = useState("");
+
+  // Citizen
+  const formatInput = (e, format,length) => {
+    const formatArray = format.split("-").map((s) => s.length);
+    const input = e.target.value.replaceAll("-", "");
+    if (input.length >= formatArray.reduce((acc, i) => acc + i)) {
+      e.target.value = e.target.value.slice(0, length);
+      return;
+    }
+    const regex = RegExp(`^${formatArray.map((f) => `(\\d{${f}})?`).join("")}`);
+    const splited = input.split(regex).filter((i) => i);
+    return splited.join("-");
+  };
 
   return (
     <div className="bg-admin">
@@ -39,13 +50,13 @@ function AddEmployee() {
             <div className="w-full mr-6 mb-6 md:mb-0 flex items-center border border-grey-lighter bg-white rounded py-2 px-1 shadow-lg">
               <img src="emp-icon/name.svg" alt="name" className="h-8 pl-2 pr-2" />
               <input className="text-grey-darker focus:outline-none" type="text" placeholder="Firstname"
-                onChange={(e)=>fnameEmp(e.target.value)}
+                onChange={(e) => fnameEmp(e.target.value)}
               />
             </div>
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-2 px-1 shadow-lg">
               <img src="emp-icon/name.svg" alt="name" className="h-8 pl-2 pr-2" />
               <input className="text-grey-darker focus:outline-none" type="text" placeholder="Lastname"
-                onChange={(e)=>lnameEmp(e.target.value)}
+                onChange={(e) => lnameEmp(e.target.value)}
               />
             </div>
           </div>
@@ -53,7 +64,7 @@ function AddEmployee() {
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-3 px-1 shadow-lg">
               <img src="emp-icon/user.svg" alt="user" className="h-6 pl-3 pr-2" />
               <input className="text-grey-darker focus:outline-none" type="text" placeholder="Username"
-                onChange={(e)=>usernameEmp(e.target.value)}
+                onChange={(e) => usernameEmp(e.target.value)}
               />
             </div>
           </div>
@@ -61,33 +72,51 @@ function AddEmployee() {
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-2 px-1 shadow-lg">
               <img src="emp-icon/lock.svg" alt="pass" className="h-8 pl-2 pr-2" />
               <input className="block text-grey-darker focus:outline-none" type="password" placeholder="Password"
-                onChange={(e)=>passwordEmp(e.target.value)}
+                onChange={(e) => passwordEmp(e.target.value)}
               />
             </div>
           </div>
           <div className="md:flex mb-4 m-6">
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-2 px-1 shadow-lg">
               <img src="emp-icon/citizen.svg" alt="pass" className="h-8 pl-2 pr-2" />
-              <Citizen />
+              <input
+                type="text"
+                placeholder="Citizen"
+                value={citizen}
+                onChange={(e) => {
+                  const format = formatInput(e, "x-xxxx-xxxxx-xx-x",17);
+                  citizenEmp(format);
+                }}
+                className="text-grey-darker focus:outline-none"
+              />
             </div>
           </div>
           <div className="md:flex mb-4 m-6">
             <div className="w-full mr-6 mb-6 md:mb-0 flex">
               <p className="mb-0 text-base font-semibold">Date of Birth</p>
               <input className="block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 shadow-lg" type="date"
-                onChange={(e)=>{dobEmp(e.target.value);}}
+                onChange={(e) => { dobEmp(e.target.value); }}
               />
             </div>
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-3 px-1 shadow-lg">
               <img src="emp-icon/tel.svg" alt="name" className="h-6 pl-2 pr-2" />
-              <Phone />
+              <input
+                type="text"
+                placeholder="Phone number"
+                value={phone}
+                onChange={(e) =>{
+                  const format = formatInput(e,"xxx-xxx-xxxx",12);
+                  phoneEmp(format);
+                }}
+                className="text-grey-darker focus:outline-none"
+              />
             </div>
           </div>
           <div className="md:flex mb-4 m-6">
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-2 px-1 shadow-lg">
               <img src="emp-icon/email.svg" alt="pass" className="h-8 pl-2 pr-2" />
               <input className="text-grey-darker focus:outline-none" type="text" placeholder="Email"
-                onChange={(e)=>{emailEmp(e.target.value)}}
+                onChange={(e) => { emailEmp(e.target.value) }}
               />
             </div>
           </div>
@@ -96,7 +125,7 @@ function AddEmployee() {
               <img src="emp-icon/department.svg" alt="pass" className="h-6 pl-3" />
               <div className="relative flex w-full">
                 <select className="appearance-none flex flex-col w-full bg-grey-lighter text-grey-darker rounded py-2 px-3 " id="grid-state"
-                  onChange={(e)=>departmentEmp(e.target.value)}
+                  onChange={(e) => departmentEmp(e.target.value)}
                 >
                   <option>Department</option>
                   <option>Admin</option>
@@ -112,7 +141,7 @@ function AddEmployee() {
             <div className="flex flex-row w-full items-center justify-evenly">
               <Link to="Employee">
                 <button className="bg-red-600 text-white active:bg-red-600 font-bold text-sm px-12 py-3 rounded shadow hover:bg-red-400 outline-none focus:outline-none " type="button" style={{ transition: "all .15s ease" }}
-                  onChange={()=>{
+                  onChange={() => {
                     message.info("ยกเลิกการเพิ่มพนักงาน");
                   }}
                 >
@@ -120,12 +149,12 @@ function AddEmployee() {
                 </button>
               </Link>
               <button className="bg-green-600 text-white active:bg-green-600 font-bold text-sm px-12 py-3 rounded shadow hover:bg-green-400 outline-none focus:outline-none " type="button" style={{ transition: "all .15s ease" }}
-                onClick={()=>{
-                  if(
-                    fname == "" || lname == "" || username == "" || password == "" ||
-                    dob == "" || email =="" || department == ""
+                onClick={() => {
+                  if (
+                    fname === "" || lname === "" || username === "" || password === "" ||
+                    dob === "" || email === "" || department === ""
                   ) message.warning('กรุณากรอกข้อมูลให้ครบ');
-                  else{
+                  else {
                     message.success('เพิ่มอาหารสำเร็จ');
                     stateComplete(true);
                   }
@@ -136,7 +165,6 @@ function AddEmployee() {
             </div>
           </div>
         </div>
-
       </div>
       {/* Popup สร้างพนักงานสำเร็จ */}
       <Modal
@@ -152,7 +180,7 @@ function AddEmployee() {
       >
         <div className="w-full flex flex-col text-center items-center justify-center">
           <img src="/pic/image_23.png" alt="check" className="h-20 w-20 m-10 " />
-          <h3 className="text-3xl font-semibold font-prompt flex-auto">เพิ่มอาหารสำเร็จ</h3>
+          <h3 className="text-3xl font-semibold font-prompt flex-auto">เพิ่มพนักงานสำเร็จ</h3>
         </div>
       </Modal>
     </div>
