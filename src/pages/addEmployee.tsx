@@ -64,8 +64,9 @@ function AddEmployee() {
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-3 px-1 shadow-lg">
               <img src="emp-icon/user.svg" alt="user" className="h-6 pl-3 pr-2" />
               <input className="text-grey-darker focus:outline-none" type="text" placeholder="Username"
+                value="61070501074"
                 onChange={(e) => usernameEmp(e.target.value)}
-              />
+              readOnly/>
             </div>
           </div>
           <div className="md:flex mb-4 m-6">
@@ -84,7 +85,7 @@ function AddEmployee() {
                 placeholder="Citizen"
                 value={citizen}
                 onChange={(e) => {
-                  const format = formatInput(e, "x-xxxx-xxxxx-xx-x",17);
+                  const format = formatInput(e, "x-xxxx-xxxxx-xx-x",16);
                   citizenEmp(format);
                 }}
                 className="text-grey-darker focus:outline-none"
