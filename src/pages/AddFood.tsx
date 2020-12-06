@@ -85,7 +85,7 @@ function AddFood() {
             <button className="m-3 bg-green-600 hover:bg-green-700 text-white p-3 text-base rounded w-1/4 shadow-lg"
               onClick={
                 () => {
-                  if(name=="" || id=="" || detail=="" || cost=="") message.warning('กรุณากรอกข้อมูลให้ครบ');
+                  if(name=="" || detail=="" || cost=="") message.warning('กรุณากรอกข้อมูลให้ครบ');
                   else {
                     message.success('เพิ่มอาหารสำเร็จ');
                     stateComplete(true);

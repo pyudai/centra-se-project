@@ -61,9 +61,9 @@ function AddEmployee() {
             </div>
           </div>
           <div className="md:flex mb-4 m-6">
-            <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-3 px-1 shadow-lg">
+            <div className="w-full flex items-center border border-grey-lighter bg-gray-500 rounded py-3 px-1 shadow-lg">
               <img src="emp-icon/user.svg" alt="user" className="h-6 pl-3 pr-2" />
-              <input className="text-grey-darker focus:outline-none" type="text" placeholder="Username"
+              <input className="text-grey-darker bg-gray-500 focus:outline-none" type="text" placeholder="Username"
                 value="61070501074"
                 onChange={(e) => usernameEmp(e.target.value)}
               readOnly/>
