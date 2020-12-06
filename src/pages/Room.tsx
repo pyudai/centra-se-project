@@ -81,7 +81,7 @@ function Room() {
                       <td className="px-4 py-2">{status[r.Status]}</td>
                       <td className="px-4 py-2">
                         {
-                              r.Status===0 ? "":
+                              r.Status===0 ? (<Link className="text-green-600 underline" to="/Reserve">Check in</Link>):
                               r.Status===1 ? (<Link className="text-green-600 underline" to="/Checkin">Check in</Link>) :
                               r.Status===2 ? <Checkout No={r.No} clicker={()=>{
                                 let Ninfo=info;

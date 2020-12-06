@@ -71,10 +71,10 @@ function Food() {
                       <td className="py-2 px-1">{r.Name}</td>
                       <td className="py-2">{r.Price}</td>
                       <td className="py-2 pl-10">
-                        <Link className="text-blue-800 underline">ดูรายละเอียด</Link>
+                        <div className="text-blue-800 underline cursor-pointer">ดูรายละเอียด</div>
                       </td>
                       <td className="py-2 pr-8">
-                        <Link className="text-red-600 underline">ลบ</Link>
+                        <div className="text-red-600 underline cursor-pointer">ลบ</div>
                       </td>
                     </tr>
                   );
