@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import '../style/output.css'
-//import SuccessfullyAdded from '../popupfood';
 import Navbar from '../navbar-admin';
 import BeforeNav from '../BeforeNav-admin';
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Form, Upload, Modal ,message } from "antd";
-//import Modal from '../popup';
 
 function AddFood() {
 

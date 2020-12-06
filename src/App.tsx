@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LoginAdmin from "./pages/Login-Admin";
 import LoginStaff from "./pages/Login-Staff";
 import Room from "./pages/Room";
+import AddEmployee from "./pages/addEmployee";
 import Employee from "./pages/Employee";
 import Reserve from "./pages/Reserve";
 import AddFood from './pages/AddFood';
@@ -12,6 +13,7 @@ import CheckinProvider from './data/CheckinContext';
 import ChooseLogin from './pages/ChooseLogin';
 import HomeAdmin from './pages/Home-Admin';
 import HomeStaff from './pages/Home-Staff';
+import Food from './pages/Food';
 
 function App() {
   return (
@@ -19,8 +21,9 @@ function App() {
       <Router>
           <CheckinProvider>
         <Switch>
+          <Route exact path="/AddEmployee" component={AddEmployee} />
           <Route exact path="/Employee" component={Employee} />
-          <Route exact path="/Food" component={AddFood} />
+          <Route exact path="/Food" component={Food} />
           <Route exact path="/Reserve" component={Reserve} />
           <Route exact path="/LoginAdmin" component={LoginAdmin} />
           <Route exact path="/LoginStaff" component={LoginStaff} />
@@ -28,6 +31,7 @@ function App() {
           <Route exact path="/Checkin" component={Checkin} />
           <Route exact path="/HomeAdmin" component={HomeAdmin}/>
           <Route exact path="/HomeStaff" component={HomeStaff}/>
+          <Route exact path="/AddFood" component={AddFood} />
           <Route path="/" component={ChooseLogin} />
         </Switch>
           </CheckinProvider>

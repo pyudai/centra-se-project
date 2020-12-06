@@ -29,6 +29,20 @@
   background-size: cover;
 }
 
+.bg-food{
+  background-image: url("./bg-img/foodBG.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-employee{
+  background-image: url("./bg-img/employeeBG.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .max-width-login{
   max-width: 400px;
 }
