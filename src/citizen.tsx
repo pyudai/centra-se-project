@@ -17,7 +17,7 @@ const Citizen = () => {
   return (
       <input
         type="text"
-        placeholder="x-xxxx-xxxxx-xx-x"
+        placeholder="Citizen"
         onChange={(e) => formatInput(e, "x-xxxx-xxxxx-xx-x")}
         className="text-grey-darker focus:outline-none"
       />

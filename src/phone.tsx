@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Phone = () => {
   const formatInput = (e, format) => {
@@ -17,7 +17,7 @@ const Phone = () => {
   return (
       <input
         type="text"
-        placeholder="xxx-xxx-xxxx"
+        placeholder="Phone number"
         onChange={(e) => formatInput(e, "xxx-xxx-xxxx")}
         className="text-grey-darker focus:outline-none"
       />
