@@ -5,13 +5,12 @@ const PopUpRoom = () => {
   const [showModal, setShowModal] = React.useState(false);
   const { setReserveList, ROOMLIST } = useContext(CheckinContext);
   const [tmpReserve, setTmpReserve] = useState<any[]>([]);
-  
-   const getTotalCosts = () => {
-      return tmpReserve.reduce((total, item) => {
-        return total + Number(item.price);
-      }, 0);
-    };
 
+  const getTotalCosts = () => {
+    return tmpReserve.reduce((total, item) => {
+      return total + Number(item.price);
+    }, 0);
+  };
 
   return (
     <>
@@ -29,22 +28,22 @@ const PopUpRoom = () => {
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*body*/}
-
-                <div className="text-center">
-                  <table className="table-auto ">
-                    <thead>
+                <div className="w-full flex flex-col p-5">
+                  <p className="text-2xl font-semibold h-full m-2">เพิ่มห้องพัก</p>
+                  <table className="table-auto text-base w-full shadow-lg">
+                    <thead className="bg-blue-700 text-white">
                       <tr>
-                        <th className="text-center px-4 py-2">เลขห้องพัก</th>
+                        <th className="text-center px-4 py-2">รหัสห้องพัก</th>
                         <th className="text-center px-4 py-2">ชื่อห้องพัก</th>
                         <th className="text-center px-4 py-2">ราคารวม (บาท)</th>
                         <th></th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="text-base">
                       {tmpReserve.map((r, index) => {
                         return (
                           <tr key={index}>
-                            <td>
+                            <td className="text-center p-2">
                               <select
                                 value={tmpReserve[index].No}
                                 onChange={(e) => {
@@ -73,10 +72,11 @@ const PopUpRoom = () => {
                                   ))}
                               </select>
                             </td>
-                            <td>{r.name}</td>
-                            <td>{r.price}</td>
-                            <td>
+                            <td className="text-center p-2">{r.name}</td>
+                            <td className="text-center p-2">{r.price}</td>
+                            <td className="text-center p-2">
                               <button
+                                className="text-center p-2 text-red-700 underline font-semibold"
                                 onClick={() => {
                                   setTmpReserve(
                                     [...tmpReserve].filter(
@@ -93,62 +93,47 @@ const PopUpRoom = () => {
                       })}
                     </tbody>
                   </table>
+                  {tmpReserve.length < 4 && (
+                    <button
+                      className="p-2 font-semibold"
+                      style={{ fontSize: "30px" }}
+                      onClick={() => {
+                        if (tmpReserve.length >= 4) return;
+                        const avail = Object.keys(ROOMLIST).filter(
+                          (key) => !tmpReserve.map((t) => t.No).includes(key)
+                        )[0];
+                        setTmpReserve([
+                          ...tmpReserve,
+                          {
+                            No: avail,
+                            name: ROOMLIST[avail].name,
+                            price: ROOMLIST[avail].price,
+                          },
+                        ]);
+                      }}
+                    >
+                      +
+                    </button>
+                  )}
+                  <div className="w-full flex justify-end text-right text-base font-semibold bg-gray-400 pt-2 pr-2">
+                    <p className="text-2xl font-semibold">ยอดรวม</p>
+                    <p className="text-2xl font-semibold w-1/5 text-center">{getTotalCosts()}</p>
+                    <p className="text-2xl font-semibold">บาท</p>
+                  </div>
+                  <div className="w-full flex justify-end">
+                    <button className="rounded shadow w-1/6 bg-nav hover:bg-blue-800 text-white m-2 p-3"
+                      onClick={() => setShowModal(false)}
+                    >Back</button>
+                    <button className="rounded shadow w-1/6 bg-nav hover:bg-blue-800 text-white m-2 p-3"
+                      onClick={() => {
+                        setReserveList(tmpReserve);
+                        setShowModal(false);
+                        getTotalCosts();
+                      }}
+                    >Confirm</button>
+                  </div>
                 </div>
-                {tmpReserve.length < 4 && (
-                  <button
-                    onClick={() => {
-                      if (tmpReserve.length >= 4) return;
-                      const avail = Object.keys(ROOMLIST).filter(
-                        (key) => !tmpReserve.map((t) => t.No).includes(key)
-                      )[0];
-                      setTmpReserve([
-                        ...tmpReserve,
-                        {
-                          No: avail,
-                          name: ROOMLIST[avail].name,
-                          price: ROOMLIST[avail].price,
-                        },
-                      ]);
-                    }}
-                  >
-                    +
-                  </button>
-                )}
 
-                <div className="flex text-black mb-3 text-2xl font-semibold">
-                  <div className=" bg-gray-500 w-3/4 text-right pr-4">
-                    <p>ยอดรวมทั้งหมด</p>
-                  </div>
-                  <div className="mx-16 text-center">
-                  {getTotalCosts()}                   
-                  </div>
-                  <div className=" w-24 bg-gray-500 text-left pl-4">
-                    <p>บาท</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-center p-6 border-t border-solid border-gray-300 rounded-b">
-                  <button
-                    className="bg-nav text-white active:bg-nav font-bold uppercase text-sm px-16 py-3 rounded shadow hover:bg-blue-500 outline-none focus:outline-none mb-1"
-                    type="button"
-                    style={{ transition: "all .15s ease" }}
-                    onClick={() => setShowModal(false)}
-                  >
-                    Back
-                  </button>
-                  <button
-                    className="bg-nav text-white active:bg-nav font-bold uppercase text-sm px-16 py-3 rounded shadow hover:bg-blue-500 outline-none focus:outline-none mb-1"
-                    type="button"
-                    style={{ transition: "all .15s ease" }}
-                    onClick={() => {
-                      setReserveList(tmpReserve);
-                      setShowModal(false);
-                      getTotalCosts();
-                    }}
-                  >
-                    Confirm
-                  </button>
-                </div>
               </div>
             </div>
           </div>

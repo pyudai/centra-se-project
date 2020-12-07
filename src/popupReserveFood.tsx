@@ -7,9 +7,8 @@ const PopUpFood = () => {
   const [tmpFood, setTmpFood] = useState<any[]>([]);
 
   const getTotalCosts = () => {
-    return tmpFood.reduce((total, item) =>  total + (item.price*item.amount), 0);
+    return tmpFood.reduce((total, item) => total + (item.price * item.amount), 0);
   };
-
 
   return (
     <>
@@ -27,35 +26,34 @@ const PopUpFood = () => {
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*body*/}
-
-                <div className="text-center">
-                  <table className="table-auto ">
-                    <thead>
+                <div className="w-full flex flex-col p-5">
+                  <p className="text-2xl font-semibold h-full m-2">เพิ่มห้องพัก</p>
+                  <table className="table-auto text-base w-full shadow-lg">
+                    <thead className="bg-blue-700 text-white">
                       <tr>
-                        <th className="text-center px-4 py-2">วัน/เดือน/ปี</th>
-                        <th className="text-center px-4 py-2">ชื่ออาหาร</th>
-                        <th className="text-center px-4 py-2">จำนวน</th>
-                        <th className="text-center px-4 py-2">ราคารวม (บาท)</th>
-                        
-                        <th></th>
+                        <th className="text-center p-3">วัน/เดือน/ปี</th>
+                        <th className="text-center p-3">ชื่ออาหาร</th>
+                        <th className="text-center p-3">จำนวน</th>
+                        <th className="text-center p-3">ราคารวม (บาท)</th>
+                        <th className="text-center p-3">แก้ไข</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="text-base">
                       {tmpFood.map((r, index) => {
                         return (
                           <tr key={index}>
-                            <td>
+                            <td className="text-center p-2">
                               <div>
                                 <input
-                                  className=" w-3/5 shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
+                                  className="w-3/5 text-center shadow-md bg-gray-500 text-black border rounded p-1"
                                   type="text"
                                   value="23/9/2020"
                                   readOnly
                                 />
                               </div>
                             </td>
-                            <td>
-                            <select
+                            <td className="text-center p-2">
+                              <select
                                 value={tmpFood[index].name}
                                 onChange={(e) => {
                                   const newTmp = tmpFood;
@@ -83,10 +81,10 @@ const PopUpFood = () => {
                                   ))}
                               </select>
                             </td>
-                            <td>
+                            <td className="text-center p-2">
                               <div>
                                 <input
-                                  className=" w-3/5 shadow-md text-black border rounded py-3 px-4 mb-3"
+                                  className="w-3/5 shadow-md text-black border rounded text-center"
                                   type="number"
                                   value={tmpFood[index].amount}
                                   onChange={
@@ -99,11 +97,12 @@ const PopUpFood = () => {
                                 />
                               </div>
                             </td>
-                            <td>
-                              {r.price*r.amount}
+                            <td className="text-center p-2">
+                              {r.price * r.amount}
                             </td>
-                            <td>
-                            <button
+                            <td className="text-center p-2">
+                              <button
+                                className="text-center p-2 text-red-700 underline font-semibold"
                                 onClick={() => {
                                   setTmpFood(
                                     [...tmpFood].filter(
@@ -120,60 +119,47 @@ const PopUpFood = () => {
                       })}
                     </tbody>
                   </table>
-                </div>
-                {tmpFood.length < 3 && (
-                  <button
-                    onClick={() => {
-                      if (tmpFood.length >= 3) return;
-                      const avail = Object.keys(FOODLIST).filter(
-                        (key) => !tmpFood.map((t) => t.name).includes(key)
-                      )[0];
-                      setTmpFood([
-                        ...tmpFood,
-                        {
-                          name: avail,
-                          amount: 1,
-                          price: FOODLIST[avail].price,
-                        },
-                      ]);
-                    }}
-                  >
-                    +
-                  </button>
-                )}
-
-                <div className="flex text-black mb-3 text-2xl font-semibold">
-                  <div className=" bg-gray-500 w-3/4 text-right pr-4">
-                    <p>ยอดรวมทั้งหมด</p>
+                  {tmpFood.length < 3 && (
+                    <button
+                      className="p-2 font-semibold"
+                      style={{ fontSize: "30px" }}
+                      onClick={() => {
+                        if (tmpFood.length >= 3) return;
+                        const avail = Object.keys(FOODLIST).filter(
+                          (key) => !tmpFood.map((t) => t.name).includes(key)
+                        )[0];
+                        setTmpFood([
+                          ...tmpFood,
+                          {
+                            name: avail,
+                            amount: 1,
+                            price: FOODLIST[avail].price,
+                          },
+                        ]);
+                      }}
+                    >
+                      +
+                    </button>
+                  )}
+                  <div className="w-full flex justify-end text-right text-base font-semibold bg-gray-400 pt-2 pr-2">
+                    <p className="text-2xl font-semibold">ยอดรวม</p>
+                    <p className="text-2xl font-semibold w-1/5 text-center">{getTotalCosts()}</p>
+                    <p className="text-2xl font-semibold">บาท</p>
                   </div>
-                  <div className="mx-16 text-center">{getTotalCosts()}</div>
-                  <div className=" w-24 bg-gray-500 text-left pl-4">
-                    <p>บาท</p>
+                  <div className="w-full flex justify-end">
+                    <button className="rounded shadow w-1/6 bg-nav hover:bg-blue-800 text-white m-2 p-3"
+                      onClick={() => setShowModal(false)}
+                    >Back</button>
+                    <button className="rounded shadow w-1/6 bg-nav hover:bg-blue-800 text-white m-2 p-3"
+                      onClick={() => {
+                        setFoodList(tmpFood);
+                        setShowModal(false);
+                        getTotalCosts();
+                      }}
+                    >Confirm</button>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-center p-6 border-t border-solid border-gray-300 rounded-b">
-                  <button
-                    className="bg-nav text-white active:bg-nav font-bold uppercase text-sm px-16 py-3 rounded shadow hover:bg-blue-500 outline-none focus:outline-none mb-1"
-                    type="button"
-                    style={{ transition: "all .15s ease" }}
-                    onClick={() => setShowModal(false)}
-                  >
-                    Back
-                  </button>
-                  <button
-                    className="bg-nav text-white active:bg-nav font-bold uppercase text-sm px-16 py-3 rounded shadow hover:bg-blue-500 outline-none focus:outline-none mb-1"
-                    type="button"
-                    style={{ transition: "all .15s ease" }}
-                    onClick={() => {
-                      setFoodList(tmpFood);
-                      setShowModal(false);
-                      getTotalCosts();
-                    }}
-                  >
-                    Confirm
-                  </button>
-                </div>
               </div>
             </div>
           </div>

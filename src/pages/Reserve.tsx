@@ -1,4 +1,4 @@
-import React, { useContext }  from "react";
+import React, { useContext } from "react";
 import Navbar from "../navbar-staff";
 import BeforeNav from "../BeforeNav-staff";
 import "../style/output.css";
@@ -8,162 +8,112 @@ import { CheckinContext } from "../data/CheckinContext";
 
 function Reserve() {
 
-  const { reserveList, foodList, FOODLIST  } = useContext(CheckinContext);
+  const { reserveList, foodList, FOODLIST } = useContext(CheckinContext);
 
   console.log(reserveList)
   return (
     <div className="bg-white">
       <BeforeNav />
-      <div className="sticky top-0 z-50"><Navbar/></div>
+      <div className="sticky top-0 z-50"><Navbar /></div>
+      <title>Reserve | Centra Resort</title>
       <div className="flex flex-col items-center ">
-        <div className="bg-inside shadow-md rounded px-8 pt-6 pb-8 mb-2 flex flex-col my-2 w-4/5">
-          <div className="ml-24 inline-flex mb-4">
-            <img src="./img-reserve/customer-info.svg" alt="" />
-            <div className="text-2xl font-semibold ml-4 py-2">
-              <p> รายละเอียดลูกค้า</p>
+
+        <div className="bg-inside shadow-2x1 rounded p-5 flex flex-col mt-5 mb-5" style={{ width: "1100px" }}>
+          <div className="w-full flex">
+            <img src="./img-reserve/customer-info.svg" className="m-2" />
+            <p className="text-2xl font-semibold h-full m-2">รายละเอียดลูกค้า</p>
+          </div>
+          <div className="w-full flex p-2">
+            <div className="w-1/3 m-1">
+              <p className="text-base font-semibold">หมายเลขการจอง</p>
+              <input type="number" className="w-full shadow-md text-base p-2 bg-gray-400" readOnly
+                value="1000000003"
+              />
+            </div>
+            <div className="w-1/3 m-1">
+              <p className="text-base font-semibold">ชื่อจริง</p>
+              <input type="text" className="w-full shadow-md text-base p-2" placeholder="กรอกชื่อจริง" />
+            </div>
+            <div className="w-1/3 m-1">
+              <p className="text-base font-semibold">นามสกุล</p>
+              <input type="text" className="w-full shadow-md text-base p-2" placeholder="กรอกนามสกุล" />
             </div>
           </div>
-
-          <div className="ml-20 md:flex mb-6 w-1/2">
-            <div className="md:w-1/2 px-3 mb-6 md:mb-0">
-              <label className="font-semibold">หมายเลขการจอง</label>
-              <input
-                className=" w-full shadow-md  bg-gray-500 border rounded py-3 px-4 mb-3"
-                type="number"
-                value="1000000002"
-                readOnly
-              />
-            </div>
-
-            <div className="md:w-1/2 px-3">
-              <label className="font-semibold">ชื่อจริง</label>
-              <input
-                className=" w-full shadow-md bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"
-                type="text"
-                placeholder="การะเกด"
-              />
-            </div>
-            <div className="md:w-1/2 px-3">
-              <label className="font-semibold">นามสกุล</label>
-              <input
-                className=" w-full shadow-md bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"
-                type="text"
-                placeholder="ศิรินทร์"
-              />
-            </div>
-          </div>
-
-          <div className="ml-20 md:flex mb-6 w-3/4">
-            <div className="md:w-1/2 px-3 mb-6 md:mb-0">
-              <label className="font-semibold">โทรศัพท์</label>
-              <input
-                className=" w-full shadow-md bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"  
-                type="number"
+          <div className="w-full flex p-2">
+            <div className="w-1/3 m-1">
+              <p className="text-base font-semibold">โทรศัพท์</p>
+              <input type="number" className="w-full shadow-md text-base p-2" placeholder="กรอกเบอร์โทรศัพท์"
                 onChange={(e) => {
                   e.target.value = e.target.value.slice(0, 10);
                 }}
-                placeholder="0951218585"
               />
             </div>
-            <div className="md:w-4/5 px-3">
-              <label className="font-semibold">อีเมล</label>
-              <input
-                className=" w-full shadow-md bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"
-                type="text"
-                placeholder="karakatesirin@mail.com"
-              />
+            <div className="w-1/3 m-1">
+              <p className="text-base font-semibold">อีเมล</p>
+              <input type="text" className="w-full shadow-md text-base p-2" placeholder="กรอกอีเมล" />
             </div>
-            <div className="md:w-1/2 px-3">
-              <label className="font-semibold">วันที่ทำการจอง</label>
-              <input
-                className=" w-full shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
-                type="text"
+            <div className="w-1/3 m-1">
+              <p className="text-base font-semibold">วันที่ทำการจอง</p>
+              <input type="text" className="w-full shadow-md text-base p-2 bg-gray-400" readOnly
                 value="23/9/2020"
-                readOnly
               />
             </div>
           </div>
-
-          <div className="ml-24 inline-flex">
-            <img src="./img-reserve/room.svg" alt="" />
-            <div className=" flex text-2xl font-semibold ml-4 mt-6">
-              <p> ห้องพัก</p>
-              <div className="ml-3 mt-2"><PopUpRoom /></div>
-            </div>
+          <div className="w-full flex">
+            <img src="./img-reserve/room.svg" className="m-2" />
+            <p className="text-2xl font-semibold h-full m-2">ห้องพัก</p>
           </div>
-
-          <div className="ml-20 md:flex mb-6 w-1/2">
-            <div className="md:w-1/2 px-3 mb-6 md:mb-0">
-              <label className="font-semibold">Check In Date</label>
-              <input
-                className="block w-full shadow-md bg-gray-500 text-black border rounded py-3 px-4 mb-3"
-                type="text"
+          <div className="w-full flex">
+            <div className="w-1/3 flex flex-col p-2">
+              <p className="text-base font-semibold">Check In Date</p>
+              <input type="text" className="w-full shadow-md text-base p-2 bg-gray-400" readOnly
                 value="23/9/2020"
-                readOnly
               />
+              <p className="text-base font-semibold mt-3">Check Out Date</p>
+              <input type="date" className="w-full shadow-md text-base p-2" />
             </div>
-            <div className="md:w-1/2 px-3">
-              <label className="font-semibold">Check Out Date</label>
-              <input
-                className="block w-full shadow-md bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"
-                type="date"
-              />
-            </div>
-          </div>
-
-          <div className="ml-20 md:flex mb-6 w-1/2">
-            <table className="table-auto ">
-              <thead>
-                <tr>
-                  <th className="text-center px-4 py-2">รหัสห้องพัก</th>
-                  <th className="text-center px-4 py-2">ชื่อห้องพัก</th>
-                  <th className="text-center px-4 py-2">ราคารวม (บาท)</th>
-                </tr>
-              </thead>
-              <tbody>
-              {reserveList.map((r, index) => {
-                        return (
-                          <tr key={index}>
-                            <td className="pl-8">{r.No}</td>
-                            <td className="text-center">{r.name}</td>
-                            <td className="text-center">{r.price}</td>
-                          
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-            </table>
-          </div>
-
-          <div className="flex justify-end font-semibold mt-10">
-            <div className="mr-3">
-              <div className="my-1">
-                <div>
-                  ราคาห้องพักทั้งหมด
-                  <br />
-                  <div className="ml-20">(ทุกคืน)</div>
-                </div>
-              </div>
-            </div>
-            <div className="mr-3">
-            {reserveList.reduce((total,item) =>  total = total + item.price , 0 )}
-            </div>
-            <div className="mr-10 my-4">
-              <p>บาท</p>
+            <div className="w-2/3 flex flex-col">
+              <div className="w-full flex text-base m-2 font-semibold"><PopUpRoom />เพิ่มห้องพัก</div>
+              <table className="table-auto text-base w-full ml-5 mr-5 shadow-lg">
+                <thead className="bg-blue-700 text-white">
+                  <tr>
+                    <th className="text-center px-4 py-2">รหัสห้องพัก</th>
+                    <th className="text-center px-4 py-2">ชื่อห้องพัก</th>
+                    <th className="text-center px-4 py-2">ราคารวม (บาท)</th>
+                  </tr>
+                </thead>
+                <tbody className="text-base">
+                  {reserveList.map((r, index) => {
+                    return (
+                      <tr key={index}>
+                        <td className="text-center p-2">{r.No}</td>
+                        <td className="text-center p-2">{r.name}</td>
+                        <td className="text-center p-2">{r.price}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
           </div>
-
-          <div className="ml-24 inline-flex">
-            <img src="./img-reserve/food.svg" alt="" />
-            <div className="flex text-2xl font-semibold ml-4 mt-6">
-              <p> อาหาร </p>
-              <div className="ml-3 mt-2 "><PopUpFood /></div>
+          <div className="w-full flex justify-end text-right text-base font-semibold">
+            <div className="w-1/4 flex flex-col m-2 text-right">
+              <p>ราคาห้องพักทั้งหมด</p>
+              <p>(ทุกคืน)</p>
             </div>
+            <div className="w-1/6 text-center m-2 text-lg">
+              {reserveList.reduce((total, item) => total = total + item.price, 0)}
+            </div>
+            <p className="m-2">บาท</p>
           </div>
-
-          <div className="ml-20 md:flex mb-6 w-full">
-            <table className="table-auto text-center">
-              <thead>
+          <div className="w-full flex">
+            <img src="./img-reserve/food.svg" className="m-2" />
+            <p className="text-2xl font-semibold h-full m-2">อาหาร</p>
+          </div>
+          <div className="w-full flex flex-col">
+            <div className="w-full flex text-base m-2 font-semibold"><PopUpFood />เพิ่มอาหาร</div>
+            <table className="table-auto text-base w-full ml-5 mr-5 shadow-lg">
+              <thead className="bg-blue-700 text-white">
                 <tr>
                   <th className=" px-20 py-2">วัน/เดือน/ปี</th>
                   <th className=" px-20 py-2">ชื่ออาหาร</th>
@@ -171,71 +121,50 @@ function Reserve() {
                   <th className=" px-20 py-2">ราคารวม (บาท)</th>
                 </tr>
               </thead>
-              <tbody>
-              {foodList.map((r, index) => {
-               
-                        return (
-                          <tr key={index}>
-                             <td className="pl-8">24/9/2563</td>
-                            <td className="pl-8">{FOODLIST[r.name].name}</td>
-                            <td className="text-center">{r.amount}</td>
-                            <td className="text-center">{r.price*r.amount}</td>
-                          
-                          </tr>
-                        );
-                      })}
+              <tbody className="text-base">
+                {foodList.map((r, index) => {
+                  return (
+                    <tr key={index}>
+                      <td className="text-center p-2">24/9/2563</td>
+                      <td className="text-center p-2">{FOODLIST[r.name].name}</td>
+                      <td className="text-center p-2">{r.amount}</td>
+                      <td className="text-center p-2">{r.price * r.amount}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
-
-          <div className="flex justify-end font-semibold">
-            <div className="mr-3 my-4 ">
+          <div className="w-full flex justify-end text-right text-base font-semibold m-2">
+            <div className="w-1/4 flex flex-col m-2 text-right">
               <p>ราคาอาหารทั้งหมด</p>
             </div>
-            <div className="mr-3">
-            {foodList.reduce((total, item) =>  total + (item.price*item.amount), 0)}
+            <div className="w-1/6 text-center m-2 text-lg">
+              {foodList.reduce((total, item) => total + (item.price * item.amount), 0)}
             </div>
-            <div className="mr-10 my-4">
-              <p>บาท</p>
-            </div>
+            <p className="m-2">บาท</p>
           </div>
-
-          <div className="ml-24 inline-flex">
-            <img src="./img-reserve/promotion.svg" alt="" />
-            <div className="text-2xl font-semibold ml-4 mt-6">
-              <p>โปรโมชั่น</p>
-            </div>
+          <div className="w-full flex">
+            <img src="./img-reserve/promotion.svg" className="m-2" />
+            <p className="text-2xl font-semibold h-full m-2">โปรโมชั่น</p>
           </div>
-
-          <div className="ml-40 mt-4 md:flex mb-16 w-1/2">
-            <p> - ไม่มี -</p>
+          <div className="w-full flex m-2">
+            <p className="text-base">- ไม่มี -</p>
           </div>
-
-          <div className="flex text-black mb-3 text-2xl font-semibold">
-            <div className=" bg-gray-500 w-3/4 text-right pr-4">
-              <p>ยอดรวมทั้งหมด</p>
-            </div>
-            <div className="mx-16 text-center">
-            {reserveList.reduce((total,item) =>  total = total + item.price , 0 )+foodList.reduce((total, item) =>  total + (item.price*item.amount), 0)}
-            </div>
-            <div className=" w-24 bg-gray-500 text-left pl-4">
-              <p>บาท</p>
-            </div>
+          <div className="w-full flex justify-end text-right text-base font-semibold bg-gray-400 p-3">
+            <p className="text-2xl font-semibold">ยอดรวม</p>
+            <p className="text-2xl font-semibold w-1/5 text-center">
+              {reserveList.reduce((total, item) => total = total + item.price, 0) + foodList.reduce((total, item) => total + (item.price * item.amount), 0)}
+            </p>
+            <p className="text-2xl font-semibold">บาท</p>
           </div>
-          <div className="flex justify-end mt-16">
-            <div className="mr-8">
-              <button className="bg-nav text-white active:bg-nav  text-sm px-16 py-3 rounded shadow hover:bg-blue-500 outline-none focus:outline-none mb-1">
-                Back
-              </button>
-            </div>
-            <div className="mr-4">
-              <button className="bg-green-600 text-white active:bg-green-600  text-sm px-12 py-3 rounded shadow hover:bg-green-400 outline-none focus:outline-none">
-                Check In
-              </button>
-            </div>
+          <div className="w-full flex justify-end">
+            <button className="rounded shadow w-1/6 bg-nav hover:bg-blue-800 text-white m-2 p-3">Back</button>
+            <button className="rounded shadow w-1/6 bg-green-600 hover:bg-green-400 text-white m-2 p-3">Check In</button>
           </div>
 
         </div>
+
       </div>
     </div>
   );

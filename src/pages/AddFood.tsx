@@ -55,7 +55,7 @@ function AddFood() {
               />
               <p className="m-1 text-base font-semibold">รหัสอาหาร</p>
               <input type="number" value={idFood}
-                name="name" className="m-1 text-base p-3 font-prompt shadow-lg bg-gray-400" readOnly/>
+                name="name" className="m-1 text-base p-3 font-prompt หะั bg-gray-400" readOnly/>
               <p className="m-1 text-base font-semibold">รายละเอียดอาหาร</p>
               <textarea className="m-1 text-base p-3 font-prompt shadow-lg" placeholder="กรอกรายละเอียดอาหาร"
                 onChange={(e)=>{
