@@ -164,7 +164,7 @@ function AddEmployee() {
                     let Nemployee=employee;
                     Nemployee[Nemployee.length]={No:dataSet.idEmployee, Name:fname+" "+ lname, Phone:phone, Department:(department==="Staff" ? 0 : 1)};
                     setEmployee([...Nemployee]);
-                    message.success('เพิ่มอาหารสำเร็จ');
+                    message.success('เพิ่มพนักงานสำเร็จ');
                     stateComplete(true);
                   }
                 }}
