@@ -35,9 +35,7 @@ function AddEmployee() {
     return splited.join("-");
   };
 
-  const dataSet = {
-    idEmployee: "0010020031"
-  }
+  const idEmployee = (Number(employee[employee.length-1].No)+1).toString();
 
   return (
     <div className="bg-admin">
@@ -70,7 +68,7 @@ function AddEmployee() {
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-3 px-1 shadow-lg bg-gray-500">
               <img src="emp-icon/user.svg" alt="user" className="h-6 pl-3 pr-2" />
               <input className="text-grey-darker focus:outline-none bg-gray-500" type="text" placeholder="Username"
-                value={dataSet.idEmployee}
+                value={idEmployee}
               readOnly/>
             </div>
           </div>
@@ -162,7 +160,7 @@ function AddEmployee() {
                   ) message.warning('กรุณากรอกข้อมูลให้ครบ');
                   else {
                     let Nemployee=employee;
-                    Nemployee[Nemployee.length]={No:dataSet.idEmployee, Name:fname+" "+ lname, Phone:phone, Department:(department==="Staff" ? 0 : 1)};
+                    Nemployee[Nemployee.length]={No:idEmployee, Name:fname+" "+ lname, Phone:phone, Department:(department==="Staff" ? 0 : 1)};
                     setEmployee([...Nemployee]);
                     message.success('เพิ่มพนักงานสำเร็จ');
                     stateComplete(true);
