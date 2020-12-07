@@ -21,9 +21,9 @@ function AddEmployee() {
   const [department, departmentEmp] = useState("");
 
   const {employee, setEmployee}=useContext(CheckinContext);
-
-  // Citizen
-  const formatInput = (e, format,length) => {
+  
+  // format input
+  /*const formatInput = (e, format,length) => {
     const formatArray = format.split("-").map((s) => s.length);
     const input = e.target.value.replaceAll("-", "");
     if (input.length >= formatArray.reduce((acc, i) => acc + i)) {
@@ -33,7 +33,7 @@ function AddEmployee() {
     const regex = RegExp(`^${formatArray.map((f) => `(\\d{${f}})?`).join("")}`);
     const splited = input.split(regex).filter((i) => i);
     return splited.join("-");
-  };
+  };*/
 
   const idEmployee = (Number(employee[employee.length-1].No)+1).toString();
 
