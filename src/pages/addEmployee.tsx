@@ -13,10 +13,6 @@ function AddEmployee() {
   // Check ข้อมูล
   const [fname, fnameEmp] = useState("");
   const [lname, lnameEmp] = useState("");
-<<<<<<< HEAD
-  //const [username, usernameEmp] = useState("");
-=======
->>>>>>> 85961bc008e12e8a112d08757342831569a36ebc
   const [password, passwordEmp] = useState("");
   const [citizen, citizenEmp] = useState("");
   const [dob, dobEmp] = useState("");
@@ -24,15 +20,10 @@ function AddEmployee() {
   const [email, emailEmp] = useState("");
   const [department, departmentEmp] = useState("");
 
-<<<<<<< HEAD
-  // format input
-  /*const formatInput = (e, format,length) => {
-=======
   const {employee, setEmployee}=useContext(CheckinContext);
 
   // Citizen
   const formatInput = (e, format,length) => {
->>>>>>> 85961bc008e12e8a112d08757342831569a36ebc
     const formatArray = format.split("-").map((s) => s.length);
     const input = e.target.value.replaceAll("-", "");
     if (input.length >= formatArray.reduce((acc, i) => acc + i)) {
@@ -42,7 +33,7 @@ function AddEmployee() {
     const regex = RegExp(`^${formatArray.map((f) => `(\\d{${f}})?`).join("")}`);
     const splited = input.split(regex).filter((i) => i);
     return splited.join("-");
-  };*/
+  };
 
   const idEmployee = (Number(employee[employee.length-1].No)+1).toString();
 
@@ -62,7 +53,7 @@ function AddEmployee() {
           <div className="md:flex mb-4 m-6">
             <div className="w-full mr-6 mb-6 md:mb-0 flex items-center border border-grey-lighter bg-white rounded py-2 px-1 shadow-lg">
               <img src="emp-icon/name.svg" alt="name" className="h-8 pl-2 pr-2" />
-              <input className="text-grey-darker focus:outline-none" type="text" placeholder="Firstname"
+              <input className="text-grey-darker focus:outline-none w-full" type="text" placeholder="Firstname"
                 onChange={(e) => fnameEmp(e.target.value)}
               />
             </div>
@@ -126,7 +117,7 @@ function AddEmployee() {
           <div className="md:flex mb-4 m-6">
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-2 px-1 shadow-lg">
               <img src="emp-icon/email.svg" alt="pass" className="h-8 pl-2 pr-2" />
-              <input className="text-grey-darker focus:outline-none" type="email" placeholder="Email"
+              <input className="text-grey-darker focus:outline-none w-full" type="email" placeholder="Email"
                 onChange={(e) => { emailEmp(e.target.value) }}
               />
             </div>
@@ -169,16 +160,11 @@ function AddEmployee() {
                     citizenLength !== 13 || phoneLength !== 10
                   ) message.warning('กรุณากรอกข้อมูลให้ครบ');
                   else {
-<<<<<<< HEAD
-                      message.success('เพิ่มอาหารสำเร็จ');
-                      stateComplete(true);
-=======
                     let Nemployee=employee;
                     Nemployee[Nemployee.length]={No:idEmployee, Name:fname+" "+ lname, Phone:phone, Department:(department==="Staff" ? 0 : 1)};
                     setEmployee([...Nemployee]);
                     message.success('เพิ่มพนักงานสำเร็จ');
                     stateComplete(true);
->>>>>>> 85961bc008e12e8a112d08757342831569a36ebc
                   }
                 }}
               >
