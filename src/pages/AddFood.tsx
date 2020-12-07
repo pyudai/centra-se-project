@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import 'antd/dist/antd.css';
 import '../style/output.css'
 import Navbar from '../navbar-admin';
@@ -6,6 +6,7 @@ import BeforeNav from '../BeforeNav-admin';
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Form, Upload, Modal ,message } from "antd";
 import {Link} from 'react-router-dom';
+import { CheckinContext } from '../data/CheckinContext';
 
 function AddFood() {
 
@@ -14,13 +15,13 @@ function AddFood() {
 
   // Checkdata input
   const [name, nameFood]  = useState("");
-  const [id, idFood]  = useState("");
   const [detail, detailFood]  = useState("");
   const [cost, costFood]  = useState("");
 
-  const dataSet = {
-    idFood: "0010020031"
-  }
+  const {food, setFood}=useContext(CheckinContext);
+
+  const idFood = (Number(food[food.length-1].No)+1).toString();
+  
   return (
     <div>
       <title>Add Food | Centra Resort</title>
@@ -53,12 +54,8 @@ function AddFood() {
                 }}
               />
               <p className="m-1 text-base font-semibold">รหัสอาหาร</p>
-              <input type="number" value={dataSet.idFood}
-                onChange={(e) => {
-                  idFood(dataSet.idFood);
-                  e.target.disabled = true;
-                }}
-                name="name" className="m-1 text-base p-3 font-prompt shadow-lg bg-gray-400" />
+              <input type="number" value={idFood}
+                name="name" className="m-1 text-base p-3 font-prompt shadow-lg bg-gray-400" readOnly/>
               <p className="m-1 text-base font-semibold">รายละเอียดอาหาร</p>
               <textarea className="m-1 text-base p-3 font-prompt shadow-lg" placeholder="กรอกรายละเอียดอาหาร"
                 onChange={(e)=>{
@@ -85,6 +82,9 @@ function AddFood() {
                 () => {
                   if(name==="" || detail==="" || cost==="") message.warning('กรุณากรอกข้อมูลให้ครบ');
                   else {
+                    let NFood=food;
+                    NFood[NFood.length]={No:idFood, Name:name, Price:cost};
+                    setFood([...NFood]);
                     message.success('เพิ่มอาหารสำเร็จ');
                     stateComplete(true);
                   }
