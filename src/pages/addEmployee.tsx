@@ -21,7 +21,7 @@ function AddEmployee() {
   const [department, departmentEmp] = useState("");
 
   const {employee, setEmployee}=useContext(CheckinContext);
-  
+
   // format input
   /*const formatInput = (e, format,length) => {
     const formatArray = format.split("-").map((s) => s.length);
@@ -65,7 +65,7 @@ function AddEmployee() {
             </div>
           </div>
           <div className="md:flex mb-4 m-6">
-            <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-3 px-1 shadow-lg bg-gray-500">
+            <div className="w-full flex items-center border border-grey-lighter rounded py-3 px-1 shadow-lg bg-gray-500">
               <img src="emp-icon/user.svg" alt="user" className="h-6 pl-3 pr-2" />
               <input className="text-grey-darker focus:outline-none bg-gray-500" type="text" placeholder="Username"
                 value={idEmployee}
