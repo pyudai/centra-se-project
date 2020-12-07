@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import BeforeNav from '../BeforeNav-admin';
 import Navbar from '../navbar-admin';
-import { Form, Upload, Modal, message } from "antd";
+import { Modal, message } from "antd";
 import { Link } from 'react-router-dom';
+import { CheckinContext } from '../data/CheckinContext';
 
 function AddEmployee() {
 
@@ -12,13 +13,14 @@ function AddEmployee() {
   // Check ข้อมูล
   const [fname, fnameEmp] = useState("");
   const [lname, lnameEmp] = useState("");
-  const [username, usernameEmp] = useState("");
   const [password, passwordEmp] = useState("");
   const [citizen, citizenEmp] = useState("");
   const [dob, dobEmp] = useState("");
   const [phone, phoneEmp] = useState("");
   const [email, emailEmp] = useState("");
   const [department, departmentEmp] = useState("");
+
+  const {employee, setEmployee}=useContext(CheckinContext);
 
   // Citizen
   const formatInput = (e, format,length) => {
@@ -159,6 +161,9 @@ function AddEmployee() {
                     dob === "" || email === "" || department === ""
                   ) message.warning('กรุณากรอกข้อมูลให้ครบ');
                   else {
+                    let Nemployee=employee;
+                    Nemployee[Nemployee.length]={No:dataSet.idEmployee, Name:fname+" "+ lname, Phone:phone, Department:(department==="Staff" ? 0 : 1)};
+                    setEmployee([...Nemployee]);
                     message.success('เพิ่มอาหารสำเร็จ');
                     stateComplete(true);
                   }

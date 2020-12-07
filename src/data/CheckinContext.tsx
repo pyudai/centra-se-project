@@ -60,7 +60,7 @@ export const CheckinContext = createContext<any>({});
         {No:"1000000005", Name:"Sphaghetti carbonara", Price:150 }
       ]);
 
-      const [employee, addEmployee] = useState([
+      const [employee, setEmployee] = useState([
         {No:"61070501010", Name:"จิตรลดา ทิพย์ทินกร", Phone:"0998877556", Department:1},
         {No:"61070501014", Name:"ชานนท์ ปาณรงค์", Phone:"0999997722", Department:1},
         {No:"6170501059", Name:"ชินดนัย จิตบรรจง", Phone:"0964858585", Department:0},
@@ -72,7 +72,7 @@ export const CheckinContext = createContext<any>({});
       
 
       return (
-        <CheckinContext.Provider value={{info, setInfo, reserveList, setReserveList, ROOMLIST, foodList, setFoodList, FOODLIST, food, setFood, employee, addEmployee}}>
+        <CheckinContext.Provider value={{info, setInfo, reserveList, setReserveList, ROOMLIST, foodList, setFoodList, FOODLIST, food, setFood, employee, setEmployee}}>
             {children}
         </CheckinContext.Provider>
     );
