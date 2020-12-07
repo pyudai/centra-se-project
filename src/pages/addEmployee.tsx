@@ -13,10 +13,6 @@ function AddEmployee() {
   // Check ข้อมูล
   const [fname, fnameEmp] = useState("");
   const [lname, lnameEmp] = useState("");
-<<<<<<< HEAD
-  //const [username, usernameEmp] = useState("");
-=======
->>>>>>> 85961bc008e12e8a112d08757342831569a36ebc
   const [password, passwordEmp] = useState("");
   const [citizen, citizenEmp] = useState("");
   const [dob, dobEmp] = useState("");
@@ -24,15 +20,10 @@ function AddEmployee() {
   const [email, emailEmp] = useState("");
   const [department, departmentEmp] = useState("");
 
-<<<<<<< HEAD
+  const {employee, setEmployee}=useContext(CheckinContext);
+  
   // format input
   /*const formatInput = (e, format,length) => {
-=======
-  const {employee, setEmployee}=useContext(CheckinContext);
-
-  // Citizen
-  const formatInput = (e, format,length) => {
->>>>>>> 85961bc008e12e8a112d08757342831569a36ebc
     const formatArray = format.split("-").map((s) => s.length);
     const input = e.target.value.replaceAll("-", "");
     if (input.length >= formatArray.reduce((acc, i) => acc + i)) {
