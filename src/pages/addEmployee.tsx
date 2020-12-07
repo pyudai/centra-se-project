@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import BeforeNav from '../BeforeNav-admin';
 import Navbar from '../navbar-admin';
 import { Modal, message } from "antd";
 import { Link } from 'react-router-dom';
+import { CheckinContext } from '../data/CheckinContext';
 
 function AddEmployee() {
 
@@ -12,7 +13,10 @@ function AddEmployee() {
   // Check ข้อมูล
   const [fname, fnameEmp] = useState("");
   const [lname, lnameEmp] = useState("");
+<<<<<<< HEAD
   //const [username, usernameEmp] = useState("");
+=======
+>>>>>>> 85961bc008e12e8a112d08757342831569a36ebc
   const [password, passwordEmp] = useState("");
   const [citizen, citizenEmp] = useState("");
   const [dob, dobEmp] = useState("");
@@ -20,8 +24,15 @@ function AddEmployee() {
   const [email, emailEmp] = useState("");
   const [department, departmentEmp] = useState("");
 
+<<<<<<< HEAD
   // format input
   /*const formatInput = (e, format,length) => {
+=======
+  const {employee, setEmployee}=useContext(CheckinContext);
+
+  // Citizen
+  const formatInput = (e, format,length) => {
+>>>>>>> 85961bc008e12e8a112d08757342831569a36ebc
     const formatArray = format.split("-").map((s) => s.length);
     const input = e.target.value.replaceAll("-", "");
     if (input.length >= formatArray.reduce((acc, i) => acc + i)) {
@@ -33,9 +44,7 @@ function AddEmployee() {
     return splited.join("-");
   };*/
 
-  const dataSet = {
-    idEmployee: "0010020031"
-  }
+  const idEmployee = (Number(employee[employee.length-1].No)+1).toString();
 
   return (
     <div className="bg-admin">
@@ -68,7 +77,7 @@ function AddEmployee() {
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-3 px-1 shadow-lg bg-gray-500">
               <img src="emp-icon/user.svg" alt="user" className="h-6 pl-3 pr-2" />
               <input className="text-grey-darker focus:outline-none bg-gray-500" type="text" placeholder="Username"
-                value={dataSet.idEmployee}
+                value={idEmployee}
               readOnly/>
             </div>
           </div>
@@ -160,8 +169,16 @@ function AddEmployee() {
                     citizenLength !== 13 || phoneLength !== 10
                   ) message.warning('กรุณากรอกข้อมูลให้ครบ');
                   else {
+<<<<<<< HEAD
                       message.success('เพิ่มอาหารสำเร็จ');
                       stateComplete(true);
+=======
+                    let Nemployee=employee;
+                    Nemployee[Nemployee.length]={No:idEmployee, Name:fname+" "+ lname, Phone:phone, Department:(department==="Staff" ? 0 : 1)};
+                    setEmployee([...Nemployee]);
+                    message.success('เพิ่มพนักงานสำเร็จ');
+                    stateComplete(true);
+>>>>>>> 85961bc008e12e8a112d08757342831569a36ebc
                   }
                 }}
               >
