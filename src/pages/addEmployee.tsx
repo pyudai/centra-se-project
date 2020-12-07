@@ -169,16 +169,11 @@ function AddEmployee() {
                     citizenLength !== 13 || phoneLength !== 10
                   ) message.warning('กรุณากรอกข้อมูลให้ครบ');
                   else {
-<<<<<<< HEAD
-                      message.success('เพิ่มอาหารสำเร็จ');
-                      stateComplete(true);
-=======
                     let Nemployee=employee;
                     Nemployee[Nemployee.length]={No:idEmployee, Name:fname+" "+ lname, Phone:phone, Department:(department==="Staff" ? 0 : 1)};
                     setEmployee([...Nemployee]);
                     message.success('เพิ่มพนักงานสำเร็จ');
                     stateComplete(true);
->>>>>>> 85961bc008e12e8a112d08757342831569a36ebc
                   }
                 }}
               >
