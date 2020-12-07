@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import BeforeNav from '../BeforeNav-admin';
 import Navbar from '../navbar-admin';
-import { Form, Upload, Modal, message } from "antd";
+import { Modal, message } from "antd";
 import { Link } from 'react-router-dom';
 
 function AddEmployee() {
@@ -12,7 +12,7 @@ function AddEmployee() {
   // Check ข้อมูล
   const [fname, fnameEmp] = useState("");
   const [lname, lnameEmp] = useState("");
-  const [username, usernameEmp] = useState("");
+  //const [username, usernameEmp] = useState("");
   const [password, passwordEmp] = useState("");
   const [citizen, citizenEmp] = useState("");
   const [dob, dobEmp] = useState("");
@@ -20,8 +20,8 @@ function AddEmployee() {
   const [email, emailEmp] = useState("");
   const [department, departmentEmp] = useState("");
 
-  // Citizen
-  const formatInput = (e, format,length) => {
+  // format input
+  /*const formatInput = (e, format,length) => {
     const formatArray = format.split("-").map((s) => s.length);
     const input = e.target.value.replaceAll("-", "");
     if (input.length >= formatArray.reduce((acc, i) => acc + i)) {
@@ -31,7 +31,7 @@ function AddEmployee() {
     const regex = RegExp(`^${formatArray.map((f) => `(\\d{${f}})?`).join("")}`);
     const splited = input.split(regex).filter((i) => i);
     return splited.join("-");
-  };
+  };*/
 
   const dataSet = {
     idEmployee: "0010020031"
@@ -84,12 +84,11 @@ function AddEmployee() {
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-2 px-1 shadow-lg">
               <img src="emp-icon/citizen.svg" alt="pass" className="h-8 pl-2 pr-2" />
               <input
-                type="text"
+                type="number"
                 placeholder="Citizen"
-                value={citizen}
                 onChange={(e) => {
-                  const format = formatInput(e, "x-xxxx-xxxxx-xx-x",16);
-                  citizenEmp(format);
+                  e.target.value = e.target.value.slice(0,13);
+                  citizenEmp(e.target.value);
                 }}
                 className="text-grey-darker focus:outline-none"
               />
@@ -105,12 +104,11 @@ function AddEmployee() {
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-3 px-1 shadow-lg">
               <img src="emp-icon/tel.svg" alt="name" className="h-6 pl-2 pr-2" />
               <input
-                type="text"
+                type="number"
                 placeholder="Phone number"
-                value={phone}
                 onChange={(e) =>{
-                  const format = formatInput(e,"xxx-xxx-xxxx",12);
-                  phoneEmp(format);
+                  e.target.value = e.target.value.slice(0,10);
+                  phoneEmp(e.target.value);
                 }}
                 className="text-grey-darker focus:outline-none"
               />
@@ -119,7 +117,7 @@ function AddEmployee() {
           <div className="md:flex mb-4 m-6">
             <div className="w-full flex items-center border border-grey-lighter bg-white rounded py-2 px-1 shadow-lg">
               <img src="emp-icon/email.svg" alt="pass" className="h-8 pl-2 pr-2" />
-              <input className="text-grey-darker focus:outline-none" type="text" placeholder="Email"
+              <input className="text-grey-darker focus:outline-none" type="email" placeholder="Email"
                 onChange={(e) => { emailEmp(e.target.value) }}
               />
             </div>
@@ -131,7 +129,7 @@ function AddEmployee() {
                 <select className="appearance-none flex flex-col w-full bg-grey-lighter text-grey-darker rounded py-2 px-3 " id="grid-state"
                   onChange={(e) => departmentEmp(e.target.value)}
                 >
-                  <option>Department</option>
+                  <option>- Department -</option>
                   <option>Admin</option>
                   <option>Staff</option>
                 </select>
@@ -154,13 +152,16 @@ function AddEmployee() {
               </Link>
               <button className="bg-green-600 text-white active:bg-green-600 font-bold text-sm px-12 py-3 rounded shadow hover:bg-green-400 outline-none focus:outline-none " type="button" style={{ transition: "all .15s ease" }}
                 onClick={() => {
+                  const citizenLength = citizen.length;
+                  const phoneLength = phone.length;
                   if (
                     fname === "" || lname === "" || password === "" ||
-                    dob === "" || email === "" || department === ""
+                    dob === "" || email === "" || department === "- Department -" ||
+                    citizenLength !== 13 || phoneLength !== 10
                   ) message.warning('กรุณากรอกข้อมูลให้ครบ');
                   else {
-                    message.success('เพิ่มอาหารสำเร็จ');
-                    stateComplete(true);
+                      message.success('เพิ่มอาหารสำเร็จ');
+                      stateComplete(true);
                   }
                 }}
               >
