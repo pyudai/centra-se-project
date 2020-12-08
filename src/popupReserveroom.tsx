@@ -3,7 +3,7 @@ import { CheckinContext } from "./data/CheckinContext";
 
 const PopUpRoom = () => {
   const [showModal, setShowModal] = React.useState(false);
-  const { setReserveList, ROOMLIST } = useContext(CheckinContext);
+  const { setReserveList, info } = useContext(CheckinContext);
   const [tmpReserve, setTmpReserve] = useState<any[]>([]);
 
   const getTotalCosts = () => {
@@ -35,7 +35,7 @@ const PopUpRoom = () => {
                       <tr>
                         <th className="text-center px-4 py-2">รหัสห้องพัก</th>
                         <th className="text-center px-4 py-2">ชื่อห้องพัก</th>
-                        <th className="text-center px-4 py-2">ราคารวม (บาท)</th>
+                        <th className="text-center px-4 py-2">ราคา (บาท/คืน)</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -50,24 +50,19 @@ const PopUpRoom = () => {
                                   const newTmp = tmpReserve;
                                   const selected = e.target.value;
                                   newTmp[index] = {
-                                    No: selected,
-                                    name: ROOMLIST[selected].name,
-                                    price: ROOMLIST[selected].price,
+                                    No: info.filter((k) => k.No === selected)[0].No,
+                                    name: info.filter((k) => (k.No === selected))[0].name,
+                                    price: info.filter((k) => (k.No === selected))[0].price
                                   };
                                   setTmpReserve([...newTmp]);
                                 }}
                               >
-                                {r.No}
-                                {Object.keys(ROOMLIST)
-                                  .filter(
-                                    (key) =>
-                                      !tmpReserve
-                                        .map((t) => t.No)
-                                        .includes(key) || key === r.No
-                                  )
-                                  .map((key) => (
-                                    <option key={key} value={key}>
-                                      {key}
+                                {info.filter((p) => {
+                                  return (!tmpReserve.map((t) => t.No).includes(p.No) || p.No === r.No) && p.Status === 0
+                                })
+                                  .map((t, index) => (
+                                    <option key={index} value={t.No}>
+                                      {t.No}
                                     </option>
                                   ))}
                               </select>
@@ -93,21 +88,21 @@ const PopUpRoom = () => {
                       })}
                     </tbody>
                   </table>
-                  {tmpReserve.length < 4 && (
+                  {tmpReserve.length < info.filter((r)=>r.Status===0).length && (
                     <button
                       className="p-2 font-semibold"
                       style={{ fontSize: "30px" }}
                       onClick={() => {
-                        if (tmpReserve.length >= 4) return;
-                        const avail = Object.keys(ROOMLIST).filter(
-                          (key) => !tmpReserve.map((t) => t.No).includes(key)
+                        if (tmpReserve.length >= info.filter((r)=>r.Status===0).length) return;
+                        const avail = info.filter(
+                          (key) => !tmpReserve.map((t) => t.No).includes(key.No)
                         )[0];
                         setTmpReserve([
                           ...tmpReserve,
                           {
-                            No: avail,
-                            name: ROOMLIST[avail].name,
-                            price: ROOMLIST[avail].price,
+                            No: info.filter((k) => k.No === avail.No)[0].No,
+                            name: info.filter((k) => k.No === avail.No)[0].name,
+                            price: info.filter((k) => k.No === avail.No)[0].price
                           },
                         ]);
                       }}

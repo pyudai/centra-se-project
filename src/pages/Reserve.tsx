@@ -1,16 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState} from "react";
 import Navbar from "../navbar-staff";
 import BeforeNav from "../BeforeNav-staff";
 import "../style/output.css";
 import PopUpRoom from "../popupReserveRoom";
 import PopUpFood from "../popupReserveFood";
 import { CheckinContext } from "../data/CheckinContext";
+import {Link} from 'react-router-dom';
 
 function Reserve() {
 
-  const { reserveList, foodList, FOODLIST } = useContext(CheckinContext);
+  const { reserveList, foodList, outDate,setOutDate, info, setInfo} = useContext(CheckinContext);
+  const [fname,setFName]=useState("");
+  const [lname,setLName]=useState("");
 
-  console.log(reserveList)
   return (
     <div className="bg-white">
       <BeforeNav />
@@ -32,11 +34,16 @@ function Reserve() {
             </div>
             <div className="w-1/3 m-1">
               <p className="text-base font-semibold">ชื่อจริง</p>
-              <input type="text" className="w-full shadow-md text-base p-2" placeholder="กรอกชื่อจริง" />
+              <input type="text" className="w-full shadow-md text-base p-2" placeholder="กรอกชื่อจริง" 
+              value={fname} 
+              onChange={(e)=>setFName(e.target.value)}/>
             </div>
             <div className="w-1/3 m-1">
               <p className="text-base font-semibold">นามสกุล</p>
-              <input type="text" className="w-full shadow-md text-base p-2" placeholder="กรอกนามสกุล" />
+              <input type="text" className="w-full shadow-md text-base p-2" placeholder="กรอกนามสกุล" 
+              value={lname} 
+              onChange={(e)=>setLName(e.target.value)}
+              />
             </div>
           </div>
           <div className="w-full flex p-2">
@@ -67,10 +74,10 @@ function Reserve() {
             <div className="w-1/3 flex flex-col p-2">
               <p className="text-base font-semibold">Check In Date</p>
               <input type="text" className="w-full shadow-md text-base p-2 bg-gray-400" readOnly
-                value="23/9/2020"
+                value="23/09/2020"
               />
               <p className="text-base font-semibold mt-3">Check Out Date</p>
-              <input type="date" className="w-full shadow-md text-base p-2" />
+              <input type="date" className="w-full shadow-md text-base p-2" value={outDate} onChange={e=>setOutDate(e.target.value)} min="2020-09-24"/>
             </div>
             <div className="w-2/3 flex flex-col">
               <div className="w-full flex text-base m-2 font-semibold"><PopUpRoom />เพิ่มห้องพัก</div>
@@ -88,7 +95,7 @@ function Reserve() {
                       <tr key={index}>
                         <td className="text-center p-2">{r.No}</td>
                         <td className="text-center p-2">{r.name}</td>
-                        <td className="text-center p-2">{r.price}</td>
+                        <td className="text-center p-2">{r.price * Math.ceil((Date.parse(outDate)-Date.parse('2020-09-23') )/ (1000 * 60 * 60 * 24))}</td>
                       </tr>
                     );
                   })}
@@ -102,7 +109,7 @@ function Reserve() {
               <p>(ทุกคืน)</p>
             </div>
             <div className="w-1/6 text-center m-2 text-lg">
-              {reserveList.reduce((total, item) => total = total + item.price, 0)}
+              {reserveList.reduce((total, item) => total = total + (item.price * Math.ceil((Date.parse(outDate)-Date.parse('2020-09-23') )/ (1000 * 60 * 60 * 24)) ), 0)}
             </div>
             <p className="m-2">บาท</p>
           </div>
@@ -122,11 +129,11 @@ function Reserve() {
                 </tr>
               </thead>
               <tbody className="text-base">
-                {foodList.map((r, index) => {
+                {foodList.filter((r)=>r.amount>0).map((r, index) => {
                   return (
                     <tr key={index}>
-                      <td className="text-center p-2">24/9/2563</td>
-                      <td className="text-center p-2">{FOODLIST[r.name].name}</td>
+                      <td className="text-center p-2">{r.date.toLocaleDateString('en-GB')}</td>
+                      <td className="text-center p-2">{r.Name}</td>
                       <td className="text-center p-2">{r.amount}</td>
                       <td className="text-center p-2">{r.price * r.amount}</td>
                     </tr>
@@ -154,13 +161,33 @@ function Reserve() {
           <div className="w-full flex justify-end text-right text-base font-semibold bg-gray-400 p-3">
             <p className="text-2xl font-semibold">ยอดรวม</p>
             <p className="text-2xl font-semibold w-1/5 text-center">
-              {reserveList.reduce((total, item) => total = total + item.price, 0) + foodList.reduce((total, item) => total + (item.price * item.amount), 0)}
+              {reserveList.reduce((total, item) => total = total + (item.price * Math.ceil((Date.parse(outDate)-Date.parse('2020-09-23') )/ (1000 * 60 * 60 * 24)) ), 0) + foodList.reduce((total, item) => total + (item.price * item.amount), 0)}
             </p>
             <p className="text-2xl font-semibold">บาท</p>
           </div>
           <div className="w-full flex justify-end">
-            <button className="rounded shadow w-1/6 bg-nav hover:bg-blue-800 text-white m-2 p-3">Back</button>
-            <button className="rounded shadow w-1/6 bg-green-600 hover:bg-green-400 text-white m-2 p-3">Check In</button>
+            <Link to="/Room" className="text-center rounded shadow w-1/6 bg-nav hover:bg-blue-800 text-white m-2 p-3">
+              Back
+            </Link>
+            <Link to="/Room" className="text-center rounded shadow w-1/6 bg-green-600 hover:bg-green-400 text-white m-2 p-3"
+              onClick={
+                ()=>{
+                // info, setInfo
+                let Ninfo = info.map((i)=>{
+                  if(reserveList.map(r=>r.No).includes(i.No))
+                  {
+                    i.Reserver=fname+" "+lname;
+                    i.Status=2;
+                  }
+                    return i;
+                } );
+                
+                setInfo([...Ninfo]);
+
+                }
+              }>
+                Check In
+            </Link>
           </div>
 
         </div>
