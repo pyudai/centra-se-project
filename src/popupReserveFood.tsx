@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { CheckinContext } from "./data/CheckinContext";
 
 const PopUpFood = () => {
+  const today = new Date();
+
   const [showModal, setShowModal] = React.useState(false);
   const { setFoodList, outDate, food } = useContext(CheckinContext);
 
@@ -10,8 +12,8 @@ const PopUpFood = () => {
   useEffect(() => {
     const dateRange = () => {
       const day = 1000 * 60 * 60 * 24;
-      const diffDate = Math.ceil((Date.parse(outDate) - Date.parse('2020-09-23')) / day);
-      const startDate = new Date('2020-09-23')
+      const diffDate = Math.ceil((Date.parse(outDate) - Date.parse(today.toLocaleDateString('fr-CA'))) / day);
+      const startDate = new Date(today.toLocaleDateString('fr-CA'))
       let dateList: any = [];
       for (let i = 1; i <= diffDate; i++) {
         let date = new Date(startDate);

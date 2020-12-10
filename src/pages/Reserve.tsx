@@ -12,6 +12,9 @@ function Reserve() {
   const { reserveList, foodList, outDate,setOutDate, info, setInfo} = useContext(CheckinContext);
   const [fname,setFName]=useState("");
   const [lname,setLName]=useState("");
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
 
   return (
     <div className="bg-white">
@@ -74,10 +77,10 @@ function Reserve() {
             <div className="w-1/3 flex flex-col p-2">
               <p className="text-base font-semibold">Check In Date</p>
               <input type="text" className="w-full shadow-md text-base p-2 bg-gray-400" readOnly
-                value="23/09/2020"
+                value={today.toLocaleDateString('en-GB')}
               />
               <p className="text-base font-semibold mt-3">Check Out Date</p>
-              <input type="date" className="w-full shadow-md text-base p-2" value={outDate} onChange={e=>setOutDate(e.target.value)} min="2020-09-24"/>
+              <input type="date" className="w-full shadow-md text-base p-2" value={outDate} onChange={e=>setOutDate(e.target.value)} min={tomorrow.toLocaleDateString('fr-CA')}/>
             </div>
             <div className="w-2/3 flex flex-col">
               <div className="w-full flex text-base m-2 font-semibold"><PopUpRoom />เพิ่มห้องพัก</div>
@@ -95,7 +98,7 @@ function Reserve() {
                       <tr key={index}>
                         <td className="text-center p-2">{r.No}</td>
                         <td className="text-center p-2">{r.name}</td>
-                        <td className="text-center p-2">{r.price * Math.ceil((Date.parse(outDate)-Date.parse('2020-09-23') )/ (1000 * 60 * 60 * 24))}</td>
+                        <td className="text-center p-2">{r.price * Math.ceil((Date.parse(outDate)-Date.parse(today.toLocaleDateString('fr-CA')) )/ (1000 * 60 * 60 * 24))}</td>
                       </tr>
                     );
                   })}
@@ -109,7 +112,7 @@ function Reserve() {
               <p>(ทุกคืน)</p>
             </div>
             <div className="w-1/6 text-center m-2 text-lg">
-              {reserveList.reduce((total, item) => total = total + (item.price * Math.ceil((Date.parse(outDate)-Date.parse('2020-09-23') )/ (1000 * 60 * 60 * 24)) ), 0)}
+              {reserveList.reduce((total, item) => total = total + (item.price * Math.ceil((Date.parse(outDate)-Date.parse(today.toLocaleDateString('fr-CA')) )/ (1000 * 60 * 60 * 24)) ), 0)}
             </div>
             <p className="m-2">บาท</p>
           </div>
@@ -161,7 +164,7 @@ function Reserve() {
           <div className="w-full flex justify-end text-right text-base font-semibold bg-gray-400 p-3">
             <p className="text-2xl font-semibold">ยอดรวม</p>
             <p className="text-2xl font-semibold w-1/5 text-center">
-              {reserveList.reduce((total, item) => total = total + (item.price * Math.ceil((Date.parse(outDate)-Date.parse('2020-09-23') )/ (1000 * 60 * 60 * 24)) ), 0) + foodList.reduce((total, item) => total + (item.price * item.amount), 0)}
+              {reserveList.reduce((total, item) => total = total + (item.price * Math.ceil((Date.parse(outDate)-Date.parse(today.toLocaleDateString('fr-CA')) )/ (1000 * 60 * 60 * 24)) ), 0) + foodList.reduce((total, item) => total + (item.price * item.amount), 0)}
             </p>
             <p className="text-2xl font-semibold">บาท</p>
           </div>
