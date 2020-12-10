@@ -10,7 +10,7 @@ import { message } from "antd";
 
 function Reserve() {
 
-  const { reserveList, foodList, outDate, setOutDate, info, setInfo, selectOutDate, setSelectOutDate } = useContext(CheckinContext);
+  const { reserveList, foodList, outDate, setOutDate, info, setInfo, selectOutDate, setSelectOutDate, setReserveList, setFoodList} = useContext(CheckinContext);
   const [fname, setFName] = useState("");
   const [lname, setLName] = useState("");
   const [phone, setPhone] = useState("");
@@ -101,7 +101,7 @@ function Reserve() {
                 value={outDate}
                 onChange={
                   (e) => {
-                    // ยูด้า
+                    setSelectOutDate(true);
                     setOutDate(e.target.value);
                   }
                 }
@@ -194,16 +194,21 @@ function Reserve() {
             <p className="text-2xl font-semibold">บาท</p>
           </div>
           <div className="w-full flex justify-end">
-            <Link to="/Room" className="text-center rounded shadow w-1/6 bg-nav hover:bg-blue-800 text-white m-2 p-3">
+            <Link to="/Room" className="text-center rounded shadow w-1/6 bg-nav hover:bg-blue-800 text-white m-2 p-3"
+            onClick={()=>{
+              setSelectOutDate(false);
+              setReserveList([]);
+              setFoodList([]);
+              setOutDate("");}
+              }>
               Back
             </Link>
             <Link to="/Room" className="text-center rounded shadow w-1/6 bg-green-600 hover:bg-green-400 text-white m-2 p-3"
               onClick={
                 () => {
-                  if (fname === "" || lname === "" || phone === "" || email === "") {
+                  if (fname === "" || lname === "" || phone === "" || email === "" || reserveList.length===0) {
                     message.warning('กรุณากรอกข้อมูลให้ครบ');
                   } else {
-                    // info, setInfo
                     let Ninfo = info.map((i) => {
                       if (reserveList.map(r => r.No).includes(i.No)) {
                         i.Reserver = fname + " " + lname;
@@ -213,6 +218,10 @@ function Reserve() {
                     });
                     setInfo([...Ninfo]);
                   }
+                  setSelectOutDate(false);
+                  setReserveList([]);
+                  setFoodList([]);
+                  setOutDate("");
                 }
               }>
               Check In

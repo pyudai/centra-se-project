@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CheckinContext } from "./data/CheckinContext";
+import { message } from "antd";
 
 const PopUpFood = () => {
   const today = new Date();
 
   const [showModal, setShowModal] = React.useState(false);
-  const { setFoodList, outDate, food } = useContext(CheckinContext);
+  const { setFoodList, outDate, food , selectOutDate} = useContext(CheckinContext);
 
   const [tmpFood, setTmpFood] = useState<any[]>([]);
 
@@ -41,7 +42,12 @@ const PopUpFood = () => {
       <button
         type="button"
         style={{ transition: "all .15s ease" }}
-        onClick={() => setShowModal(true)}
+        onClick={() => {
+          if (selectOutDate===false)
+            message.warning('กรุณาเลือก Check Out Date');
+          else
+            setShowModal(true);
+        }}
       >
         <img src="./img-reserve/add.svg" alt="" width="25" height="25" />
       </button>

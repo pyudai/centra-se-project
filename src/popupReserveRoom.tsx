@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { CheckinContext } from "./data/CheckinContext";
+import { message } from "antd";
 
 const PopUpRoom = () => {
   const [showModal, setShowModal] = React.useState(false);
-  const { setReserveList, info } = useContext(CheckinContext);
+  const { setReserveList, info, selectOutDate } = useContext(CheckinContext);
   const [tmpReserve, setTmpReserve] = useState<any[]>([]);
 
   const getTotalCosts = () => {
@@ -17,7 +18,13 @@ const PopUpRoom = () => {
       <button
         type="button"
         style={{ transition: "all .15s ease" }}
-        onClick={() => setShowModal(true)}
+        onClick={() => {
+          if (selectOutDate===false)
+            message.warning('กรุณาเลือก Check Out Date');
+          else
+            setShowModal(true);
+        }          
+      }
       >
         <img src="./img-reserve/add.svg" alt="" width="25" height="25" />
       </button>
