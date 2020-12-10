@@ -82,7 +82,7 @@ function Reserve() {
             <div className="w-1/3 m-1">
               <p className="text-base font-semibold">วันที่ทำการจอง</p>
               <input type="text" className="w-full shadow-md text-base p-2 bg-gray-400" readOnly
-                value="23/9/2020"
+                value={today.toLocaleDateString('en-GB')}
               />
             </div>
           </div>
