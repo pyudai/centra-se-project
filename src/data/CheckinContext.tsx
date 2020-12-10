@@ -13,6 +13,8 @@ export const CheckinContext = createContext<any>({});
 
       const [outDate,setOutDate] = useState("");
 
+      const [selectOutDate,setSelectOutDate] = useState(false);
+
       const [reserveList, setReserveList] = useState([
       ])
 
@@ -39,7 +41,7 @@ export const CheckinContext = createContext<any>({});
       
 
       return (
-        <CheckinContext.Provider value={{info, setInfo, reserveList, setReserveList, outDate,setOutDate, foodList, setFoodList, food, setFood, employee, setEmployee}}>
+        <CheckinContext.Provider value={{info, setInfo, reserveList, setReserveList, outDate,setOutDate, foodList, setFoodList, food, setFood, employee, setEmployee,selectOutDate,setSelectOutDate}}>
             {children}
         </CheckinContext.Provider>
     );

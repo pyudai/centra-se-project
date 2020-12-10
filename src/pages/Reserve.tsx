@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 
 function Reserve() {
 
-  const { reserveList, foodList, outDate,setOutDate, info, setInfo} = useContext(CheckinContext);
+  const { reserveList, foodList, outDate,setOutDate, info, setInfo, selectOutDate, setSelectOutDate} = useContext(CheckinContext);
   const [fname,setFName]=useState("");
   const [lname,setLName]=useState("");
   const today = new Date();
