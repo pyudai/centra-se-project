@@ -53,7 +53,7 @@ const PopUpFood = () => {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*body*/}
                 <div className="w-full flex flex-col p-5">
-                  <p className="text-2xl font-semibold h-full m-2">เพิ่มห้องพัก</p>
+                  <p className="text-2xl font-semibold h-full m-2">เพิ่มอาหาร</p>
                   <table className="table-auto text-base w-full shadow-lg">
                     <thead className="bg-nav text-white">
                       <tr>
@@ -130,7 +130,7 @@ const PopUpFood = () => {
                     <button className="rounded shadow w-1/6 bg-nav hover:bg-blue-800 text-white m-2 p-3"
                       onClick={() => setShowModal(false)}
                     >Back</button>
-                    <button className="rounded shadow w-1/6 bg-nav hover:bg-blue-800 text-white m-2 p-3"
+                    <button className="rounded shadow w-1/6 bg-green-600 hover:bg-green-400 text-white m-2 p-3"
                       onClick={() => {
                         setFoodList(tmpFood);
                         setShowModal(false);
