@@ -213,7 +213,7 @@ function Reserve() {
               onClick={
                 () => {
                   if (fname === "" || lname === "" || phone === "" || email === "" || reserveList.length===0) {
-                    message.warning('กรุณากรอกข้อมูลให้ครบ',1);
+                    message.warning('กรุณากรอกข้อมูลให้ครบ');
                   } else {
                     let Ninfo = info.map((i) => {
                       if (reserveList.map(r => r.No).includes(i.No)) {
