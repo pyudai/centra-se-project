@@ -119,7 +119,7 @@ const PopUpRoom = () => {
                     <button className="rounded shadow w-1/6 bg-nav hover:bg-blue-800 text-white m-2 p-3"
                       onClick={() => setShowModal(false)}
                     >Back</button>
-                    <button className="rounded shadow w-1/6 bg-nav hover:bg-blue-800 text-white m-2 p-3"
+                    <button className="rounded shadow w-1/6 bg-green-600 hover:bg-green-400 text-white m-2 p-3"
                       onClick={() => {
                         setReserveList(tmpReserve);
                         setShowModal(false);

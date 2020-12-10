@@ -1,20 +1,28 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../navbar-staff";
 import BeforeNav from "../BeforeNav-staff";
 import "../style/output.css";
 import PopUpRoom from "../popupReserveRoom";
 import PopUpFood from "../popupReserveFood";
 import { CheckinContext } from "../data/CheckinContext";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { message } from "antd";
 
 function Reserve() {
 
-  const { reserveList, foodList, outDate,setOutDate, info, setInfo} = useContext(CheckinContext);
-  const [fname,setFName]=useState("");
-  const [lname,setLName]=useState("");
+  const { reserveList, foodList, outDate, setOutDate, info, setInfo } = useContext(CheckinContext);
+  const [fname, setFName] = useState("");
+  const [lname, setLName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+
+
+
   const today = new Date();
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
+
+
 
   return (
     <div className="bg-white">
@@ -37,15 +45,15 @@ function Reserve() {
             </div>
             <div className="w-1/3 m-1">
               <p className="text-base font-semibold">ชื่อจริง</p>
-              <input type="text" className="w-full shadow-md text-base p-2" placeholder="กรอกชื่อจริง" 
-              value={fname} 
-              onChange={(e)=>setFName(e.target.value)}/>
+              <input type="text" className="w-full shadow-md text-base p-2" placeholder="กรอกชื่อจริง"
+                value={fname}
+                onChange={(e) => setFName(e.target.value)} />
             </div>
             <div className="w-1/3 m-1">
               <p className="text-base font-semibold">นามสกุล</p>
-              <input type="text" className="w-full shadow-md text-base p-2" placeholder="กรอกนามสกุล" 
-              value={lname} 
-              onChange={(e)=>setLName(e.target.value)}
+              <input type="text" className="w-full shadow-md text-base p-2" placeholder="กรอกนามสกุล"
+                value={lname}
+                onChange={(e) => setLName(e.target.value)}
               />
             </div>
           </div>
@@ -53,14 +61,23 @@ function Reserve() {
             <div className="w-1/3 m-1">
               <p className="text-base font-semibold">โทรศัพท์</p>
               <input type="number" className="w-full shadow-md text-base p-2" placeholder="กรอกเบอร์โทรศัพท์"
+                value={phone}
                 onChange={(e) => {
                   e.target.value = e.target.value.slice(0, 10);
+                  setPhone(e.target.value);
                 }}
               />
             </div>
             <div className="w-1/3 m-1">
               <p className="text-base font-semibold">อีเมล</p>
-              <input type="text" className="w-full shadow-md text-base p-2" placeholder="กรอกอีเมล" />
+              <input type="text" className="w-full shadow-md text-base p-2" placeholder="กรอกอีเมล"
+                value={email}
+                onChange={
+                  (e) => {
+                    setEmail(e.target.value);
+                  }
+                }
+              />
             </div>
             <div className="w-1/3 m-1">
               <p className="text-base font-semibold">วันที่ทำการจอง</p>
@@ -80,7 +97,15 @@ function Reserve() {
                 value={today.toLocaleDateString('en-GB')}
               />
               <p className="text-base font-semibold mt-3">Check Out Date</p>
-              <input type="date" className="w-full shadow-md text-base p-2" value={outDate} onChange={e=>setOutDate(e.target.value)} min={tomorrow.toLocaleDateString('fr-CA')}/>
+              <input type="date" className="w-full shadow-md text-base p-2"
+                value={outDate}
+                onChange={
+                  (e) => {
+                    // ยูด้า
+                    setOutDate(e.target.value);
+                  }
+                }
+                min={tomorrow.toLocaleDateString('fr-CA')} />
             </div>
             <div className="w-2/3 flex flex-col">
               <div className="w-full flex text-base m-2 font-semibold"><PopUpRoom />เพิ่มห้องพัก</div>
@@ -98,7 +123,7 @@ function Reserve() {
                       <tr key={index}>
                         <td className="text-center p-2">{r.No}</td>
                         <td className="text-center p-2">{r.name}</td>
-                        <td className="text-center p-2">{r.price * Math.ceil((Date.parse(outDate)-Date.parse(today.toLocaleDateString('fr-CA')) )/ (1000 * 60 * 60 * 24))}</td>
+                        <td className="text-center p-2">{r.price * Math.ceil((Date.parse(outDate) - Date.parse(today.toLocaleDateString('fr-CA'))) / (1000 * 60 * 60 * 24))}</td>
                       </tr>
                     );
                   })}
@@ -112,7 +137,7 @@ function Reserve() {
               <p>(ทุกคืน)</p>
             </div>
             <div className="w-1/6 text-center m-2 text-lg">
-              {reserveList.reduce((total, item) => total = total + (item.price * Math.ceil((Date.parse(outDate)-Date.parse(today.toLocaleDateString('fr-CA')) )/ (1000 * 60 * 60 * 24)) ), 0)}
+              {reserveList.reduce((total, item) => total = total + (item.price * Math.ceil((Date.parse(outDate) - Date.parse(today.toLocaleDateString('fr-CA'))) / (1000 * 60 * 60 * 24))), 0)}
             </div>
             <p className="m-2">บาท</p>
           </div>
@@ -132,7 +157,7 @@ function Reserve() {
                 </tr>
               </thead>
               <tbody className="text-base">
-                {foodList.filter((r)=>r.amount>0).map((r, index) => {
+                {foodList.filter((r) => r.amount > 0).map((r, index) => {
                   return (
                     <tr key={index}>
                       <td className="text-center p-2">{r.date.toLocaleDateString('en-GB')}</td>
@@ -164,7 +189,7 @@ function Reserve() {
           <div className="w-full flex justify-end text-right text-base font-semibold bg-gray-400 p-3">
             <p className="text-2xl font-semibold">ยอดรวม</p>
             <p className="text-2xl font-semibold w-1/5 text-center">
-              {reserveList.reduce((total, item) => total = total + (item.price * Math.ceil((Date.parse(outDate)-Date.parse(today.toLocaleDateString('fr-CA')) )/ (1000 * 60 * 60 * 24)) ), 0) + foodList.reduce((total, item) => total + (item.price * item.amount), 0)}
+              {reserveList.reduce((total, item) => total = total + (item.price * Math.ceil((Date.parse(outDate) - Date.parse(today.toLocaleDateString('fr-CA'))) / (1000 * 60 * 60 * 24))), 0) + foodList.reduce((total, item) => total + (item.price * item.amount), 0)}
             </p>
             <p className="text-2xl font-semibold">บาท</p>
           </div>
@@ -174,22 +199,23 @@ function Reserve() {
             </Link>
             <Link to="/Room" className="text-center rounded shadow w-1/6 bg-green-600 hover:bg-green-400 text-white m-2 p-3"
               onClick={
-                ()=>{
-                // info, setInfo
-                let Ninfo = info.map((i)=>{
-                  if(reserveList.map(r=>r.No).includes(i.No))
-                  {
-                    i.Reserver=fname+" "+lname;
-                    i.Status=2;
+                () => {
+                  if (fname === "" || lname === "" || phone === "" || email === "") {
+                    message.warning('กรุณากรอกข้อมูลให้ครบ');
+                  } else {
+                    // info, setInfo
+                    let Ninfo = info.map((i) => {
+                      if (reserveList.map(r => r.No).includes(i.No)) {
+                        i.Reserver = fname + " " + lname;
+                        i.Status = 2;
+                      }
+                      return i;
+                    });
+                    setInfo([...Ninfo]);
                   }
-                    return i;
-                } );
-                
-                setInfo([...Ninfo]);
-
                 }
               }>
-                Check In
+              Check In
             </Link>
           </div>
 
