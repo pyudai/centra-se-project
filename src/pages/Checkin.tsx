@@ -158,7 +158,6 @@ function Checkin() {
             <div className="text-2xl font-semibold">
               อาหาร
             </div>
-            <img src="./pic/add.svg" alt="add"/>
           </div>
 
           <div className="ml-20 md:flex mb-6 w-full">

@@ -82,7 +82,7 @@ function Reserve() {
             <div className="w-2/3 flex flex-col">
               <div className="w-full flex text-base m-2 font-semibold"><PopUpRoom />เพิ่มห้องพัก</div>
               <table className="table-auto text-base w-full ml-5 mr-5 shadow-lg">
-                <thead className="bg-blue-700 text-white">
+                <thead className="bg-nav text-white">
                   <tr>
                     <th className="text-center px-4 py-2">รหัสห้องพัก</th>
                     <th className="text-center px-4 py-2">ชื่อห้องพัก</th>
@@ -120,7 +120,7 @@ function Reserve() {
           <div className="w-full flex flex-col">
             <div className="w-full flex text-base m-2 font-semibold"><PopUpFood />เพิ่มอาหาร</div>
             <table className="table-auto text-base w-full ml-5 mr-5 shadow-lg">
-              <thead className="bg-blue-700 text-white">
+              <thead className="bg-nav text-white">
                 <tr>
                   <th className=" px-20 py-2">วัน/เดือน/ปี</th>
                   <th className=" px-20 py-2">ชื่ออาหาร</th>

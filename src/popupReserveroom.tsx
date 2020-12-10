@@ -31,7 +31,7 @@ const PopUpRoom = () => {
                 <div className="w-full flex flex-col p-5">
                   <p className="text-2xl font-semibold h-full m-2">เพิ่มห้องพัก</p>
                   <table className="table-auto text-base w-full shadow-lg">
-                    <thead className="bg-blue-700 text-white">
+                    <thead className="bg-nav text-white">
                       <tr>
                         <th className="text-center px-4 py-2">รหัสห้องพัก</th>
                         <th className="text-center px-4 py-2">ชื่อห้องพัก</th>

@@ -53,7 +53,7 @@ const PopUpFood = () => {
                 <div className="w-full flex flex-col p-5">
                   <p className="text-2xl font-semibold h-full m-2">เพิ่มห้องพัก</p>
                   <table className="table-auto text-base w-full shadow-lg">
-                    <thead className="bg-blue-700 text-white">
+                    <thead className="bg-nav text-white">
                       <tr>
                         <th className="text-center p-3">วัน/เดือน/ปี</th>
                         <th className="text-center p-3">ชื่ออาหาร</th>
