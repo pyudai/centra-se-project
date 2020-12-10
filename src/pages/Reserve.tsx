@@ -5,16 +5,22 @@ import "../style/output.css";
 import PopUpRoom from "../popupReserveRoom";
 import PopUpFood from "../popupReserveFood";
 import { CheckinContext } from "../data/CheckinContext";
-import { Link } from 'react-router-dom';
+import { Link , useHistory} from 'react-router-dom';
 import { message } from "antd";
 
 function Reserve() {
 
-  const { reserveList, foodList, outDate, setOutDate, info, setInfo, selectOutDate, setSelectOutDate, setReserveList, setFoodList} = useContext(CheckinContext);
+  const { reserveList, foodList, outDate, setOutDate, info, setInfo, setSelectOutDate, setReserveList, setFoodList} = useContext(CheckinContext);
   const [fname, setFName] = useState("");
   const [lname, setLName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+
+  const history=useHistory();
+
+  message.config({
+    maxCount: 1
+  });
 
 
 
@@ -203,11 +209,11 @@ function Reserve() {
               }>
               Back
             </Link>
-            <Link to="/Room" className="text-center rounded shadow w-1/6 bg-green-600 hover:bg-green-400 text-white m-2 p-3"
+            <div className="text-center rounded shadow w-1/6 bg-green-600 hover:bg-green-400 text-white m-2 p-3 cursor-pointer"
               onClick={
                 () => {
                   if (fname === "" || lname === "" || phone === "" || email === "" || reserveList.length===0) {
-                    message.warning('กรุณากรอกข้อมูลให้ครบ');
+                    message.warning('กรุณากรอกข้อมูลให้ครบ',1);
                   } else {
                     let Ninfo = info.map((i) => {
                       if (reserveList.map(r => r.No).includes(i.No)) {
@@ -217,15 +223,17 @@ function Reserve() {
                       return i;
                     });
                     setInfo([...Ninfo]);
+
+                    setSelectOutDate(false);
+                    setReserveList([]);
+                    setFoodList([]);
+                    setOutDate("");
+                    history.push('/Room');
                   }
-                  setSelectOutDate(false);
-                  setReserveList([]);
-                  setFoodList([]);
-                  setOutDate("");
                 }
               }>
               Check In
-            </Link>
+            </div>
           </div>
 
         </div>

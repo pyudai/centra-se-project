@@ -10,6 +10,10 @@ const PopUpFood = () => {
 
   const [tmpFood, setTmpFood] = useState<any[]>([]);
 
+  message.config({
+    maxCount: 1
+  });
+
   useEffect(() => {
     const dateRange = () => {
       const day = 1000 * 60 * 60 * 24;

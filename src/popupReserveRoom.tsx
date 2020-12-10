@@ -13,6 +13,10 @@ const PopUpRoom = () => {
     }, 0);
   };
 
+  message.config({
+    maxCount: 1
+  });
+
   return (
     <>
       <button
